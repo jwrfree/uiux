@@ -1,0 +1,144 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const AnimatedMenuIcon = ({ isOpen }: { isOpen: boolean }) => (
+  <div className="relative w-6 h-6 flex items-center justify-center">
+    <span
+      className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : "top-[6px]"
+      }`}
+    />
+    <span
+      className={`block absolute h-[2px] w-6 bg-foreground rounded-full top-1/2 -translate-y-1/2 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+      }`}
+    />
+    <span
+      className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : "top-[18px]"
+      }`}
+    />
+  </div>
+);
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <>
+      <header className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center">
+        <div className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-all duration-500 ease-out ${
+          isScrolled ? 'scale-[0.95]' : 'scale-100'
+        }`}>
+          <div className={`h-[72px] bg-background/80 backdrop-blur-[10px] rounded-full p-2 grid grid-cols-3 items-center shadow-lg ring-1 ring-black/5 transition-all duration-500 ease-out ${
+            isScrolled ? 'shadow-xl' : 'shadow-lg'
+          }`}>
+            <div className="flex justify-start">
+              <Link 
+                href="/" 
+                aria-label="Home" 
+                onClick={closeMenu} 
+                className="flex items-center justify-start ml-2 lg:ml-4 transition-transform duration-300 hover:scale-105"
+              >
+                <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text">
+                  UI/UX
+                </span>
+              </Link>
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
+                aria-label="Toggle menu"
+              >
+                <AnimatedMenuIcon isOpen={isMenuOpen} />
+              </button>
+            </div>
+
+            <div className="flex justify-end">
+              <a
+                href="mailto:your.email@example.com"
+                className="hidden md:inline-flex items-center justify-center px-6 py-4 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out"
+              >
+                <span>Get in Touch</span>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                className="md:hidden inline-flex items-center justify-center h-14 w-14 flex-shrink-0 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+              >
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={closeMenu}
+      >
+        <div
+          className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            isMenuOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 -translate-y-4'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <ul className="text-center space-y-6 md:space-y-8">
+            {[
+              { href: "/#about", label: "About Me" },
+              { href: "/#work", label: "My Work" },
+              { href: "mailto:your.email@example.com", label: "Contact" }
+            ].map((item, index) => (
+              <li 
+                key={item.href}
+                className={`transition-all duration-500 ease-out ${
+                  isMenuOpen 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: isMenuOpen ? `${index * 100 + 200}ms` : '0ms' }}
+              >
+                <Link 
+                  href={item.href} 
+                  onClick={closeMenu} 
+                  className="text-3xl md:text-5xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground inline-block hover:scale-105"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+}
