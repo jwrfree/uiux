@@ -8,17 +8,12 @@ const AnimatedMenuIcon = ({ isOpen }: {isOpen: boolean;}) =>
 <div className="relative w-6 h-6 flex items-center justify-center">
     <span
     className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : "top-[6px]"}`
-    } />
-
-    <span
-    className={`block absolute h-[2px] w-6 bg-foreground rounded-full top-1/2 -translate-y-1/2 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-    isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"}`
+    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : "top-[8px]"}`
     } />
 
     <span
     className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : "top-[18px]"}`
+    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : "top-[16px]"}`
     } />
 
   </div>;
