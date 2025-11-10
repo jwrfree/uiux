@@ -65,8 +65,8 @@ export default function Header() {
                 onClick={closeMenu}
                 className="flex items-center justify-start ml-2 lg:ml-4 transition-transform duration-300 hover:scale-105">
 
-                <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text">
-                  UI/UX
+                <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text !whitespace-pre-line">wruhantojatiJATI
+
                 </span>
               </Link>
             </div>
