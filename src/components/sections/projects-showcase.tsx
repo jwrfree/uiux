@@ -106,9 +106,9 @@ const ProjectsShowcase = () => {
       className="bg-background py-16 sm:py-20 md:py-32 lg:py-40 overflow-x-clip"
     >
       <div className="container relative">
-        <div className="absolute top-0 inset-x-0 flex justify-center -z-0 pointer-events-none">
-          <div className="text-[25vw] lg:text-[calc(16vw)] font-medium text-foreground/[0.05] leading-none select-none" aria-hidden="true">
-            Projects
+        <div className="absolute -top-12 sm:-top-16 md:-top-20 lg:-top-24 inset-x-0 flex justify-center -z-0 pointer-events-none">
+          <div className="text-[20vw] lg:text-[calc(12vw)] font-medium text-foreground/[0.05] leading-none select-none -tracking-[0.025em]" aria-hidden="true">
+            My Works
           </div>
         </div>
 
