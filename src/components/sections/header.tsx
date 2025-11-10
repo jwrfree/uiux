@@ -121,9 +121,9 @@ export default function Header() {
             <div className="px-6 pt-2 pb-8">
               <ul className="flex flex-col gap-2">
                 {[
-                { href: "/#about", label: "About Me" },
+                { href: "/about", label: "About Me" },
                 { href: "/#work", label: "My Work" },
-                { href: "mailto:jwrite.free@gmail.com", label: "Contact" }].
+                { href: "/contact", label: "Contact" }].
                 map((item, index) =>
                 <li
                   key={item.href}
