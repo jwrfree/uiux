@@ -107,7 +107,7 @@ const ProjectsShowcase = () => {
     >
       <div className="container relative">
         <div className="absolute -top-12 sm:-top-16 md:-top-20 lg:-top-24 inset-x-0 flex justify-center -z-0 pointer-events-none">
-          <div className="text-[20vw] lg:text-[calc(12vw)] font-medium text-foreground/[0.05] leading-none select-none -tracking-[0.025em]" aria-hidden="true">
+          <div className="text-[24vw] lg:text-[calc(14vw)] font-medium text-foreground/[0.05] leading-none select-none -tracking-[0.025em]" aria-hidden="true">
             My Works
           </div>
         </div>
