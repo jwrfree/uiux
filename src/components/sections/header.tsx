@@ -54,11 +54,28 @@ export default function Header() {
           }>
 
           <div
-            className={`h-[72px] bg-background/80 rounded-full px-3 py-3 grid grid-cols-3 items-center transition-all duration-500 ease-out ${
-            isScrolled ? 'shadow-md hover:shadow-xl backdrop-blur-xl' : 'shadow-sm hover:shadow-lg backdrop-blur-lg'} ${
-            isMenuOpen ? 'backdrop-blur-2xl' : ''}`}>
+            className={`relative h-[72px] rounded-full px-3 py-3 grid grid-cols-3 items-center transition-all duration-500 ease-out ${
+            isScrolled ? 'shadow-2xl' : 'shadow-xl'} ${
+            isMenuOpen ? 'backdrop-blur-3xl' : ''}`}
+            style={{
+              background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              border: '1px solid rgba(255, 255, 255, 0.6)',
+              boxShadow: isScrolled 
+                ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5)' 
+                : '0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5)'
+            }}>
 
-            <div className="flex justify-start items-center">
+            {/* Glass shine effect */}
+            <div 
+              className="absolute inset-0 rounded-full opacity-50 pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%, rgba(255, 255, 255, 0.1) 100%)'
+              }}
+            />
+
+            <div className="flex justify-start items-center relative z-10">
               <Link
                 href="/"
                 aria-label="Home"
@@ -71,7 +88,7 @@ export default function Header() {
               </Link>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center relative z-10">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 onMouseEnter={() => setIsHovered(true)}
@@ -83,7 +100,7 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="flex justify-end items-center">
+            <div className="flex justify-end items-center relative z-10">
               <a
                 href="mailto:your.email@example.com"
                 className="hidden md:flex items-center justify-center gap-2 h-14 px-6 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out">
