@@ -55,8 +55,9 @@ export default function Header() {
         <div className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-all duration-500 ease-out ${
         isScrolled ? 'scale-[0.95]' : 'scale-100'}`
         }>
-          <div className={`h-[72px] bg-background/80 backdrop-blur-[10px] rounded-full p-2 grid grid-cols-3 items-center ring-1 ring-black/5 transition-all duration-500 ease-out ${
-          isScrolled ? 'shadow-xl' : 'shadow-lg'}`
+          <div className={`h-[72px] bg-background/80 rounded-full p-2 grid grid-cols-3 items-center transition-all duration-500 ease-out ${
+          isScrolled ? 'shadow-xl backdrop-blur-xl' : 'shadow-lg backdrop-blur-lg'} ${
+          isMenuOpen ? 'backdrop-blur-2xl' : ''}`
           }>
             <div className="flex justify-start">
               <Link
