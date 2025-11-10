@@ -30,7 +30,7 @@ const processData = [
 
 const ProcessSection = () => {
     return (
-        <section className="py-16 sm:py-20 md:py-32 lg:py-40 bg-background text-foreground relative overflow-clip">
+        <section className="py-16 sm:py-20 md:py-24 bg-background text-foreground relative overflow-clip">
             <div 
                 aria-hidden="true" 
                 className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
@@ -41,11 +41,11 @@ const ProcessSection = () => {
             </div>
 
             <div className="container relative z-10">
-                <h2 className="text-4xl md:text-5xl font-medium !leading-tight text-center max-w-4xl mx-auto text-balance text-text-dark-secondary">
+                <h2 className="font-display text-4xl md:text-5xl font-medium !leading-tight text-center max-w-4xl mx-auto text-balance text-text-dark-secondary">
                     My approach is <span className="text-text-dark">collaborative</span> and the results are <span className="text-text-dark">user-centered.</span>
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-y-0 md:gap-x-8 lg:gap-x-16 mt-16 md:mt-20 lg:mt-24">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-y-0 md:gap-x-8 lg:gap-x-16 mt-16">
                     {processData.map((item, index) => {
                         const Icon = item.icon;
                         return (
