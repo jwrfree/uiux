@@ -5,6 +5,7 @@ import { ArrowRight, Download } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 // Per instruction, using design tool logos. Assets unavailable, using text placeholders.
 const toolLogos = [
@@ -73,21 +74,18 @@ const HeroSection = () => {
           </span>
         </h1>
         <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-          <Link
-            href="/#work" 
-            className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95 leading-none"
-          >
-            View My Work
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-          <a
-            href="/resume.pdf"
-            download
-            className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-secondary text-secondary-foreground font-medium text-base transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95 leading-none"
-          >
-            Download Resume
-            <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-          </a>
+          <Button asChild variant="default" size="lg" className="group h-auto rounded-full py-5 text-base font-medium leading-none transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
+            <Link href="/#work">
+              View My Work
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Button>
+          <Button asChild variant="secondary" size="lg" className="group h-auto rounded-full py-5 text-base font-medium leading-none transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
+            <a href="/resume.pdf" download>
+              Download Resume
+              <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+            </a>
+          </Button>
         </div>
       </div>
 
