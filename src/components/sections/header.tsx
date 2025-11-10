@@ -86,14 +86,14 @@ export default function Header() {
             <div className="flex justify-end items-center">
               <a
                 href="mailto:your.email@example.com"
-                className="hidden md:flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out !w-40 !h-full">
+                className="hidden md:flex items-center justify-center gap-2 h-14 px-6 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out">
 
                 <span className="leading-none">Get in Touch</span>
                 <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </a>
               <a
                 href="mailto:your.email@example.com"
-                className="md:hidden inline-flex items-center justify-center h-12 w-12 flex-shrink-0 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95">
+                className="md:hidden inline-flex items-center justify-center h-14 w-14 flex-shrink-0 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95">
 
                 <ArrowRight className="h-4 w-4" />
               </a>
