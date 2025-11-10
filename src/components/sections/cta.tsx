@@ -16,7 +16,7 @@ const CtaSection = () => {
         </span>
       </div>
       <div className="container relative z-10 mx-auto flex flex-col items-center text-center">
-        <h2 className="max-w-4xl font-display text-4xl font-medium leading-tight text-muted md:text-5xl lg:text-[56px] lg:leading-[1.1]">
+        <h2 className="max-w-4xl font-display text-4xl font-medium leading-tight text-text-dark-secondary md:text-5xl lg:text-[56px] lg:leading-[1.1]">
           Let's connect if you're looking for a designer who brings{" "}
           <span className="text-foreground">empathy, craft, and results.</span>
         </h2>

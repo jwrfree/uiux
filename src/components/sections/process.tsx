@@ -51,7 +51,7 @@ const ProcessSection = () => {
                         return (
                             <div key={index} className="flex flex-col items-center text-center">
                                 <div className="mb-6 md:mb-8">
-                                    <Icon className="w-16 h-16 text-gray-400" strokeWidth={1} />
+                                    <Icon className="w-16 h-16 text-foreground/40" strokeWidth={1} />
                                 </div>
                                 <div className="flex flex-col items-center gap-4 flex-grow">
                                   <h3 className="text-lg font-semibold text-text-dark">{item.title}</h3>
@@ -64,7 +64,7 @@ const ProcessSection = () => {
                                         {item.stat}
                                         {item.statUnit && <span className="text-7xl align-middle"> {item.statUnit}</span>}
                                     </p>
-                                    <p className="text-sm text-muted-foreground mt-3 max-w-[140px] mx-auto">
+                                    <p className="text-sm text-text-dark-secondary/80 mt-3 max-w-[140px] mx-auto">
                                         {item.statLabel}
                                     </p>
                                 </div>
