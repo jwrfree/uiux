@@ -74,13 +74,13 @@ const HeroSection = () => {
           </span>
         </h1>
         <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-          <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
+          <Button asChild variant="default" size="lg" className="group h-auto rounded-full py-5 text-base font-medium leading-none transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
             <Link href="/#work">
               View My Work
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
+          <Button asChild variant="secondary" size="lg" className="group h-auto rounded-full py-5 text-base font-medium leading-none transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
             <a href="/resume.pdf" download>
               Download Resume
               <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
