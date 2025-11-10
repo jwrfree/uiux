@@ -55,7 +55,7 @@ export default function Header() {
 
           <div
             className={`h-[72px] bg-background/80 rounded-full px-3 py-3 grid grid-cols-3 items-center transition-all duration-500 ease-out ${
-            isScrolled ? 'shadow-xl backdrop-blur-xl' : 'shadow-lg backdrop-blur-lg'} ${
+            isScrolled ? 'shadow-md hover:shadow-xl backdrop-blur-xl' : 'shadow-sm hover:shadow-lg backdrop-blur-lg'} ${
             isMenuOpen ? 'backdrop-blur-2xl' : ''}`}>
 
             <div className="flex justify-start items-center">
