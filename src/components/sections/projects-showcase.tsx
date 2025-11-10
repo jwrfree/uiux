@@ -70,7 +70,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         height={1200}
         className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
       />
-      <div className="absolute inset-0 z-10 bg-overlay-dark backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
+      <div className="absolute inset-0 z-10 bg-overlay-dark backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
       <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-text-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
         <div className="flex flex-col gap-4">
           <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
