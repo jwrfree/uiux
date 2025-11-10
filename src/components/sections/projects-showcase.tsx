@@ -59,40 +59,55 @@ const projectsData: Project[] = [
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Link
-      href={project.link}
-      className="group relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
-    >
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={1600}
-        height={1200}
-        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-      />
-      <div className="absolute inset-0 z-10 bg-overlay-dark backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-      <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-text-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-        <div className="flex flex-col gap-4">
-          <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
-            {project.title}
-          </h3>
-          {project.stats && (
-            <div className="mt-4 md:mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
-              {project.stats.map((stat, i) => (
-                <div key={i}>
-                  <span className="font-medium">{stat.value} </span>
-                  <span className="opacity-50">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className="flex flex-row items-center justify-between gap-4 text-base">
-          <div className="flex items-center gap-1 font-medium">
-            <span>View Case Study</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+    <Link href={project.link} className="group block">
+      <div className="relative overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={1600}
+          height={1200}
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+        />
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-t from-black/75 via-black/55 to-black/20 backdrop-blur-md transition-transform duration-500 ease-in-out translate-y-full group-hover:translate-y-0" />
+        <div className="hidden md:flex absolute inset-0 z-20 p-8 flex-col justify-between text-text-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <div className="flex flex-col gap-4">
+            <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
+              {project.title}
+            </h3>
+            {project.stats && (
+              <div className="mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
+                {project.stats.map((stat, i) => (
+                  <div key={i}>
+                    <span className="font-medium">{stat.value} </span>
+                    <span className="opacity-60">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <span className="opacity-50 text-right">{project.tags}</span>
+          <div className="flex flex-row items-center justify-between gap-4 text-base">
+            <div className="flex items-center gap-1 font-medium">
+              <span>View Case Study</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+            <span className="opacity-60 text-right">{project.tags}</span>
+          </div>
+        </div>
+      </div>
+      <div className="md:hidden mt-4">
+        <div className="rounded-2xl border border-white/40 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(17,25,40,0.12)] p-5 text-foreground">
+          <div className="flex flex-col gap-4">
+            <h3 className="font-medium text-[1.375rem] leading-tight -tracking-[0.01em] text-balance">
+              {project.title}
+            </h3>
+            <div className="flex items-center justify-between gap-4 text-base">
+              <span className="opacity-70">{project.tags}</span>
+              <div className="flex items-center gap-1 font-medium">
+                <span>View Case Study</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Link>
