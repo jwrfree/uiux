@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const AboutSection = () => {
   const services: string[] = [
@@ -14,12 +15,18 @@ const AboutSection = () => {
     <section className="bg-background text-foreground py-16 sm:py-20 md:py-32 lg:py-40 overflow-x-clip">
       <div className="container">
         <div id="about" className="flex flex-col gap-12 sm:gap-16 md:gap-20 lg:gap-24">
-          <h1 className="font-display text-[40px] md:text-[64px] font-medium leading-[1.1] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
-            Senior UI/UX designer seeking a full-time role where I can contribute to meaningful products.{" "}
-            <span className="opacity-40">
-              8+ years creating user-centered designs that drive business results and delight users.
-            </span>
-          </h1>
+          <ScrollReveal
+            baseOpacity={0}
+            enableBlur={true}
+            baseRotation={5}
+            blurStrength={10}
+            as="h1"
+            textAs="span"
+            containerClassName="my-0"
+            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.1] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
+          >
+            Senior UI/UX designer seeking a full-time role where I can contribute to meaningful products. 8+ years creating user-centered designs that drive business results and delight users.
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div className="flex flex-col gap-8 md:gap-12 items-start justify-between md:max-w-[80%]">
               <div className="flex flex-col gap-4">
