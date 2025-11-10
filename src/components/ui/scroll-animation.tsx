@@ -43,8 +43,8 @@ export function ScrollAnimation({ children, delay = 0, className = '' }: ScrollA
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        filter: isVisible ? 'blur(0px)' : 'blur(10px)',
-        transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+        filter: isVisible ? 'blur(0px)' : 'blur(5px)',
+        transform: isVisible ? 'scale(1)' : 'scale(0.95)',
         transition: `all 0.8s cubic-bezier(0.25, 0.4, 0.25, 1) ${delay}ms`,
       }}
     >

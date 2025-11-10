@@ -9,13 +9,13 @@ const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean;isHovered: boo
 <div className="relative w-6 h-6 flex items-center justify-center">
     <span
     className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
-    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[5px]" : "top-[8px]"}`
-    } />
+    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[5px]" : "top-[8px]"}`}
+    />
 
     <span
     className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
-    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[19px]" : "top-[16px]"}`
-    } />
+    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[19px]" : "top-[16px]"}`}
+    />
 
   </div>;
 
@@ -25,13 +25,22 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    const timer = setTimeout(() => {
+        setIsMounted(true);
+    }, 100);
+
+    return () => {
+        window.removeEventListener("scroll", handleScroll)
+        clearTimeout(timer);
+    };
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -58,13 +67,17 @@ export default function Header() {
         <div
           onMouseEnter={() => setIsHeaderHovered(true)}
           onMouseLeave={() => setIsHeaderHovered(false)}
-          className="relative rounded-[36px] transition-all duration-300 ease-out"
+          className="relative rounded-[36px] transition-shadow duration-300 ease-out"
           style={{
             background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
             backdropFilter: 'blur(20px) saturate(180%)',
             WebkitBackdropFilter: 'blur(20px) saturate(180%)',
             border: '1px solid rgba(255, 255, 255, 0.6)',
             boxShadow: getBoxShadow(),
+            opacity: isMounted ? 1 : 0,
+            transform: isMounted ? 'scale(1)' : 'scale(0.95)',
+            filter: isMounted ? 'blur(0px)' : 'blur(5px)',
+            transition: 'opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.25, 0.4, 0.25, 1), filter 0.5s ease-out, box-shadow 0.3s ease-out',
           }}>
 
           {/* Glass shine effect */}
@@ -123,8 +136,8 @@ export default function Header() {
                 {[
                 { href: "/about", label: "About Me" },
                 { href: "/#work", label: "My Work" },
-                { href: "/contact", label: "Contact" }].
-                map((item, index) =>
+                { href: "/contact", label: "Contact" }
+                ].map((item, index) =>
                 <li
                   key={item.href}
                   className={`transition-all duration-500 ease-out ${
@@ -146,4 +159,3 @@ export default function Header() {
       </div>
     </header>);
 
-}
