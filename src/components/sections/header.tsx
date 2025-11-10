@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-const AnimatedMenuIcon = ({ isOpen }: {isOpen: boolean;}) =>
+const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean; isHovered: boolean;}) =>
 <div className="relative w-6 h-6 flex items-center justify-center">
     <span
-    className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : "top-[8px]"}`
+    className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
+    isOpen ? "rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[5px]" : "top-[8px]"}`
     } />
 
     <span
-    className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : "top-[16px]"}`
+    className={`block absolute h-[2px] w-6 bg-foreground rounded-full transition-all duration-300 ease-out ${
+    isOpen ? "-rotate-45 top-1/2 -translate-y-1/2" : isHovered ? "top-[19px]" : "top-[16px]"}`
     } />
 
   </div>;
@@ -22,6 +22,7 @@ const AnimatedMenuIcon = ({ isOpen }: {isOpen: boolean;}) =>
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,10 +71,12 @@ export default function Header() {
             <div className="flex justify-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
                 aria-label="Toggle menu">
 
-                <AnimatedMenuIcon isOpen={isMenuOpen} />
+                <AnimatedMenuIcon isOpen={isMenuOpen} isHovered={isHovered} />
               </button>
             </div>
 
