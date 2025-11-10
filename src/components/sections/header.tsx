@@ -86,7 +86,7 @@ export default function Header() {
             <div className="flex justify-end items-center">
               <a
                 href="mailto:your.email@example.com"
-                className="hidden md:flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out !w-[160px] !h-[54px]">
+                className="hidden md:flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out !w-40 !h-full">
 
                 <span className="leading-none">Get in Touch</span>
                 <ArrowRight className="h-4 w-4 flex-shrink-0" />
