@@ -134,28 +134,28 @@ export default function Header() {
             <div className="px-6 pt-2 pb-8">
               <ul className="flex flex-col gap-2">
                 {[
-                { href: "/about", label: "About Me" },
-                { href: "/#work", label: "My Work" },
-                { href: "/contact", label: "Contact" }
-                ].map((item, index) =>
-                <li
-                  key={item.href}
-                  className={`transition-all duration-500 ease-out ${
-                  isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`
-                  }
-                  style={{ transitionDelay: isMenuOpen ? `${index * 50 + 100}ms` : '0ms' }}>
-                    <a
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="block text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:translate-x-2 py-2">
-                      {item.label}
-                    </a>
-                  </li>
-                )}
+                  { href: "/about", label: "About Me" },
+                  { href: "/#work", label: "My Work" },
+                  { href: "/contact", label: "Contact" }
+                ].map((item, index) => (
+                  <li
+                    key={item.href}
+                    className={`transition-all duration-500 ease-out ${
+                    isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`
+                    }
+                    style={{ transitionDelay: isMenuOpen ? `${index * 50 + 100}ms` : '0ms' }}>
+                      <a
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="block text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:translate-x-2 py-2">
+                        {item.label}
+                      </a>
+                    </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
       </div>
     </header>);
-
+}
