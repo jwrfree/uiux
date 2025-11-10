@@ -85,27 +85,30 @@ const HeroSection = () => {
       <div className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32">
         <h1 className="font-display font-black text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           <SplitText text="Senior UI/UX Designer" word={true} />{" "}
-          
+
           {/* Apply a single animation to the entire gradient text span */}
-          <motion.span 
+          <motion.span
             className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
-           >
-            Seeking Full-Time Opportunities
+          >
+            Crafting Product Narratives People Feel
           </motion.span>
         </h1>
+        <p className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl">
+          I bridge research, strategy, and visual design to shape human-centered platforms that drive measurable business outcomes.
+        </p>
         <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
           <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
             <Link href="/#work">
-              View My Work
+              Explore Case Studies
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
           <Button asChild variant="secondary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
             <a href="/resume.pdf" download>
-              Download Resume
+              Get the Résumé
               <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             </a>
           </Button>
