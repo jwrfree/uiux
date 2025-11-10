@@ -65,14 +65,14 @@ const HeroSection = () => {
       </div>
       <div className="absolute inset-0 w-full h-full z-[1] bg-gradient-to-b from-transparent via-transparent to-[rgba(0,0,0,0.6)]"></div>
 
-      <div className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20">
+      <div className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32">
         <h1 className="font-display font-black text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           Senior UI/UX Designer{" "}
           <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
             Seeking Full-Time Opportunities
           </span>
         </h1>
-        <div className="mt-8 flex flex-row flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
           <Link
             href="/#work" 
             className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95 leading-none"

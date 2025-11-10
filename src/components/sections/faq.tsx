@@ -50,7 +50,7 @@ const faqItems = [
 
 const Faq = () => {
   return (
-    <section className="bg-background py-8 sm:py-12 md:py-16 lg:py-20">
+    <section className="bg-background py-16 sm:py-20 md:py-32 lg:py-40">
       <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.35fr_0.65fr] md:gap-16">
           <h2 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-[56px]">

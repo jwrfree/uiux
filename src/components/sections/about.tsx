@@ -11,17 +11,17 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="bg-background text-foreground py-8 sm:py-12 md:py-16 lg:py-20 overflow-x-clip">
+    <section className="bg-background text-foreground py-16 sm:py-20 md:py-32 lg:py-40 overflow-x-clip">
       <div className="container">
-        <div id="about" className="py-12 flex flex-col gap-12 sm:gap-16 md:gap-24">
+        <div id="about" className="flex flex-col gap-12 sm:gap-16 md:gap-20 lg:gap-24">
           <h1 className="font-display text-[40px] md:text-[64px] font-medium leading-[1.1] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
             Senior UI/UX designer seeking a full-time role where I can contribute to meaningful products.{" "}
             <span className="opacity-40">
               8+ years creating user-centered designs that drive business results and delight users.
             </span>
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="flex flex-col gap-12 items-start justify-between md:max-w-[80%]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <div className="flex flex-col gap-8 md:gap-12 items-start justify-between md:max-w-[80%]">
               <div className="flex flex-col gap-4">
                 <p className="font-body text-base md:text-lg font-semibold leading-relaxed text-balance">
                   I'm looking for a collaborative team environment where design thinking and user research drive product decisions.

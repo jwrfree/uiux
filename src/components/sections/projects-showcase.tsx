@@ -77,7 +77,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {project.title}
           </h3>
           {project.stats && (
-            <div className="mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
+            <div className="mt-4 md:mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
               {project.stats.map((stat, i) => (
                 <div key={i}>
                   <span className="font-medium">{stat.value} </span>
@@ -103,7 +103,7 @@ const ProjectsShowcase = () => {
   return (
     <section
       id="work"
-      className="bg-background py-16 sm:py-20 md:py-24 lg:py-40 overflow-x-clip"
+      className="bg-background py-16 sm:py-20 md:py-32 lg:py-40 overflow-x-clip"
     >
       <div className="container relative">
         <div className="absolute top-0 inset-x-0 flex justify-center -z-0 pointer-events-none">
@@ -112,7 +112,7 @@ const ProjectsShowcase = () => {
           </div>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {projectsData.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
