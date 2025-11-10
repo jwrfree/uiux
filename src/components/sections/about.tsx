@@ -18,12 +18,12 @@ const AboutSection = () => {
           <ScrollReveal
             baseOpacity={0}
             enableBlur={true}
-            baseRotation={5}
+            baseRotation={0}
             blurStrength={10}
             as="h1"
             textAs="span"
             containerClassName="my-0"
-            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.1] -tracking-[0.015em] text-balance text-text-dark"
+            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance text-text-dark"
           >
             Senior UI/UX designer seeking a full-time role where I can contribute to meaningful products. 8+ years creating user-centered designs that drive business results and delight users.
           </ScrollReveal>

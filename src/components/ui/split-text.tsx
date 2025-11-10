@@ -17,29 +17,29 @@ export const SplitText: React.FC<SplitTextProps> = ({ text, word }) => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: word ? 0.05 : 0.015, // Adjusted stagger for a more natural rhythm
+        staggerChildren: word ? 0.05 : 0.015,
       },
     },
   };
 
   const childVariants = {
     hidden: { 
-        y: 20, // Softer upward movement
-        opacity: 0,
+        // Start with the text completely masked from the bottom
+        clipPath: 'inset(0 0 100% 0)',
     },
     visible: { 
-        y: 0,
-        opacity: 1,
+        // Animate to reveal the text completely
+        clipPath: 'inset(0 0 0% 0)',
         transition: {
-            ease: "easeOut", // Elegant ease-out transition
-            duration: 0.8,    // Sligthly longer duration for a graceful feel
+            ease: "easeOut",
+            duration: 0.8,
         },
     },
   };
 
   return (
     <motion.div
-      style={{ display: 'inline-block', overflow: 'hidden' }}
+      style={{ display: 'inline-block' }} // No overflow:hidden needed here
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -48,7 +48,10 @@ export const SplitText: React.FC<SplitTextProps> = ({ text, word }) => {
       {(word ? words : characters).map((unit, index) => (
         <motion.span 
           key={index} 
-          style={{ display: 'inline-block', paddingRight: word ? '0.25em' : '0' }}
+          style={{ 
+            display: 'inline-block', 
+            paddingRight: word ? '0.25em' : '0' 
+          }}
           variants={childVariants}
         >
           {unit}

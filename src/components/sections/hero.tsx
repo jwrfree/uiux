@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -5,6 +6,7 @@ import { ArrowRight, Download } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
+import { motion } from "framer-motion"; // Import motion
 import { Button } from "@/components/ui/button";
 import { SplitText } from "@/components/ui/split-text";
 
@@ -49,6 +51,20 @@ function LogoCarousel() {
 }
 
 const HeroSection = () => {
+  // Animation variants for the single motion span
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.2, // Small delay to sync with SplitText
+        ease: "easeOut",
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 w-full h-full z-0 opacity-80">
@@ -69,9 +85,16 @@ const HeroSection = () => {
       <div className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32">
         <h1 className="font-display font-black text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           <SplitText text="Senior UI/UX Designer" word={true} />{" "}
-          <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
-            <SplitText text="Seeking Full-Time Opportunities" word={true} />
-          </span>
+          
+          {/* Apply a single animation to the entire gradient text span */}
+          <motion.span 
+            className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+           >
+            Seeking Full-Time Opportunities
+          </motion.span>
         </h1>
         <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
           <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
