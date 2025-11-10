@@ -102,7 +102,7 @@ export default function Header() {
       </header>
 
       <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        className={`fixed inset-0 z-40 bg-background/85 backdrop-blur-3xl flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
         isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`
         }
         onClick={closeMenu}>
