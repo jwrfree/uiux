@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean;isHovered: boolean;}) =>
 <div className="relative w-6 h-6 flex items-center justify-center">
@@ -112,19 +113,16 @@ export default function Header() {
             </div>
 
             <div className="flex justify-end items-center h-full relative z-10">
-              <a
-                href="mailto:your.email@example.com"
-                className="hidden md:flex items-center justify-center gap-2 h-12 px-5 rounded-full bg-white/20 backdrop-blur-lg border border-white/30 text-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out">
-
-                <span className="leading-none">Get in Touch</span>
-                <ArrowRight className="h-4 w-4 flex-shrink-0" />
+            <Button asChild variant="glass" size="lg" className="hidden md:flex rounded-full">
+              <a href="mailto:jwrite.free@gmail.com">
+                Get in Touch <ArrowRight />
               </a>
-              <a
-                href="mailto:your.email@example.com"
-                className="md:hidden inline-flex items-center justify-center h-12 w-12 flex-shrink-0 rounded-full bg-white/20 backdrop-blur-lg border border-white/30 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95">
-
-                <ArrowRight className="h-4 w-4" />
+            </Button>
+            <Button asChild variant="glass" size="icon" className="md:hidden rounded-full w-12 h-12">
+              <a href="mailto:jwrite.free@gmail.com">
+                <ArrowRight />
               </a>
+            </Button>
             </div>
           </div>
         </div>
