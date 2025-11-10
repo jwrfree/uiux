@@ -103,7 +103,7 @@ const ProjectsShowcase = () => {
   return (
     <section
       id="work"
-      className="bg-background py-16 sm:py-20 md:py-32 lg:py-40 overflow-x-clip"
+      className="bg-background py-16 sm:py-20 md:py-24 overflow-x-clip"
     >
       <div className="container relative">
         <div className="absolute -top-20 sm:-top-28 md:-top-36 lg:-top-48 inset-x-0 flex justify-center -z-0 pointer-events-none">
