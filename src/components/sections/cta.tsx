@@ -23,25 +23,25 @@ const CtaSection = () => {
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
           <a
             href="mailto:your.email@example.com"
-            className="group inline-flex transform-gpu items-center gap-3 rounded-full bg-gradient-to-b from-primary to-[#191B18] px-6 py-5 text-left shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
+            className="group inline-flex transform-gpu items-center gap-3 rounded-full bg-gradient-to-b from-primary to-[#191B18] px-6 py-5 text-left shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 active:scale-95"
           >
             <Mail className="h-5 w-5 text-primary-foreground" />
             <span className="font-medium text-primary-foreground">
               Send me an email
             </span>
-            <ArrowRight className="h-5 w-5 text-primary-foreground" />
+            <ArrowRight className="h-5 w-5 text-primary-foreground transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href="https://linkedin.com/in/yourprofile"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex transform-gpu items-center gap-3 rounded-full bg-secondary px-6 py-5 text-left shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
+            className="group inline-flex transform-gpu items-center gap-3 rounded-full bg-secondary px-6 py-5 text-left shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95"
           >
             <Linkedin className="h-5 w-5 text-foreground" />
             <span className="font-medium text-foreground">
               Connect on LinkedIn
             </span>
-            <ArrowRight className="h-5 w-5 text-foreground" />
+            <ArrowRight className="h-5 w-5 text-foreground transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>

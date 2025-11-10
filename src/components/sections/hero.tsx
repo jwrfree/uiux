@@ -75,18 +75,18 @@ const HeroSection = () => {
         <div className="mt-8 flex flex-row flex-wrap justify-center gap-3">
           <Link
             href="/#work" 
-            className="inline-flex items-center justify-center px-6 py-5 rounded-full bg-primary text-primary-foreground font-medium text-base hover:opacity-90 transition-opacity leading-none"
+            className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-primary text-primary-foreground font-medium text-base transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95 leading-none"
           >
             View My Work
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center justify-center px-6 py-5 rounded-full bg-secondary text-secondary-foreground font-medium text-base hover:opacity-90 transition-opacity leading-none"
+            className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-secondary text-secondary-foreground font-medium text-base transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95 leading-none"
           >
             Download Resume
-            <Download className="ml-2 h-4 w-4" />
+            <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
         </div>
       </div>

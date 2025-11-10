@@ -38,11 +38,11 @@ const AboutSection = () => {
                 </p>
                 <a
                   href="mailto:your.email@example.com"
-                  className="inline-flex items-center justify-center px-6 py-5 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-text-light whitespace-nowrap"
+                  className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-text-light whitespace-nowrap transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 active:scale-95"
                 >
                   <div className="flex items-center gap-2">
                     <span className="font-body font-medium leading-none">Get in Touch</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </a>
               </div>
