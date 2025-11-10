@@ -58,7 +58,7 @@ export default function Header() {
               isScrolled ? 'shadow-xl backdrop-blur-xl' : 'shadow-lg backdrop-blur-lg'
             } ${isMenuOpen ? 'backdrop-blur-2xl' : ''}`}
           >
-            <div className="flex justify-start">
+            <div className="flex justify-start items-center">
               <Link
                 href="/"
                 aria-label="Home"
@@ -71,31 +71,31 @@ export default function Header() {
               </Link>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
+                className="group flex items-center justify-center w-12 h-12 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
                 aria-label="Toggle menu"
               >
                 <AnimatedMenuIcon isOpen={isMenuOpen} isHovered={isHovered} />
               </button>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end items-center">
               <a
                 href="mailto:your.email@example.com"
-                className="hidden md:inline-flex items-center justify-center px-6 py-4 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-base font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out !w-[98%] !h-full"
+                className="hidden md:inline-flex items-center justify-center px-5 py-3 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground text-sm font-medium whitespace-nowrap transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 ease-out"
               >
                 <span>Get in Touch</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
                 href="mailto:your.email@example.com"
-                className="md:hidden inline-flex items-center justify-center h-14 w-14 flex-shrink-0 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+                className="md:hidden inline-flex items-center justify-center h-12 w-12 flex-shrink-0 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
               >
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
