@@ -6,8 +6,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { SplitText } from "@/components/ui/split-text";
 
-// Per instruction, using design tool logos. Assets unavailable, using text placeholders.
 const toolLogos = [
   { name: "Figma" },
   { name: "Adobe XD" },
@@ -68,9 +68,9 @@ const HeroSection = () => {
 
       <div className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32">
         <h1 className="font-display font-black text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
-          Senior UI/UX Designer{" "}
+          <SplitText text="Senior UI/UX Designer" word={true} />{" "}
           <span className="bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
-            Seeking Full-Time Opportunities
+            <SplitText text="Seeking Full-Time Opportunities" word={true} />
           </span>
         </h1>
         <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">

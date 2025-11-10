@@ -90,7 +90,7 @@ export default function Header() {
           />
 
           {/* Header Bar */}
-          <div className="relative h-[72px] px-3 grid grid-cols-3 items-center z-10">
+          <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
             <div className="flex justify-start items-center h-full">
               <Link
                 href="/"
@@ -149,7 +149,7 @@ export default function Header() {
                       <a
                         href={item.href}
                         onClick={closeMenu}
-                        className="block text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:translate-x-2 py-2"
+                        className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
                       >
                         {item.label}
                       </a>
