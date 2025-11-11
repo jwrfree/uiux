@@ -20,6 +20,8 @@ const glassmorphismEffect = [
   "before:duration-700",
   "before:ease-in-out",
   "hover:before:w-full",
+  "[&>*]:relative",
+  "[&>*]:z-10",
 ].join(" ")
 
 const buttonVariants = cva(
@@ -84,7 +86,7 @@ function Button({
     asChild?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
-  const content = <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
+  const content = <>{children}</>
 
   if (asChild) {
     return (
