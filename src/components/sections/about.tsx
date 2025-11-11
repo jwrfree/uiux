@@ -1,9 +1,9 @@
+
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
-import { cn } from '@/lib/utils';
 
-const AboutSection = ({ className }: { className?: string }) => {
+const AboutSection = () => {
   const services: string[] = [
     "User research & competitive analysis",
     "Wireframing & interactive prototyping",
@@ -13,7 +13,7 @@ const AboutSection = ({ className }: { className?: string }) => {
   ];
 
   return (
-    <section className={cn("bg-background text-foreground overflow-x-clip", className)}>
+    <section className="bg-background text-foreground py-20 sm:py-24 md:py-32 overflow-x-clip">
       <div className="container">
         <div id="about" className="flex flex-col">
           <ScrollReveal

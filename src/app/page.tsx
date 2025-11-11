@@ -24,7 +24,7 @@ export default function Home() {
         </ScrollAnimation>
         <ScrollAnimation delay={200}>
           <ProcessSection />
-        </Animation>
+        </ScrollAnimation>
         <ScrollAnimation delay={150}>
           <Faq />
         </ScrollAnimation>

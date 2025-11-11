@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean;isHovered: boolean;}) =>
 <div className="relative w-6 h-6 flex items-center justify-center">
@@ -18,6 +23,55 @@ const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean;isHovered: boo
     />
 
   </div>;
+
+const menuContainerVariants = {
+  closed: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      type: "tween",
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+  open: {
+    height: "auto",
+    opacity: 1,
+    transition: {
+      type: "tween",
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
+
+const menuListVariants = {
+  closed: {
+    transition: {
+      staggerChildren: 0.08,
+      staggerDirection: -1,
+    },
+  },
+  open: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.3, // Delay menu items animation to let container expand first
+    },
+  },
+};
+
+const menuItemVariants = {
+  closed: {
+    opacity: 0,
+    y: -15,
+    transition: { type: "spring", damping: 20, stiffness: 150 },
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 20, stiffness: 150 },
+  },
+};
 
 
 export default function Header() {
@@ -44,6 +98,27 @@ export default function Header() {
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const handleMenuClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const isAnchor = href.startsWith("/#");
+    
+    if (isAnchor) {
+        e.preventDefault();
+        const target = href.substring(1); // -> "#work"
+        closeMenu();
+        // Use a small delay to allow the menu closing animation to start
+        setTimeout(() => {
+            gsap.to(window, { 
+                duration: 1.5, 
+                scrollTo: target, 
+                ease: "power2.inOut",
+            });
+        }, 300); // 300ms delay
+    } else {
+        closeMenu();
+    }
+};
+
 
   const getBoxShadow = () => {
     const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5)';
@@ -127,38 +202,40 @@ export default function Header() {
           </div>
 
           {/* Dropdown Menu */}
-           <div
-            className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-              isMenuOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-            }`}>
-            <div className="overflow-hidden">
-              <div className="px-6 pt-2 pb-8">
-                <ul className="flex flex-col gap-2">
-                  {[
-                    { href: "/about", label: "About Me" },
-                    { href: "/#work", label: "My Work" },
-                    { href: "/contact", label: "Contact" },
-                  ].map((item, index) => (
-                    <li
-                      key={item.href}
-                      className={`transition-all duration-500 ease-out ${
-                        isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
-                      }`}
-                      style={{ transitionDelay: isMenuOpen ? `${index * 50 + 100}ms` : "0ms" }}
-                    >
-                      <a
-                        href={item.href}
-                        onClick={closeMenu}
-                        className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={menuContainerVariants}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pt-2 pb-8">
+                  <motion.ul
+                    variants={menuListVariants}
+                    className="flex flex-col gap-2"
+                  >
+                    {[
+                      { href: "/about", label: "About Me" },
+                      { href: "/#work", label: "My Work" },
+                      { href: "/contact", label: "Contact" },
+                    ].map((item) => (
+                      <motion.li key={item.href} variants={menuItemVariants}>
+                        <Link
+                          href={item.href}
+                          onClick={(e) => handleMenuClick(e, item.href)}
+                          className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </header>

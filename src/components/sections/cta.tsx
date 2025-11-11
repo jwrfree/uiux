@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const CtaSection = () => {
   return (
-    <section className="relative overflow-hidden bg-background py-16 sm:py-20 md:py-32 lg:py-40">
+    <section className="relative overflow-hidden bg-background py-20 sm:py-24 md:py-40 lg:py-48">
       <div
         className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
         aria-hidden="true"

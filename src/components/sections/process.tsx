@@ -30,7 +30,7 @@ const processData = [
 
 const ProcessSection = () => {
     return (
-        <section className="py-16 sm:py-20 md:py-24 bg-background text-foreground relative overflow-clip">
+        <section className="py-20 sm:py-24 md:py-32 bg-background text-foreground relative overflow-clip">
             <div 
                 aria-hidden="true" 
                 className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"

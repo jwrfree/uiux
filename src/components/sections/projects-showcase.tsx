@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Project {
   title: string;
@@ -57,53 +60,81 @@ const projectsData: Project[] = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { 
+      type: "spring",
+      damping: 20,
+      stiffness: 100,
+      duration: 0.5,
+    },
+  },
+};
+
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Link
-      href={project.link}
-      className="group relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
+    <motion.div
+      variants={cardVariants}
+      whileHover={{ scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 20 } }}
     >
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={1600}
-        height={1200}
-        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-      />
-      <div className="absolute inset-0 z-10 bg-overlay-dark backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-      <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-text-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-        <div className="flex flex-col gap-4">
-          <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
-            {project.title}
-          </h3>
-          {project.stats && (
-            <div className="mt-4 md:mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
-              {project.stats.map((stat, i) => (
-                <div key={i}>
-                  <span className="font-medium">{stat.value} </span>
-                  <span className="opacity-50">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className="flex flex-row items-center justify-between gap-4 text-base">
-          <div className="flex items-center gap-1 font-medium">
-            <span>View Case Study</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      <Link
+        href={project.link}
+        className="group relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
+      >
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={1600}
+          height={1200}
+          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+        />
+        <div className="absolute inset-0 z-10 bg-overlay-dark backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-text-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+          <div className="flex flex-col gap-4">
+            <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
+              {project.title}
+            </h3>
+            {project.stats && (
+              <div className="mt-4 md:mt-8 flex flex-col sm:flex-row gap-x-12 gap-y-4 text-base">
+                {project.stats.map((stat, i) => (
+                  <div key={i}>
+                    <span className="font-medium">{stat.value} </span>
+                    <span className="opacity-50">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <span className="opacity-50 text-right">{project.tags}</span>
+          <div className="flex flex-row items-center justify-between gap-4 text-base">
+            <div className="flex items-center gap-1 font-medium">
+              <span>View Case Study</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+            <span className="opacity-50 text-right">{project.tags}</span>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
+};
+
+const gridVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const ProjectsShowcase = () => {
   return (
     <section
       id="work"
-      className="bg-background py-16 sm:py-20 md:py-24 overflow-x-clip"
+      className="bg-background py-20 sm:py-24 md:py-32 overflow-x-clip"
     >
       <div className="container relative">
         <div className="absolute -top-20 sm:-top-28 md:-top-36 lg:-top-48 inset-x-0 flex justify-center -z-0 pointer-events-none">
@@ -112,11 +143,17 @@ const ProjectsShowcase = () => {
           </div>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <motion.div
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+        >
           {projectsData.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

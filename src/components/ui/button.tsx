@@ -21,7 +21,7 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         glass:
-          "bg-white/20 backdrop-blur-lg border border-white/30 text-foreground shadow-xs hover:bg-white/30 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 dark:border-black/30 dark:hover:bg-black/30",
+          "relative overflow-hidden bg-white/20 backdrop-blur-lg border border-white/30 text-foreground shadow-xs hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 dark:border-black/30 before:content-[''] before:absolute before:inset-0 before:bg-white/30 dark:before:bg-black/30 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
       },
       size: {
         default: "h-10 px-4 text-sm",
