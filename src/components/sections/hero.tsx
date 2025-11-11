@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
@@ -116,7 +116,7 @@ const HeroSection = () => {
           className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
           variants={itemVariants}
         >
-          I bridge research, strategy, and visual design to shape human-centered platforms that drive measurable business outcomes.
+          <span>I bridge research, strategy, and visual design to shape human-centered platforms that drive measurable business outcomes.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
@@ -131,7 +131,13 @@ const HeroSection = () => {
           <Button asChild variant="secondary" size="xl" className="group rounded-full">
             <a href="/resume.pdf" download>
               <span>Get the Résumé</span>
-              <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+              <div className="w-6 h-6 ml-2">
+                <DotLottieReact
+                  src="https://lottie.host/ce057550-dd73-44a2-866f-bbc762587913/0bITEHY93d.lottie"
+                  loop
+                  autoplay
+                />
+              </div>
             </a>
           </Button>
         </motion.div>
