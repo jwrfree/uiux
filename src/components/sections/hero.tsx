@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { SplitText } from "@/components/ui/split-text";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -141,12 +141,14 @@ const HeroSection = () => {
       <a
         href="#about"
         onClick={(e) => handleScrollTo(e, "#about")}
-        className="absolute z-[2] bottom-32 md:bottom-40 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-center text-white/60 hover:text-white transition-all duration-300 ease-in-out group"
+        className="absolute z-[2] bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 cursor-pointer"
+        style={{ width: '50px', height: '50px' }}
       >
-        <span className="font-body text-xs tracking-widest uppercase animate-pulse group-hover:animate-none">
-          Scroll
-        </span>
-        <ArrowDown className="w-6 h-6 transition-transform duration-300 ease-in-out transform group-hover:translate-y-1" />
+        <DotLottieReact
+            src="https://lottie.host/02ea0f83-ebc3-40b2-b381-17a8d8b711d3/2tBUg5ux5t.lottie"
+            loop
+            autoplay
+        />
       </a>
 
       <div className="absolute bottom-0 left-0 right-0 z-[2] w-full py-8 md:py-12">
