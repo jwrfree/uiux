@@ -78,7 +78,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+      whileHover={{ scale: 1.03, transition: { type: "tween", ease: "easeInOut", duration: 0.5 } }}
     >
       <Link
         href={project.link}
@@ -91,8 +91,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
           height={1200}
           className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/85 via-white/60 to-white/25 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(17,25,40,0.18)] md:bg-gradient-to-t md:from-black/75 md:via-black/55 md:to-black/20 md:backdrop-blur-md md:border-none md:shadow-none md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-        <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-foreground md:text-text-light opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+        <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/85 via-white/60 to-white/25 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(17,25,40,0.18)] md:bg-gradient-to-t md:from-white/75 md:via-white/55 md:to-white/20 md:backdrop-blur-xl md:border-none md:shadow-none md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-foreground md:text-foreground opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
           <div className="flex flex-col gap-4">
             <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
               {project.title}

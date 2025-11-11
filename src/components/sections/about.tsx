@@ -1,7 +1,7 @@
-
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
+import { Button } from '@/components/ui/button';
 
 const AboutSection = () => {
   const services: string[] = [
@@ -44,15 +44,12 @@ const AboutSection = () => {
                   <br />
                   <span>Remote & Hybrid</span>
                 </p>
-                <a
-                  href="mailto:your.email@example.com"
-                  className="group inline-flex items-center justify-center px-6 py-5 rounded-full bg-gradient-to-b from-[#232522] to-[#191B18] text-text-light whitespace-nowrap transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 active:scale-95"
-                >
-                  <div className="flex items-center gap-2">
+                <Button variant="primary" size="lg" asChild className="group hover:shadow-2xl hover:shadow-primary/30 rounded-full">
+                  <a href="mailto:wruhantojati@gmail.com">
                     <span className="font-body font-medium leading-none">Get in Touch</span>
                     <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </div>
-                </a>
+                  </a>
+                </Button>
               </div>
             </div>
             <ul className="flex flex-col gap-2 list-none m-0 p-0">
