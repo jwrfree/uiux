@@ -47,7 +47,7 @@ const AboutSection = () => {
                 <Button variant="primary" size="lg" asChild className="group hover:shadow-2xl hover:shadow-primary/30 rounded-full">
                   <a href="mailto:wruhantojati@gmail.com">
                     <span className="font-body font-medium leading-none">Get in Touch</span>
-                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
+                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-1 transition-all duration-700 ease-in-out">
                         <ArrowRight size={16} />
                     </div>
                   </a>

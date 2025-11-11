@@ -191,7 +191,7 @@ export default function Header() {
               <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
                 <a href="mailto:wruhantojati@gmail.com">
                   <span>Get in Touch</span>
-                  <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-300">
+                  <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                     <ArrowRight className="h-4 w-4" />
                   </div>
                 </a>

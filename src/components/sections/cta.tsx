@@ -27,7 +27,7 @@ const CtaSection = () => {
             <span className="font-medium">
               Send me an email
             </span>
-            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
+            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-700 ease-in-out">
                 <ArrowRight className="h-5 w-5" />
             </div>
           </a>
@@ -42,7 +42,7 @@ const CtaSection = () => {
             <span className="font-medium">
               Connect on LinkedIn
             </span>
-            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
+            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-700 ease-in-out">
                 <ArrowUpRight className="h-5 w-5" />
             </div>
           </a>
