@@ -5,23 +5,23 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-300 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*=\'size-\'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-300 ease-out disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*=\'size-\'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
   {
     variants: {
       variant: {
         default:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:hover:bg-input/50",
         primary:
-          "relative overflow-hidden bg-black/40 backdrop-blur-lg border border-black/30 text-foreground shadow-xs hover:shadow-lg hover:shadow-black/20 active:scale-95 dark:bg-white/20 dark:border-white/30 before:content-[''] before:absolute before:inset-0 before:bg-black/50 dark:before:bg-white/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
+          "relative overflow-hidden bg-black/40 backdrop-blur-lg text-white shadow-xs hover:shadow-lg hover:shadow-black/20 active:scale-95 dark:bg-white/20 dark:text-black before:content-[''] before:absolute before:inset-0 before:bg-black/50 dark:before:bg-white/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
         destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
         secondary:
-          "relative overflow-hidden bg-white/40 backdrop-blur-lg border border-white/50 text-foreground shadow-xs hover:shadow-lg hover:shadow-white/20 active:scale-95 dark:bg-black/30 dark:border-black/40 before:content-[''] before:absolute before:inset-0 before:bg-white/60 dark:before:bg-black/60 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
+          "relative overflow-hidden bg-white/40 backdrop-blur-lg text-foreground shadow-xs hover:shadow-lg hover:shadow-white/20 active:scale-95 dark:bg-black/30 before:content-[''] before:absolute before:inset-0 before:bg-white/60 dark:before:bg-black/60 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         glass:
-          "relative overflow-hidden bg-white/20 backdrop-blur-lg border border-white/30 text-foreground shadow-xs hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 dark:border-black/30 before:content-[''] before:absolute before:inset-0 before:bg-white/50 dark:before:bg-black/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
+          "relative overflow-hidden bg-white/20 backdrop-blur-lg text-foreground shadow-xs hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 before:content-[''] before:absolute before:inset-0 before:bg-white/50 dark:before:bg-black/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
       },
       size: {
         default: "h-10 px-4 text-sm",
