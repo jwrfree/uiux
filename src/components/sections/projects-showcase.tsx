@@ -79,20 +79,30 @@ const ProjectCard = ({ project }: { project: Project }) => {
     <motion.div
       variants={cardVariants}
       whileHover={{ scale: 1.03, transition: { type: "tween", ease: "easeInOut", duration: 0.5 } }}
+      className="md:hover:!opacity-100 md:group-hover/grid:opacity-50 transition-opacity duration-300"
     >
       <Link
         href={project.link}
-        className="group relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
+        className="group/card relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
       >
         <Image
           src={project.image}
           alt={project.title}
           width={1600}
           height={1200}
-          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-105"
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-br from-white/85 via-white/60 to-white/25 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(17,25,40,0.18)] md:bg-gradient-to-t md:from-white/75 md:via-white/55 md:to-white/20 md:backdrop-blur-xl md:border-none md:shadow-none md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-        <div className="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-between text-foreground md:text-foreground opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+        {/* Mobile layout */}
+        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/60 to-transparent backdrop-blur-sm" />
+        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-20 p-6 flex flex-col justify-end text-text-light">
+          <h3 className="font-medium text-[clamp(1.25rem,4vw,1.75rem)] leading-tight -tracking-[0.01em] text-balance max-w-[30ch]">
+            {project.title}
+          </h3>
+        </div>
+
+        {/* Desktop layout */}
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-br from-white/85 via-white/60 to-white/25 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(17,25,40,0.18)] md:bg-gradient-to-t md:from-white/75 md:via-white/55 md:to-white/20 md:backdrop-blur-xl md:border-none md:shadow-none md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="hidden md:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between text-foreground md:text-foreground opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
           <div className="flex flex-col gap-4">
             <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
               {project.title}
@@ -111,7 +121,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <div className="flex flex-row items-center justify-between gap-4 text-base">
             <div className="flex items-center gap-1 font-medium">
               <span>View Case Study</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover/card:translate-x-1" />
             </div>
             <span className="opacity-50 text-right">{project.tags}</span>
           </div>
@@ -148,7 +158,7 @@ const ProjectsShowcase = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+          className="group/grid relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
         >
           {projectsData.map((project, index) => (
             <ProjectCard key={index} project={project} />

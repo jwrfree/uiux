@@ -1,34 +1,27 @@
 import React from 'react';
 
 const Footer = () => {
-  const footerLinks = [
-    { name: "Terms of Service", href: "/terms-of-service" },
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
-  ];
+  const footerLinks: { name: string; href: string }[] = [];
 
   return (
-    <footer className="container z-10">
-      <div className="py-8 border-t border-border">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4">
-          <p className="m-0 text-sm text-foreground/50">
-            © 2025 UI/UX Designer Portfolio. All rights reserved.
-          </p>
-          <nav>
-            <ul className="m-0 p-0 list-none flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-foreground/50 hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+    <footer className="bg-background text-foreground py-10">
+      <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p className="text-sm text-black font-medium order-2 sm:order-1">
+          © 2025 Wruhantojati. All rights reserved.
+        </p>
+        {footerLinks.length > 0 && (
+          <div className="flex flex-row gap-4 sm:gap-6 order-1 sm:order-2">
+            {footerLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm text-text-light font-medium hover:text-foreground transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </footer>
   );
