@@ -136,7 +136,6 @@ const HeroSection = () => {
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
                   src="https://lottie.host/ce057550-dd73-44a2-866f-bbc762587913/0bITEHY93d.lottie"
-                  loop
                   autoplay
                 />
               </div>
