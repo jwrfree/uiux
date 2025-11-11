@@ -133,7 +133,7 @@ const HeroSection = () => {
           <Button asChild variant="secondary" size="xl" className="group rounded-full">
             <a href="/resume.pdf" download>
               <span>Get the Résumé</span>
-              <div className="w-6 h-6 ml-2">
+              <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
                   src="https://lottie.host/ce057550-dd73-44a2-866f-bbc762587913/0bITEHY93d.lottie"
                   loop
