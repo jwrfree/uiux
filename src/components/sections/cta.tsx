@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CtaSection = () => {
@@ -43,7 +43,7 @@ const CtaSection = () => {
               Connect on LinkedIn
             </span>
             <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
-                <ArrowRight className="h-5 w-5" />
+                <ArrowUpRight className="h-5 w-5" />
             </div>
           </a>
         </Button>
