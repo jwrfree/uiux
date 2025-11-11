@@ -12,11 +12,11 @@ const buttonVariants = cva(
         default:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         primary:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+          "relative overflow-hidden bg-white/20 backdrop-blur-lg border border-white/30 text-foreground shadow-xs hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 dark:border-black/30 before:content-[''] before:absolute before:inset-0 before:bg-white/50 dark:before:bg-black/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "relative overflow-hidden bg-white/20 backdrop-blur-lg border border-white/30 text-foreground shadow-xs hover:shadow-lg hover:shadow-primary/20 active:scale-95 dark:bg-black/20 dark:border-black/30 before:content-[''] before:absolute before:inset-0 before:bg-white/50 dark:before:bg-black/50 before:scale-x-0 before:origin-left before:transition-transform before:duration-700 before:ease-in-out hover:before:scale-x-100 [&>*]:relative [&>*]:z-10",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
