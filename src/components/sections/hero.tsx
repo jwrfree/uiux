@@ -135,7 +135,7 @@ const HeroSection = () => {
               <span>Get the Résumé</span>
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
-                  src="https://lottie.host/ce057550-dd73-44a2-866f-bbc762587913/0bITEHY93d.lottie"
+                  src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
                   autoplay
                 />
               </div>
