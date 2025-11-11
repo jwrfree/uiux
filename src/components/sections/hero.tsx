@@ -58,6 +58,7 @@ const containerVariants = {
   visible: {
     transition: {
       staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
   },
 };
@@ -110,22 +111,28 @@ const HeroSection = () => {
             className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
             variants={itemVariants}
            >
-            Seeking Full-Time Opportunities
+            Crafting Product Narratives People Feel
           </motion.span>
         </h1>
+        <motion.p 
+          className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
+          variants={itemVariants}
+        >
+          I bridge research, strategy, and visual design to shape human-centered platforms that drive measurable business outcomes.
+        </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
           variants={itemVariants}
         >
           <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")}>
-              View My Work
+              Explore Case Studies
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
           <Button asChild variant="secondary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
             <a href="/resume.pdf" download>
-              Download Resume
+              Get the Résumé
               <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             </a>
           </Button>
