@@ -84,8 +84,8 @@
   --color-text-light: #fafaf9;
   --color-text-muted: rgba(35, 37, 34, 0.5);
   --color-border-subtle: rgba(35, 37, 34, 0.1);
-  --color-gradient-text-start: #232522;
-  --color-gradient-text-end: rgba(35, 37, 34, 0.4);
+  --color-gradient-text-start: #4a4c48;
+  --color-gradient-text-end: #232522;
   --color-gradient-button-start: #232522;
   --color-gradient-button-end: #191b18;
   --color-gradient-secondary-start: #fafaf9;

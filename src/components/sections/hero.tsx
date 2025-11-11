@@ -122,13 +122,13 @@ const HeroSection = () => {
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
           variants={itemVariants}
         >
-          <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/50 active:scale-95">
+          <Button asChild variant="primary" size="xl" className="group rounded-full">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")}>
               Explore Case Studies
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
+          <Button asChild variant="secondary" size="xl" className="group rounded-full">
             <a href="/resume.pdf" download>
               Get the Résumé
               <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />

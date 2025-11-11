@@ -189,12 +189,12 @@ export default function Header() {
 
             <div className="flex justify-end items-center h-full">
               <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
-                <a href="mailto:jwrite.free@gmail.com">
+                <a href="mailto:wruhantojati@gmail.com">
                   Get in Touch <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </Button>
               <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12">
-                <a href="mailto:jwrite.free@gmail.com">
+                <a href="mailto:wruhantojati@gmail.com">
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-30deg] group-hover:scale-110" />
                 </a>
               </Button>

@@ -4,9 +4,9 @@ const Footer = () => {
   const footerLinks: { name: string; href: string }[] = [];
 
   return (
-    <footer className="bg-background text-foreground py-10">
-      <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-black font-medium order-2 sm:order-1">
+    <footer className="py-10">
+      <div className="container flex flex-col sm:flex-row justify-center items-center gap-4">
+        <p className="text-sm font-medium order-2 sm:order-1 text-foreground">
           © 2025 Wruhantojati. All rights reserved.
         </p>
         {footerLinks.length > 0 && (
@@ -15,7 +15,7 @@ const Footer = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-text-light font-medium hover:text-foreground transition-colors"
+                className="text-sm text-foreground hover:text-primary transition-colors"
               >
                 {link.name}
               </a>

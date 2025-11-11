@@ -17,13 +17,12 @@ const CtaSection = () => {
         </span>
       </div>
       <div className="container relative z-10 mx-auto flex flex-col items-center text-center">
-        <h2 className="max-w-4xl font-display text-4xl font-medium leading-tight text-text-dark-secondary md:text-5xl lg:text-[56px] lg:leading-[1.1]">
-          Let's connect if you're looking for a designer who brings{" "}
-          <span className="text-foreground">empathy, craft, and results.</span>
+        <h2 className="max-w-5xl font-display text-4xl font-medium leading-tight bg-gradient-to-r from-[var(--color-gradient-text-start)] to-[var(--color-gradient-text-end)] bg-clip-text text-transparent md:text-5xl lg:text-[56px] lg:leading-[1.1]">
+          Currently open to new opportunities. Feel free to reach out via email or connect with me on LinkedIn.
         </h2>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Button asChild variant="primary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 active:scale-95">
-          <a href="mailto:jwrite.free@gmail.com">
+        <Button asChild variant="primary" size="xl" className="group rounded-full">
+          <a href="mailto:wruhantojati@gmail.com">
             <Mail className="h-5 w-5" />
             <span className="font-medium">
               Send me an email
@@ -31,9 +30,9 @@ const CtaSection = () => {
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </Button>
-        <Button asChild variant="secondary" size="xl" className="group rounded-full hover:scale-105 hover:shadow-2xl hover:shadow-secondary/50 active:scale-95">
+        <Button asChild variant="secondary" size="xl" className="group rounded-full">
           <a
-            href="https://linkedin.com/in/yourprofile"
+            href="https://linkedin.com/in/wrjati"
             target="_blank"
             rel="noopener noreferrer"
           >
