@@ -27,7 +27,9 @@ const CtaSection = () => {
             <span className="font-medium">
               Send me an email
             </span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
+                <ArrowRight className="h-5 w-5" />
+            </div>
           </a>
         </Button>
         <Button asChild variant="secondary" size="xl" className="group rounded-full">
@@ -40,7 +42,9 @@ const CtaSection = () => {
             <span className="font-medium">
               Connect on LinkedIn
             </span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-300">
+                <ArrowRight className="h-5 w-5" />
+            </div>
           </a>
         </Button>
         </div>

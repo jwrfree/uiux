@@ -190,7 +190,10 @@ export default function Header() {
             <div className="flex justify-end items-center h-full">
               <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
                 <a href="mailto:wruhantojati@gmail.com">
-                  <span>Get in Touch</span> <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <span>Get in Touch</span>
+                  <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-300">
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
                 </a>
               </Button>
               <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12">

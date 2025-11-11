@@ -125,7 +125,9 @@ const HeroSection = () => {
           <Button asChild variant="primary" size="xl" className="group rounded-full">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")}>
               <span>Explore Case Studies</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-300">
+                    <ArrowRight className="h-4 w-4" />
+                </div>
             </Link>
           </Button>
           <Button asChild variant="secondary" size="xl" className="group rounded-full">
