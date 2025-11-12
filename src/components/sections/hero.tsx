@@ -139,6 +139,8 @@ const HeroSection = () => {
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
                   loop
                   autoplay
+                  width={24}
+                  height={24}
                 />
               </div>
             </a>
