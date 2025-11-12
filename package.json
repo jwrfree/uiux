@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@babel/parser": "^7.28.5",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
         "@hookform/resolvers": "^5.1.1",
@@ -99,7 +100,6 @@
         "zod": "^4.1.12"
     },
     "devDependencies": {
-        "@babel/parser": "^7.28.5",
         "@eslint/eslintrc": "^3.3.1",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^20",
