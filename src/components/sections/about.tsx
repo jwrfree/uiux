@@ -18,6 +18,7 @@ const AboutSection = () => {
         <div id="about" className="flex flex-col">
           <ScrollReveal
             as="h1"
+            textAs="span"
             containerClassName="my-0"
             textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance"
           >
