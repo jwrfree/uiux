@@ -1,9 +1,11 @@
 
+
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase } from "lucide-react";
 import Image from "next/image";
+import Timeline from "@/components/ui/timeline";
 
 const AboutPage = () => {
   return (
@@ -49,20 +51,7 @@ const AboutPage = () => {
             <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">My Story</h2>
             <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">How I Got Here</p>
           </ScrollAnimation>
-          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-none mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            <ScrollAnimation delay={150}>
-              <p>My path to design wasn't straightforward. I studied mechatronics engineering, where I learned systems thinking and got my first exposure to industrial design. But somewhere along the way, I realized something: I loved designing solutions more than building them.</p>
-            </ScrollAnimation>
-            <ScrollAnimation delay={300}>
-              <p>That realization led me to a UX design bootcamp, where I formalized what I'd been drawn to all along—human-centered problem solving. But I didn't abandon my engineering roots. Instead, I use them as an advantage. I understand technical constraints, think in systems, and I taught myself basic programming to ensure smooth collaboration with developers.</p>
-            </ScrollAnimation>
-            <ScrollAnimation delay={450}>
-              <p>My first projects weren't in typical tech spaces. I worked on waste management systems and funeral services—domains that don't get much design attention but desperately need it. These experiences taught me something crucial: the most meaningful design work happens in the messy, complex, human spaces that others overlook.</p>
-            </ScrollAnimation>
-            <ScrollAnimation delay={600}>
-              <p>Working with waste collectors who'd rather burn trash than sort it taught me about behavior change. Designing for families in grief taught me about empathy under pressure. These weren't just design projects—they were lessons in understanding people at their most vulnerable and pragmatic.</p>
-            </ScrollAnimation>
-          </div>
+          <Timeline />
         </div>
 
         <div className="max-w-5xl mx-auto mt-24 md:mt-32">
