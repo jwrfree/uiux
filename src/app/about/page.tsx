@@ -3,7 +3,7 @@
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase } from "lucide-react";
+import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase, Bike, Coffee, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Timeline from "@/components/ui/timeline";
 
@@ -133,6 +133,24 @@ const AboutPage = () => {
                     </p>
                 </div>
             </ScrollAnimation>
+        </div>
+
+        <div className="max-w-5xl mx-auto mt-24 md:mt-32">
+            <ScrollAnimation>
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">Beyond Design</h2>
+                <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">Outside of Work</p>
+            </ScrollAnimation>
+            <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-3xl mx-auto text-center">
+                <ScrollAnimation delay={150}>
+                    <p>When I'm not designing, you'll find me cycling around Yogyakarta, exploring the city's streets and finding new perspectives—literally and figuratively. I'm always experimenting with new design tools and sharpening my skills, whether it's a new Figma plugin or diving into prototyping techniques.</p>
+                </ScrollAnimation>
+                <ScrollAnimation delay={300}>
+                    <p>I also believe the best ideas come when you slow down. You'll often catch me at a local coffee shop, enjoying a good brew while sketching ideas or just observing how people interact with the world around them.</p>
+                </ScrollAnimation>
+                <ScrollAnimation delay={450}>
+                    <p>I'm convinced that being a good designer means being curious about life beyond screens. Every conversation, ride through the city, or quiet moment with coffee shapes how I see problems and craft solutions.</p>
+                </ScrollAnimation>
+            </div>
         </div>
 
       </main>
