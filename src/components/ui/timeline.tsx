@@ -52,8 +52,8 @@ const TimelineItem = ({ year, title, description, isLast, delay }: { year: strin
         )}
       </div>
       <div className="pt-px">
-        <p className="font-semibold text-text-dark">{title}</p>
-        {description && <p className="text-sm text-text-secondary mt-1 max-w-sm">{description}</p>}
+        <p className="font-semibold text-text-dark text-lg">{title}</p>
+        {description && <p className="text-base text-text-secondary mt-1 max-w-sm">{description}</p>}
       </div>
     </div>
   </ScrollAnimation>
