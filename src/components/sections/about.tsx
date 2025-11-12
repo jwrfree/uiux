@@ -26,7 +26,7 @@ const AboutSection = () => {
             containerClassName="my-0"
             textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance text-text-dark"
           >
-            Senior UI/UX designer seeking a full-time role where I can contribute to meaningful products. 8+ years creating user-centered designs that drive business results and delight users.
+            UI/UX designer with 3 years of experience creating user-centered designs that drive business results and delight users.
           </ScrollReveal>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div className="flex flex-col gap-8 md:gap-12 items-start justify-between md:max-w-[80%]">
