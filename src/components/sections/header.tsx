@@ -43,9 +43,6 @@ const menuContainerVariants = {
       type: "tween",
       duration: 0.4,
       ease: "easeOut",
-      when: "beforeChildren",
-      staggerChildren: 0.07,
-      delayChildren: 0.2,
     },
   },
 };
@@ -57,7 +54,12 @@ const menuListVariants = {
       staggerDirection: -1,
     },
   },
-  open: {},
+  open: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const menuItemVariants = {
@@ -127,8 +129,6 @@ export default function Header() {
   return (
     <header 
       className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center"
-      onMouseEnter={() => setIsHeaderHovered(true)}
-      onMouseLeave={() => setIsHeaderHovered(false)}
     >
       <motion.div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
@@ -136,7 +136,11 @@ export default function Header() {
         animate={{ scale: isScrolled && !isMenuOpen ? 0.95 : 1 }}
         >
         
-        <div className="flex justify-center">
+        <div 
+          className="flex justify-center"
+          onMouseEnter={() => setIsHeaderHovered(true)}
+          onMouseLeave={() => setIsHeaderHovered(false)}
+        >
           <motion.div
             className="relative rounded-[36px] w-full origin-center"
             initial={{ scaleX: 0, opacity: 0 }}
@@ -226,11 +230,11 @@ export default function Header() {
                   exit="closed"
                   variants={menuContainerVariants}
                   className="overflow-hidden"
-                  onMouseLeave={() => setHoveredLink(null)}
                 >
                   <motion.ul
                     variants={menuListVariants}
                     className="flex flex-col gap-2 px-6 pt-2 pb-8"
+                    onMouseLeave={() => setHoveredLink(null)}
                   >
                     {[
                       { href: "/about", label: "About Me" },
