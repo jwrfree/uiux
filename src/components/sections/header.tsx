@@ -125,36 +125,46 @@ export default function Header() {
     if (isHeaderHovered || isMenuOpen) {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return `0 2px 12px rgba(0, 0, 0, 0.02), ${inset}`;
+    return 'none';
   };
 
 
   return (
     <header className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center">
-      <div
-        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-all duration-500 ease-out ${
-        isScrolled ? 'scale-[0.95]' : 'scale-100'}`
-        }
+      <motion.div
+        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out`}
+        initial={{ scale: 1 }}
+        animate={{ scale: isScrolled ? 0.95 : 1 }}
         onMouseEnter={() => setIsHeaderHovered(true)}
         onMouseLeave={() => setIsHeaderHovered(false)}
         >
 
-        <div
-          className="relative rounded-[36px] transition-shadow duration-300 ease-out"
+        <motion.div
+          className="relative rounded-[36px] origin-center"
+          initial={{ width: 72, filter: 'blur(5px)', opacity: 0 }}
+          animate={{ 
+            width: '100%', 
+            filter: 'blur(0px)',
+            opacity: 1,
+          }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.25, 1, 0.5, 1],
+            delay: 0.1
+          }}
           style={{
             background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
             backdropFilter: 'blur(20px) saturate(180%)',
             WebkitBackdropFilter: 'blur(20px) saturate(180%)',
             border: '1px solid rgba(255, 255, 255, 0.6)',
             boxShadow: getBoxShadow(),
-            opacity: isMounted ? 1 : 0,
-            transform: isMounted ? 'scale(1)' : 'scale(0.95)',
-            filter: isMounted ? 'blur(0px)' : 'blur(5px)',
-            transition: 'opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.25, 0.4, 0.25, 1), filter 0.5s ease-out, box-shadow 0.3s ease-out',
           }}>
 
           {/* Glass shine effect */}
-          <div
+          <motion.div
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            transition={{ delay: 0.5, duration: 0.5 }}
             className="animate-shine absolute inset-0 rounded-[36px] opacity-50 pointer-events-none"
             style={{
               background: 'linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%)',
@@ -164,7 +174,12 @@ export default function Header() {
 
           {/* Header Bar */}
           <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
-            <div className="flex justify-start items-center h-full">
+            <motion.div 
+              className="flex justify-start items-center h-full"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
               <Link
                 href="/"
                 aria-label="Home"
@@ -172,7 +187,7 @@ export default function Header() {
                 className="flex items-center justify-start ml-2 lg:ml-4 transition-transform duration-300 hover:scale-105">
                 <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text">UI/UX</span>
               </Link>
-            </div>
+            </motion.div>
 
             <div className="flex justify-center items-center h-full">
               <button
@@ -185,7 +200,12 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="flex justify-end items-center h-full">
+            <motion.div 
+              className="flex justify-end items-center h-full"
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
               <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
                 <a href="mailto:wruhantojati@gmail.com">
                   <span>Get in Touch</span>
@@ -199,7 +219,7 @@ export default function Header() {
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-30deg] group-hover:scale-110" />
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </div>
 
           {/* Dropdown Menu */}
@@ -237,8 +257,8 @@ export default function Header() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </header>
   );
 }
