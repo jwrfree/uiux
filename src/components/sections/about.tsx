@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
-import ScrollReveal from '@/components/ui/scroll-reveal';
 import { Button } from '@/components/ui/button';
 
 const AboutSection = () => {
@@ -16,14 +15,11 @@ const AboutSection = () => {
     <section className="bg-background text-foreground py-20 sm:py-24 md:py-32 overflow-x-clip">
       <div className="container">
         <div id="about" className="flex flex-col">
-          <ScrollReveal
-            as="h1"
-            textAs="span"
-            containerClassName="my-0"
-            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
+          <h1
+            className="my-0 font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
           >
             UI/UX designer with 3 years of experience creating user-centered designs that drive business results and delight users.
-          </ScrollReveal>
+          </h1>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div className="flex flex-col gap-8 md:gap-12 items-start justify-between md:max-w-[80%]">
               <div className="flex flex-col gap-4">
