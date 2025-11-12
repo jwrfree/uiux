@@ -8,115 +8,78 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollRevealProps {
   children: ReactNode;
-  scrollContainerRef?: React.RefObject<HTMLElement>;
-  enableBlur?: boolean;
-  baseOpacity?: number;
-  baseRotation?: number;
-  blurStrength?: number;
-  containerClassName?: string;
-  textClassName?: string;
-  rotationEnd?: string;
-  wordAnimationEnd?: string;
   as?: keyof JSX.IntrinsicElements;
   textAs?: keyof JSX.IntrinsicElements;
+  containerClassName?: string;
+  textClassName?: string;
 }
 
 const ScrollReveal = ({
   children,
-  scrollContainerRef,
-  enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 3,
-  blurStrength = 4,
+  as: Container = 'h2',
+  textAs: TextWrapper = 'p',
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom',
-  as: Container = 'h2',
-  textAs: TextWrapper = 'p'
 }: ScrollRevealProps) => {
   const containerRef = useRef<HTMLElement>(null);
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
     return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
+      if (word.match(/^\s+$/)) return <TextWrapper key={index} className={textClassName} style={{ display: 'inline' }}>{word}</TextWrapper>;
       return (
-        <span className="inline-block word" key={index}>
-          {word}
+        <span
+          key={index}
+          style={{ display: 'inline-block', overflow: 'hidden' }}
+          className="word-wrapper"
+        >
+          <span
+            className="word inline-block"
+            style={{ transform: 'translateY(100%)' }}
+          >
+            {word}
+          </span>
         </span>
       );
     });
-  }, [children]);
+  }, [children, textClassName, TextWrapper]);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
+    const words = el.querySelectorAll('.word');
+    if (words.length === 0) return;
 
-    gsap.fromTo(
-      el,
-      { transformOrigin: '0% 50%', rotate: baseRotation },
-      {
-        ease: 'none',
-        rotate: 0,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: 'top bottom',
-          end: rotationEnd,
-          scrub: true
-        }
-      }
-    );
+    gsap.set(words, { y: '110%' });
 
-    const wordElements = el.querySelectorAll('.word');
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: false,
+        toggleActions: 'play none none none',
+      },
+    });
 
-    gsap.fromTo(
-      wordElements,
-      { opacity: baseOpacity, willChange: 'opacity' },
-      {
-        ease: 'none',
-        opacity: 1,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: 'top bottom-=20%',
-          end: wordAnimationEnd,
-          scrub: true
-        }
-      }
-    );
-
-    if (enableBlur) {
-      gsap.fromTo(
-        wordElements,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          ease: 'none',
-          filter: 'blur(0px)',
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: 'top bottom-=20%',
-            end: wordAnimationEnd,
-            scrub: true
-          }
-        }
-      );
-    }
-
+    tl.to(words, {
+      y: '0%',
+      stagger: 0.05,
+      duration: 1,
+      ease: 'power4.out',
+    });
+    
     return () => {
+      tl.kill();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+
+  }, [children]);
 
   return (
     <Container ref={containerRef as any} className={containerClassName}>
-      <TextWrapper className={textClassName}>{splitText}</TextWrapper>
+        {splitText}
     </Container>
   );
 };
