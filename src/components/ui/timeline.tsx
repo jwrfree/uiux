@@ -51,7 +51,7 @@ const TimelineItem = ({ year, title, description, isLast, delay }: { year: strin
           <div className="w-px h-24 bg-border ml-20 mt-1"></div>
         )}
       </div>
-      <div className="pt-px pl-2">
+      <div className="pt-px">
         <p className="font-semibold text-text-dark">{title}</p>
         {description && <p className="text-sm text-text-secondary mt-1 max-w-sm">{description}</p>}
       </div>
