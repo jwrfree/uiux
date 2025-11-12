@@ -20,7 +20,7 @@ const AboutSection = () => {
             as="h1"
             textAs="span"
             containerClassName="my-0"
-            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance"
+            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
           >
             UI/UX designer with 3 years of experience creating user-centered designs that drive business results and delight users.
           </ScrollReveal>
