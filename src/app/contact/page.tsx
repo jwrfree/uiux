@@ -11,7 +11,7 @@ const ContactPage = () => {
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
+      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
             <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-text-dark tracking-tighter mb-6 text-center">

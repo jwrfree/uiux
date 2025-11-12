@@ -10,7 +10,7 @@ const NotFoundPage = () => {
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] container mx-auto px-4 text-center">
+      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] container mx-auto px-4 text-center pt-32 md:pt-40">
         <ScrollAnimation>
           <SearchX className="h-24 w-24 text-muted-foreground mx-auto mb-8" strokeWidth={1} />
         </ScrollAnimation>

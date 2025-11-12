@@ -9,7 +9,7 @@ const AboutPage = () => {
   return (
     <div className="bg-background text-foreground">
       <Header />
-      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
+      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-2">
             <ScrollAnimation>
