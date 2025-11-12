@@ -10,8 +10,8 @@ const CtaSection = () => {
         aria-hidden="true"
       >
         <span
-          className="font-display font-medium text-center text-[240px] leading-none text-[color:var(--color-border)] select-none
-                     md:text-[320px] lg:text-[400px]"
+          className="font-display font-medium text-center text-[240px] leading-none select-none
+                     md:text-[320px] lg:text-[400px] bg-gradient-to-b from-[color:var(--color-border)] to-white bg-clip-text text-transparent"
         >
           UI/UX
         </span>
