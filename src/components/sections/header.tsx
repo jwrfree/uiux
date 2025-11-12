@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -121,11 +122,11 @@ export default function Header() {
 
 
   const getBoxShadow = () => {
-    const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5)';
+    const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.8)';
     if (isMenuOpen || isHeaderHovered) {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return `inset 0 1px 0 rgba(255, 255, 255, 0.8)`;
+    return `0 4px 12px rgba(0, 0, 0, 0.05), ${inset}`;
   };
 
 
@@ -134,7 +135,7 @@ export default function Header() {
       <motion.div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
         initial={{ scale: 1 }}
-        animate={{ scale: isScrolled ? 0.95 : 1 }}
+        animate={{ scale: isScrolled && !isMenuOpen ? 0.95 : 1 }}
         onMouseEnter={() => setIsHeaderHovered(true)}
         onMouseLeave={() => setIsHeaderHovered(false)}
         >
@@ -150,11 +151,12 @@ export default function Header() {
               delay: 0.1
             }}
             style={{
-              background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
+              background: 'rgba(250, 250, 249, 0.6)',
               backdropFilter: 'blur(20px) saturate(180%)',
               WebkitBackdropFilter: 'blur(20px) saturate(180%)',
               border: '1px solid rgba(255, 255, 255, 0.6)',
               boxShadow: getBoxShadow(),
+              transition: 'box-shadow 0.3s ease-out'
             }}>
 
             {/* Glass shine effect */}
