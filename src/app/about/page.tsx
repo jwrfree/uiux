@@ -41,35 +41,6 @@ const AboutPage = () => {
                     For the past 2+ years, I've been designing for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
                 </p>
             </ScrollAnimation>
-            <ScrollAnimation delay={600}>
-                <h3 className="font-display font-semibold text-2xl mt-12 mb-4 text-text-dark">My Design Philosophy</h3>
-            </ScrollAnimation>
-            <ul className="space-y-4 !pl-0 text-left">
-              <ScrollAnimation delay={750}>
-                  <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
-                  <span>
-                      <span className="font-semibold text-text-dark">Empathy-Driven:</span> I always start by putting myself in the user's shoes to understand their needs, motivations, and pain points.
-                  </span>
-                  </li>
-              </ScrollAnimation>
-              <ScrollAnimation delay={900}>
-                  <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
-                  <span>
-                      <span className="font-semibold text-text-dark">Data-Informed:</span> I use a combination of qualitative and quantitative data to inform my design decisions and validate my assumptions.
-                  </span>
-                  </li>
-              </ScrollAnimation>
-               <ScrollAnimation delay={1050}>
-                  <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
-                  <span>
-                      <span className="font-semibold text-text-dark">Collaborative:</span> I believe that the best products are built by teams. I enjoy collaborating closely with product managers, engineers, and other stakeholders.
-                  </span>
-                  </li>
-               </ScrollAnimation>
-            </ul>
           </div>
         </div>
 
@@ -92,6 +63,55 @@ const AboutPage = () => {
               <p>Working with waste collectors who'd rather burn trash than sort it taught me about behavior change. Designing for families in grief taught me about empathy under pressure. These weren't just design projects—they were lessons in understanding people at their most vulnerable and pragmatic.</p>
             </ScrollAnimation>
           </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto mt-24 md:mt-32">
+            <ScrollAnimation>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">How I Approach Design</h2>
+              <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">My Design Philosophy</p>
+            </ScrollAnimation>
+            <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-none mx-auto">
+                <ScrollAnimation delay={150}>
+                    <p>I don't design for "users"—I design for people. Real people with complicated lives, limited time, and very real problems.</p>
+                </ScrollAnimation>
+                <ScrollAnimation delay={300}>
+                    <p>This means:</p>
+                </ScrollAnimation>
+                <ul className="space-y-4 !pl-0 text-left grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8">
+                <ScrollAnimation delay={450}>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
+                    <span>
+                      <span className="font-semibold text-text-dark">Starting with empathy, but validating with data:</span> I spend time understanding what people need, then use research and testing to make sure I'm solving the right problems.
+                    </span>
+                  </li>
+                </ScrollAnimation>
+                <ScrollAnimation delay={600}>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
+                    <span>
+                      <span className="font-semibold text-text-dark">Thinking in systems, not just screens:</span> My engineering background taught me that everything connects. A small change in one part can ripple through the entire experience.
+                    </span>
+                  </li>
+                </ScrollAnimation>
+                <ScrollAnimation delay={750}>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
+                    <span>
+                      <span className="font-semibold text-text-dark">Designing for constraints, not ideal scenarios:</span> Real projects have budgets, deadlines, and technical limitations. Good design works within reality, not despite it.
+                    </span>
+                  </li>
+                </ScrollAnimation>
+                <ScrollAnimation delay={900}>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
+                    <span>
+                      <span className="font-semibold text-text-dark">Prioritizing behavior change over interface polish:</span> Beautiful interfaces matter, but changing how 10,000 people manage waste matters more.
+                    </span>
+                  </li>
+                </ScrollAnimation>
+              </ul>
+            </div>
         </div>
       </main>
       <CtaSection />
