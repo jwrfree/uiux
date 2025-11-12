@@ -126,9 +126,9 @@ export default function Header() {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
     if (isHeaderHovered || isMenuOpen) {
-      return `0 6px 28px rgba(0, 0, 0, 0.08), ${inset}`;
+      return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return `0 2px 12px rgba(0, 0, 0, 0.05), ${inset}`;
+    return `0 2px 12px rgba(0, 0, 0, 0.02), ${inset}`;
   };
 
 
