@@ -131,13 +131,15 @@ export default function Header() {
 
 
   return (
-    <header className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center">
+    <header 
+      className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center"
+      onMouseEnter={() => setIsHeaderHovered(true)}
+      onMouseLeave={() => setIsHeaderHovered(false)}
+    >
       <motion.div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
         initial={{ scale: 1 }}
         animate={{ scale: isScrolled && !isMenuOpen ? 0.95 : 1 }}
-        onMouseEnter={() => setIsHeaderHovered(true)}
-        onMouseLeave={() => setIsHeaderHovered(false)}
         >
         
         <div className="flex justify-center">
