@@ -101,6 +101,15 @@
     }
   }
 
+  @keyframes levitate {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   --color-bg-primary: #fafaf9;
   --color-bg-secondary: #f3f3ed;
   --color-bg-card: #e8e8e2;
