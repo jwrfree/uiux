@@ -179,9 +179,14 @@
   }
 
   h1, h2 {
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background: linear-gradient(19deg, #232522, #ededed);
+    background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+    --tw-gradient-from: #27272a;
+    --tw-gradient-to: rgb(39 39 42 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), #a8a29e, var(--tw-gradient-to);
+    --tw-gradient-to: #f5f5f4;
   }
 
   .u-lh-trim {
