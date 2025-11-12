@@ -15,7 +15,7 @@ const AboutPage = () => {
         <div className="container mx-auto px-4 pb-16 md:pb-24 lg:pb-32">
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                 <ScrollAnimation>
-                    <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4">
+                    <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4 bg-gradient-to-r from-stone-800 to-stone-200 bg-clip-text text-transparent">
                         Designing for People, Not Just Pixels
                     </h1>
                     <p className="text-xl md:text-2xl text-text-dark-secondary">
