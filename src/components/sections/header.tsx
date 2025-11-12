@@ -229,7 +229,7 @@ export default function Header() {
                   animate="open"
                   exit="closed"
                   variants={menuContainerVariants}
-                  className="overflow-hidden"
+                  className="overflow-visible"
                 >
                   <motion.ul
                     variants={menuListVariants}
