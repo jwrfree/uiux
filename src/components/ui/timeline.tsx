@@ -6,31 +6,31 @@ const timelineData = [
   {
     year: "2020",
     title: "Mechatronics Engineering",
-    description: "Learned systems thinking",
+    description: "Graduated with a degree in Mechatronics. This is where I learned to think in systems and got my first taste of industrial design, sparking an interest in how people interact with technology.",
     isLast: false,
   },
   {
     year: "2023",
-    title: "UX Bootcamp",
-    description: "Formalized design skills",
+    title: "UX Design Bootcamp",
+    description: "Made the leap into design by completing an intensive UX bootcamp. This is where I formally learned the principles of human-centered design, user research, and prototyping.",
     isLast: false,
   },
   {
     year: "2023",
-    title: "Waste Management",
-    description: "First real-world impact",
+    title: "Waste Management Project",
+    description: "Applied my skills to a real-world problem, designing a system to help a community shift from burning waste to recycling. It was my first major project with measurable social impact.",
     isLast: false,
   },
   {
     year: "2024",
-    title: "Funeral Services",
-    description: "Designing for empathy",
+    title: "Funeral Services App",
+    description: "Took on the challenge of designing for a highly sensitive context. This project taught me the importance of empathy and compassion in design, creating a digital service to support grieving families.",
     isLast: false,
   },
   {
     year: "Now",
-    title: "Open to opportunities",
-    description: "",
+    title: "Open to New Opportunities",
+    description: "Seeking a full-time UI/UX design role where I can continue to solve complex problems and create meaningful experiences.",
     isLast: true,
   },
 ];
@@ -48,12 +48,12 @@ const TimelineItem = ({ year, title, description, isLast, delay }: { year: strin
           </div>
         </div>
         {!isLast && (
-          <div className="w-px h-16 bg-border ml-20 mt-1"></div>
+          <div className="w-px h-24 bg-border ml-20 mt-1"></div>
         )}
       </div>
       <div className="pt-px pl-2">
         <p className="font-semibold text-text-dark">{title}</p>
-        {description && <p className="text-sm text-text-secondary mt-1">{description}</p>}
+        {description && <p className="text-sm text-text-secondary mt-1 max-w-sm">{description}</p>}
       </div>
     </div>
   </ScrollAnimation>
