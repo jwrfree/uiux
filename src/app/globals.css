@@ -1,7 +1,60 @@
 /* Updated: 2025-11-09T10:48:42.840Z */
 /* Updated: 2025-11-09T10:46:40.231Z */
 /* Updated: 2025-11-09T07:40:52.965Z */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap");
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal-book.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal-book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal-medium.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal-bold.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2'),
+       url('/fonts/Inter-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.woff2') format('woff2'),
+       url('/fonts/Inter-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2'),
+       url('/fonts/Inter-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -92,7 +145,7 @@
   --color-gradient-secondary-end: #f3f3ed;
   --color-overlay-dark: rgba(0, 0, 0, 0.4);
 
-  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-display: "PP Neue Montreal", sans-serif;
   --font-body: "Inter", sans-serif;
 }
 
@@ -220,8 +273,3 @@
 nextjs-portal {
   display: none !important;
 }
-
-
-
-
-
