@@ -32,7 +32,7 @@ const AboutPage = () => {
                 </div>
             </ScrollAnimation>
           
-          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-2xl">
+          <div className="prose prose-xl lg:prose-2xl text-text-secondary max-w-2xl">
             <ScrollAnimation delay={300}>
                 <p>
                     I'm Wruhantojati, a UI/UX designer based in Yogyakarta, Indonesia. I believe great design isn't just about making things look good—it's about understanding people, their struggles, and designing solutions that genuinely improve their lives.
