@@ -43,6 +43,9 @@ const menuContainerVariants = {
       type: "tween",
       duration: 0.4,
       ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
     },
   },
 };
@@ -54,12 +57,7 @@ const menuListVariants = {
       staggerDirection: -1,
     },
   },
-  open: {
-    transition: {
-      staggerChildren: 0.07,
-      delayChildren: 0.2,
-    },
-  },
+  open: {},
 };
 
 const menuItemVariants = {
@@ -81,7 +79,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,13 +87,8 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     
-    const timer = setTimeout(() => {
-        setIsMounted(true);
-    }, 100);
-
     return () => {
         window.removeEventListener("scroll", handleScroll)
-        clearTimeout(timer);
     };
   }, []);
 
@@ -127,7 +120,7 @@ export default function Header() {
     if (isMenuOpen || isHeaderHovered) {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return `0 2px 8px rgba(0, 0, 0, 0.04), ${inset}`;
+    return `0 2px 4px rgba(0, 0, 0, 0.02), ${inset}`;
   };
 
 
@@ -233,6 +226,7 @@ export default function Header() {
                   exit="closed"
                   variants={menuContainerVariants}
                   className="overflow-hidden"
+                  onMouseLeave={() => setHoveredLink(null)}
                 >
                   <motion.ul
                     variants={menuListVariants}
@@ -243,11 +237,18 @@ export default function Header() {
                       { href: "/#work", label: "My Work" },
                       { href: "/contact", label: "Contact" },
                     ].map((item) => (
-                      <motion.li key={item.href} variants={menuItemVariants}>
+                      <motion.li 
+                        key={item.href} 
+                        variants={menuItemVariants}
+                        onMouseEnter={() => setHoveredLink(item.href)}
+                        >
                         <Link
                           href={item.href}
                           onClick={(e) => handleMenuClick(e, item.href)}
-                          className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-colors duration-300 hover:text-muted-foreground py-3"
+                          className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 py-3"
+                          style={{
+                            opacity: hoveredLink && hoveredLink !== item.href ? 0.5 : 1,
+                          }}
                         >
                           {item.label}
                         </Link>
