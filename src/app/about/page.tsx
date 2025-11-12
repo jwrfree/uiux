@@ -14,7 +14,7 @@ const AboutPage = () => {
       <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
         <div className="flex flex-col items-center">
             <ScrollAnimation>
-                <h1 className="font-display font-bold text-4xl md:text-5xl text-text-dark tracking-tight mb-12 text-center">
+                <h1 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-12 text-center">
                 About Me
                 </h1>
             </ScrollAnimation>
@@ -32,7 +32,7 @@ const AboutPage = () => {
                 </div>
             </ScrollAnimation>
           
-          <div className="prose prose-xl lg:prose-2xl text-text-secondary max-w-2xl">
+          <div className="prose lg:prose-lg text-text-secondary max-w-2xl text-lg">
             <ScrollAnimation delay={300}>
                 <p>
                     I'm Wruhantojati, a UI/UX designer based in Yogyakarta, Indonesia. I believe great design isn't just about making things look good—it's about understanding people, their struggles, and designing solutions that genuinely improve their lives.
@@ -48,7 +48,7 @@ const AboutPage = () => {
 
         <div className="max-w-5xl mx-auto mt-24 md:mt-32">
           <ScrollAnimation>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">My Story</h2>
+            <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-center">My Story</h2>
             <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">How I Got Here</p>
           </ScrollAnimation>
           <Timeline />
@@ -56,7 +56,7 @@ const AboutPage = () => {
 
         <div className="max-w-5xl mx-auto mt-24 md:mt-32">
             <ScrollAnimation>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">How I Approach Design</h2>
+              <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-center">How I Approach Design</h2>
               <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">My Design Philosophy</p>
             </ScrollAnimation>
             <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-none mx-auto">
@@ -105,7 +105,7 @@ const AboutPage = () => {
 
         <div className="max-w-5xl mx-auto mt-24 md:mt-32">
             <ScrollAnimation>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">What I Bring</h2>
+              <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-center">What I Bring</h2>
               <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">Skills & Approach</p>
             </ScrollAnimation>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,7 +137,7 @@ const AboutPage = () => {
 
         <div className="max-w-5xl mx-auto mt-24 md:mt-32">
             <ScrollAnimation>
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">Beyond Design</h2>
+                <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-center">Beyond Design</h2>
                 <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">Outside of Work</p>
             </ScrollAnimation>
             <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-3xl mx-auto">
