@@ -16,22 +16,22 @@ const AboutSection = () => {
       <div className="container">
         <div id="about" className="flex flex-col">
           <h1
-            className="my-0 font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
+            className="my-0 font-display text-[48px] md:text-[80px] font-medium leading-[1.2] -tracking-[0.02em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent"
           >
             UI/UX designer with 3 years of experience creating user-centered designs that drive business results and delight users.
           </h1>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div className="flex flex-col gap-8 md:gap-12 items-start justify-between md:max-w-[80%]">
               <div className="flex flex-col gap-4">
-                <p className="font-body text-base md:text-lg font-semibold leading-relaxed text-balance">
+                <p className="font-body text-lg md:text-xl font-semibold leading-relaxed text-balance">
                   I'm looking for a collaborative team environment where design thinking and user research drive product decisions.
                 </p>
-                <p className="font-body text-base md:text-lg leading-relaxed opacity-60">
+                <p className="font-body text-lg md:text-xl leading-relaxed opacity-60">
                   My approach combines deep user empathy with business acumen. I thrive in cross-functional teams, working alongside product managers and engineers to ship products that users love and that meet company goals.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center font-medium leading-none -tracking-[0.025em]">
-                <p className="text-[22px] lg:text-[28px] bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
+                <p className="text-[28px] lg:text-[32px] bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
                   <span className="opacity-40">Open to</span>
                   <br />
                   <span>Remote & Hybrid</span>
@@ -52,9 +52,9 @@ const AboutSection = () => {
                   <li>
                     <hr className="border-t border-border m-0" />
                   </li>
-                  <li className="flex items-center gap-3">
+                  <li className="flex items-center gap-3 py-4">
                     <ArrowRight className="size-6 text-foreground flex-shrink-0" />
-                    <p className="font-body text-base md:text-lg font-semibold">
+                    <p className="font-body text-lg md:text-xl font-semibold">
                       {service}
                     </p>
                   </li>

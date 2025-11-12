@@ -53,7 +53,7 @@ const Faq = () => {
     <section className="bg-background py-20 sm:py-24 md:py-40 lg:py-48">
       <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.35fr_0.65fr] md:gap-16">
-          <h2 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-[56px]">
+          <h2 className="font-display text-5xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-7xl">
             Frequently
             <br />
             asked questions
@@ -66,7 +66,7 @@ const Faq = () => {
                 className="border-b border-border-subtle"
               >
                 <AccordionTrigger className="group flex w-full items-center justify-between py-6 text-left hover:no-underline">
-                  <span className="flex-1 pr-4 text-lg font-semibold text-text-dark md:text-xl">
+                  <span className="flex-1 pr-4 text-xl font-semibold text-text-dark md:text-2xl">
                     {item.question}
                   </span>
                   <div className="ml-4 flex-shrink-0">
@@ -74,7 +74,7 @@ const Faq = () => {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 pr-10">
-                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
                     {item.answer}
                   </p>
                 </AccordionContent>
