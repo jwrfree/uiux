@@ -11,25 +11,25 @@
 
 @theme {
   --color-background: #fafaf9;
-  --color-foreground: #232522;
+  --color-foreground: #292524; /* stone-800 */
 
   --color-card: #e8e8e2;
-  --color-card-foreground: #232522;
+  --color-card-foreground: #292524; /* stone-800 */
 
   --color-popover: #fafaf9;
-  --color-popover-foreground: #232522;
+  --color-popover-foreground: #292524; /* stone-800 */
 
   --color-primary: #232522;
   --color-primary-foreground: #fafaf9;
 
   --color-secondary: #f3f3ed;
-  --color-secondary-foreground: #232522;
+  --color-secondary-foreground: #292524; /* stone-800 */
 
-  --color-muted: rgba(35, 37, 34, 0.5);
-  --color-muted-foreground: #4a4c48;
+  --color-muted: rgba(68, 64, 60, 0.5); /* stone-700 with opacity */
+  --color-muted-foreground: #57534e; /* stone-600 */
 
   --color-accent: #f3f3ed;
-  --color-accent-foreground: #232522;
+  --color-accent-foreground: #292524; /* stone-800 */
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
@@ -80,20 +80,20 @@
   --color-bg-primary: #fafaf9;
   --color-bg-secondary: #f3f3ed;
   --color-bg-card: #e8e8e2;
-  --color-text-dark: #232522;
-  --color-text-dark-secondary: #4a4c48;
+  --color-text-dark: #292524; /* stone-800 */
+  --color-text-dark-secondary: #57534e; /* stone-600 */
   --color-text-light: #fafaf9;
-  --color-text-muted: rgba(35, 37, 34, 0.5);
+  --color-text-muted: rgba(68, 64, 60, 0.5); /* stone-700 with opacity */
   --color-border-subtle: rgba(35, 37, 34, 0.1);
-  --color-gradient-text-start: #4a4c48;
-  --color-gradient-text-end: #232522;
+  --color-gradient-text-start: #292524; /* stone-800 */
+  --color-gradient-text-end: #d6d3d1; /* stone-300 */
   --color-gradient-button-start: #232522;
   --color-gradient-button-end: #191b18;
   --color-gradient-secondary-start: #fafaf9;
   --color-gradient-secondary-end: #f3f3ed;
   --color-overlay-dark: rgba(0, 0, 0, 0.4);
 
-  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
 }
 
@@ -183,8 +183,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
-    --tw-gradient-from: #27272a;
-    --tw-gradient-to: #d6d3d1;
+    --tw-gradient-from: var(--color-gradient-text-start);
+    --tw-gradient-to: var(--color-gradient-text-end);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -221,3 +221,4 @@
 nextjs-portal {
   display: none !important;
 }
+
