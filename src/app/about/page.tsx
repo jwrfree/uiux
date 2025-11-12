@@ -117,7 +117,7 @@ const AboutPage = () => {
                 { icon: Briefcase, title: 'Cross-Functional Collaboration', description: 'Bridging design and development with technical understanding and clear communication.' },
               ].map((skill, index) => (
                 <ScrollAnimation key={skill.title} delay={150 * (index + 1)}>
-                  <div className="bg-white/30 dark:bg-black/10 p-6 rounded-2xl h-full flex flex-col">
+                  <div className="bg-white/30 dark:bg-black/10 p-6 rounded-2xl h-full flex flex-col shadow-lg">
                     <skill.icon className="h-8 w-8 text-primary mb-4" />
                     <h4 className="font-semibold text-xl mb-2 text-text-dark">{skill.title}</h4>
                     <p className="text-text-secondary">{skill.description}</p>
