@@ -119,7 +119,7 @@
   --color-text-muted: rgba(68, 64, 60, 0.5); /* stone-700 with opacity */
   --color-border-subtle: rgba(35, 37, 34, 0.1);
   --color-gradient-text-start: #292524; /* stone-800 */
-  --color-gradient-text-end: #57534e; /* stone-600 */
+  --color-gradient-text-end: #e7e5e4; /* stone-200 */
   --color-gradient-button-start: #232522;
   --color-gradient-button-end: #191b18;
   --color-gradient-secondary-start: #fafaf9;
