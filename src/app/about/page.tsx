@@ -21,7 +21,7 @@ const AboutPage = () => {
             <ScrollAnimation delay={150}>
                 <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-md">
                 <Image
-                    src="/profile.jpg" 
+                    src="https://i.imgur.com/P7sZTw4.png"
                     alt="Wruhantojati - UI/UX Designer"
                     fill
                     className="object-cover"
