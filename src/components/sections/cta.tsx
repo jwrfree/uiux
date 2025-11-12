@@ -17,7 +17,7 @@ const CtaSection = () => {
         </span>
       </div>
       <div className="container relative z-10 mx-auto flex flex-col items-center text-center">
-        <h2 className="max-w-5xl font-display text-4xl font-medium leading-tight bg-gradient-to-r from-transparent via-foreground to-transparent bg-clip-text text-transparent md:text-5xl lg:text-[56px] lg:leading-[1.1]">
+        <h2 className="max-w-5xl font-display text-4xl font-medium leading-tight bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-5xl lg:text-[56px] lg:leading-[1.1]">
           Currently open to new opportunities. Feel free to reach out via email or connect with me on LinkedIn.
         </h2>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
