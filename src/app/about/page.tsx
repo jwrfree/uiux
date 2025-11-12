@@ -140,7 +140,7 @@ const AboutPage = () => {
                 <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">Beyond Design</h2>
                 <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">Outside of Work</p>
             </ScrollAnimation>
-            <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-3xl mx-auto text-center">
+            <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-3xl mx-auto">
                 <ScrollAnimation delay={150}>
                     <p>When I'm not designing, you'll find me cycling around Yogyakarta, exploring the city's streets and finding new perspectives—literally and figuratively. I'm always experimenting with new design tools and sharpening my skills, whether it's a new Figma plugin or diving into prototyping techniques.</p>
                 </ScrollAnimation>
