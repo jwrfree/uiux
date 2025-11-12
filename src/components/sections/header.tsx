@@ -122,142 +122,140 @@ export default function Header() {
 
   const getBoxShadow = () => {
     const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5)';
-    if (isHeaderHovered || isMenuOpen) {
+    if (isMenuOpen || isHeaderHovered) {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return 'none';
+    return `inset 0 1px 0 rgba(255, 255, 255, 0.8)`;
   };
 
 
   return (
     <header className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center">
       <motion.div
-        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out`}
+        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
         initial={{ scale: 1 }}
         animate={{ scale: isScrolled ? 0.95 : 1 }}
         onMouseEnter={() => setIsHeaderHovered(true)}
         onMouseLeave={() => setIsHeaderHovered(false)}
         >
-
-        <motion.div
-          className="relative rounded-[36px] origin-center"
-          initial={{ width: 72, filter: 'blur(5px)', opacity: 0 }}
-          animate={{ 
-            width: '100%', 
-            filter: 'blur(0px)',
-            opacity: 1,
-          }}
-          transition={{ 
-            duration: 0.8, 
-            ease: [0.25, 1, 0.5, 1],
-            delay: 0.1
-          }}
-          style={{
-            background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            border: '1px solid rgba(255, 255, 255, 0.6)',
-            boxShadow: getBoxShadow(),
-          }}>
-
-          {/* Glass shine effect */}
+        
+        <div className="flex justify-center">
           <motion.div
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="animate-shine absolute inset-0 rounded-[36px] opacity-50 pointer-events-none"
-            style={{
-              background: 'linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%)',
-              backgroundSize: '200% 100%',
+            className="relative rounded-[36px] w-full origin-center"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.25, 1, 0.5, 1],
+              delay: 0.1
             }}
-          />
+            style={{
+              background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              border: '1px solid rgba(255, 255, 255, 0.6)',
+              boxShadow: getBoxShadow(),
+            }}>
 
-          {/* Header Bar */}
-          <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
-            <motion.div 
-              className="flex justify-start items-center h-full"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <Link
-                href="/"
-                aria-label="Home"
-                onClick={closeMenu}
-                className="flex items-center justify-start ml-2 lg:ml-4 transition-transform duration-300 hover:scale-105">
-                <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text">UI/UX</span>
-              </Link>
-            </motion.div>
+            {/* Glass shine effect */}
+            <motion.div
+              initial={{ opacity: 0}}
+              animate={{ opacity: 1}}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="animate-shine absolute inset-0 rounded-[36px] opacity-50 pointer-events-none"
+              style={{
+                background: 'linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%)',
+                backgroundSize: '200% 100%',
+              }}
+            />
 
-            <div className="flex justify-center items-center h-full">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className="group flex items-center justify-center w-12 h-12 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
-                aria-label="Toggle menu">
-                <AnimatedMenuIcon isOpen={isMenuOpen} isHovered={isHovered} />
-              </button>
+            {/* Header Bar */}
+            <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
+              <motion.div 
+                className="flex justify-start items-center h-full"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
+                <Link
+                  href="/"
+                  aria-label="Home"
+                  onClick={closeMenu}
+                  className="flex items-center justify-start ml-2 lg:ml-4 transition-transform duration-300 hover:scale-105">
+                  <span className="text-2xl md:text-3xl font-medium bg-gradient-to-b from-[#232522] to-[rgba(35,37,34,0.4)] text-transparent bg-clip-text">UI/UX</span>
+                </Link>
+              </motion.div>
+
+              <div className="flex justify-center items-center h-full">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  className="group flex items-center justify-center w-12 h-12 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
+                  aria-label="Toggle menu">
+                  <AnimatedMenuIcon isOpen={isMenuOpen} isHovered={isHovered} />
+                </button>
+              </div>
+
+              <motion.div 
+                className="flex justify-end items-center h-full"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
+                <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
+                  <a href="mailto:wruhantojati@gmail.com">
+                    <span>Get in Touch</span>
+                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                      <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </a>
+                </Button>
+                <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12">
+                  <a href="mailto:wruhantojati@gmail.com">
+                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-30deg] group-hover:scale-110" />
+                  </a>
+                </Button>
+              </motion.div>
             </div>
 
-            <motion.div 
-              className="flex justify-end items-center h-full"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-            >
-              <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
-                <a href="mailto:wruhantojati@gmail.com">
-                  <span>Get in Touch</span>
-                  <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
-                    <ArrowRight className="h-4 w-4" />
+            {/* Dropdown Menu */}
+            <AnimatePresence>
+              {isMenuOpen && (
+                <motion.div
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={menuContainerVariants}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pt-2 pb-8">
+                    <motion.ul
+                      variants={menuListVariants}
+                      className="flex flex-col gap-2"
+                    >
+                      {[
+                        { href: "/about", label: "About Me" },
+                        { href: "/#work", label: "My Work" },
+                        { href: "/contact", label: "Contact" },
+                      ].map((item) => (
+                        <motion.li key={item.href} variants={menuItemVariants}>
+                          <Link
+                            href={item.href}
+                            onClick={(e) => handleMenuClick(e, item.href)}
+                            className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
                   </div>
-                </a>
-              </Button>
-              <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12">
-                <a href="mailto:wruhantojati@gmail.com">
-                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-30deg] group-hover:scale-110" />
-                </a>
-              </Button>
-            </motion.div>
-          </div>
-
-          {/* Dropdown Menu */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial="closed"
-                animate="open"
-                exit="closed"
-                variants={menuContainerVariants}
-                className="overflow-hidden"
-              >
-                <div className="px-6 pt-2 pb-8">
-                  <motion.ul
-                    variants={menuListVariants}
-                    className="flex flex-col gap-2"
-                  >
-                    {[
-                      { href: "/about", label: "About Me" },
-                      { href: "/#work", label: "My Work" },
-                      { href: "/contact", label: "Contact" },
-                    ].map((item) => (
-                      <motion.li key={item.href} variants={menuItemVariants}>
-                        <Link
-                          href={item.href}
-                          onClick={(e) => handleMenuClick(e, item.href)}
-                          className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
       </motion.div>
     </header>
   );
