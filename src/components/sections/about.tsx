@@ -24,7 +24,7 @@ const AboutSection = () => {
             as="h1"
             textAs="span"
             containerClassName="my-0"
-            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance text-text-dark"
+            textClassName="font-display text-[40px] md:text-[64px] font-medium leading-[1.3] -tracking-[0.015em] text-balance"
           >
             UI/UX designer with 3 years of experience creating user-centered designs that drive business results and delight users.
           </ScrollReveal>
