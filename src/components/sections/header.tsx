@@ -137,11 +137,12 @@ export default function Header() {
       <div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-all duration-500 ease-out ${
         isScrolled ? 'scale-[0.95]' : 'scale-100'}`
-        }>
+        }
+        onMouseEnter={() => setIsHeaderHovered(true)}
+        onMouseLeave={() => setIsHeaderHovered(false)}
+        >
 
         <div
-          onMouseEnter={() => setIsHeaderHovered(true)}
-          onMouseLeave={() => setIsHeaderHovered(false)}
           className="relative rounded-[36px] transition-shadow duration-300 ease-out"
           style={{
             background: 'linear-gradient(135deg, rgba(250, 250, 249, 0.7) 0%, rgba(250, 250, 249, 0.5) 100%)',
