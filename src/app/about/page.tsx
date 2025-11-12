@@ -33,12 +33,12 @@ const AboutPage = () => {
           <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-2xl">
             <ScrollAnimation delay={300}>
                 <p>
-                    I'm a passionate UI/UX Designer with 3 years of experience creating intuitive, engaging, and beautiful user experiences. I believe great design solves real-world problems and makes technology more human-centric.
+                    I'm Wruhantojati, a UI/UX designer based in Yogyakarta, Indonesia. I believe great design isn't just about making things look good—it's about understanding people, their struggles, and designing solutions that genuinely improve their lives.
                 </p>
             </ScrollAnimation>
             <ScrollAnimation delay={450}>
                 <p>
-                    Throughout my career, I've worked on a diverse range of projects, from complex enterprise software to consumer-facing mobile apps. This has given me a deep understanding of the product design lifecycle, from initial research to final implementation.
+                    For the past 2+ years, I've been designing for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
                 </p>
             </ScrollAnimation>
             <ScrollAnimation delay={600}>
