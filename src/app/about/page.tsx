@@ -2,7 +2,7 @@
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase } from "lucide-react";
 import Image from "next/image";
 
 const AboutPage = () => {
@@ -113,6 +113,39 @@ const AboutPage = () => {
               </ul>
             </div>
         </div>
+
+        <div className="max-w-5xl mx-auto mt-24 md:mt-32">
+            <ScrollAnimation>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-text-dark tracking-tight mb-4 text-center">What I Bring</h2>
+              <p className="text-lg md:text-xl text-text-secondary mb-12 text-center">Skills & Approach</p>
+            </ScrollAnimation>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { icon: Users, title: 'User Research', description: 'Understanding needs through interviews, surveys, and contextual inquiry—especially in sensitive or complex environments.' },
+                { icon: Repeat, title: 'Behavior Change Design', description: 'Creating incentive systems and reducing friction to shift user habits and drive measurable impact.' },
+                { icon: Settings, title: 'Systems Thinking', description: 'Mapping complex stakeholder relationships and designing solutions that balance competing needs.' },
+                { icon: TestTube, title: 'Prototyping & Testing', description: 'Building interactive prototypes and validating decisions through user testing and iteration.' },
+                { icon: Briefcase, title: 'Cross-Functional Collaboration', description: 'Bridging design and development with technical understanding and clear communication.' },
+              ].map((skill, index) => (
+                <ScrollAnimation key={skill.title} delay={150 * (index + 1)}>
+                  <div className="bg-white/30 dark:bg-black/10 p-6 rounded-2xl h-full flex flex-col">
+                    <skill.icon className="h-8 w-8 text-primary mb-4" />
+                    <h4 className="font-semibold text-xl mb-2 text-text-dark">{skill.title}</h4>
+                    <p className="text-text-secondary">{skill.description}</p>
+                  </div>
+                </ScrollAnimation>
+              ))}
+            </div>
+             <ScrollAnimation delay={450}>
+                <div className="mt-12 text-center">
+                    <h4 className="font-semibold text-xl mb-4 text-text-dark">Tools I Use</h4>
+                    <p className="text-lg text-text-secondary">
+                        Figma • FigJam • Maze • Optimal Workshop • HTML/CSS/JS basics
+                    </p>
+                </div>
+            </ScrollAnimation>
+        </div>
+
       </main>
       <CtaSection />
     </div>
