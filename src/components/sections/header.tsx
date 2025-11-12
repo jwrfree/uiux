@@ -31,7 +31,7 @@ const menuContainerVariants = {
     opacity: 0,
     transition: {
       type: "tween",
-      duration: 0.4,
+      duration: 0.3,
       ease: "easeOut",
     },
   },
@@ -49,14 +49,14 @@ const menuContainerVariants = {
 const menuListVariants = {
   closed: {
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.05,
       staggerDirection: -1,
     },
   },
   open: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.3, // Delay menu items animation to let container expand first
+      staggerChildren: 0.08,
+      delayChildren: 0.2, 
     },
   },
 };
@@ -64,13 +64,13 @@ const menuListVariants = {
 const menuItemVariants = {
   closed: {
     opacity: 0,
-    y: -15,
-    transition: { type: "spring", damping: 20, stiffness: 150 },
+    y: -10,
+    transition: { type: "tween", ease: "easeOut", duration: 0.2 },
   },
   open: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", damping: 20, stiffness: 150 },
+    transition: { type: "tween", ease: "easeOut", duration: 0.3 },
   },
 };
 
@@ -245,7 +245,7 @@ export default function Header() {
                           <Link
                             href={item.href}
                             onClick={(e) => handleMenuClick(e, item.href)}
-                            className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 hover:text-muted-foreground hover:scale-105 py-2"
+                            className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-colors duration-300 hover:text-muted-foreground"
                           >
                             {item.label}
                           </Link>
