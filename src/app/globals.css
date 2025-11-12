@@ -177,7 +177,7 @@
     text-wrap: balance;
   }
 
-  h1, h2 {
+  h1, h2, h3, h4, h5, h6 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -220,6 +220,7 @@
 nextjs-portal {
   display: none !important;
 }
+
 
 
 
