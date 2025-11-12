@@ -80,6 +80,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "shine": "shine 6s linear infinite"
       },
+      backdropBlur: {
+        lg: '20px',
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
