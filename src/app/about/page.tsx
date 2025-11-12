@@ -11,15 +11,16 @@ const AboutPage = () => {
       <Header />
       <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
         <div className="flex flex-col items-center">
-          
-          <div className="flex flex-col gap-8 items-center max-w-xl">
             <ScrollAnimation>
-                <h1 className="font-display font-bold text-4xl md:text-5xl text-text-dark tracking-tight mb-4 text-center">
+                <h1 className="font-display font-bold text-4xl md:text-5xl text-text-dark tracking-tight mb-12 text-center">
                 About Me
                 </h1>
             </ScrollAnimation>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
             <ScrollAnimation delay={150}>
-                <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-md">
+                <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto md:max-w-none">
                 <Image
                     src="https://i.imgur.com/P7sZTw4.png"
                     alt="Wruhantojati - UI/UX Designer"
@@ -28,9 +29,8 @@ const AboutPage = () => {
                 />
                 </div>
             </ScrollAnimation>
-          </div>
           
-          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-2xl mt-12 text-center">
+          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-2xl">
             <ScrollAnimation delay={300}>
                 <p>
                     I'm a passionate UI/UX Designer with 3 years of experience creating intuitive, engaging, and beautiful user experiences. I believe great design solves real-world problems and makes technology more human-centric.
@@ -44,7 +44,7 @@ const AboutPage = () => {
             <ScrollAnimation delay={600}>
                 <h3 className="font-display font-semibold text-2xl mt-12 mb-4 text-text-dark">My Design Philosophy</h3>
             </ScrollAnimation>
-            <ul className="space-y-4 !pl-0 inline-block text-left">
+            <ul className="space-y-4 !pl-0 text-left">
               <ScrollAnimation delay={750}>
                   <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
