@@ -105,7 +105,7 @@ const HeroSection = () => {
         animate="visible"
         className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
-        <h1 className="font-display font-black text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
+        <h1 className="font-display font-bold text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           <motion.span 
             className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
             variants={itemVariants}
