@@ -33,6 +33,7 @@ const menuContainerVariants = {
       type: "tween",
       duration: 0.3,
       ease: "easeOut",
+      when: "afterChildren",
     },
   },
   open: {
@@ -55,8 +56,8 @@ const menuListVariants = {
   },
   open: {
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2, 
+      staggerChildren: 0.07,
+      delayChildren: 0.2,
     },
   },
 };
@@ -64,8 +65,8 @@ const menuListVariants = {
 const menuItemVariants = {
   closed: {
     opacity: 0,
-    y: -10,
-    transition: { type: "tween", ease: "easeOut", duration: 0.2 },
+    y: 10,
+    transition: { type: "tween", ease: "easeIn", duration: 0.2 },
   },
   open: {
     opacity: 1,
@@ -126,7 +127,7 @@ export default function Header() {
     if (isMenuOpen || isHeaderHovered) {
       return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
     }
-    return `0 4px 12px rgba(0, 0, 0, 0.05), ${inset}`;
+    return `0 2px 8px rgba(0, 0, 0, 0.04), ${inset}`;
   };
 
 
@@ -233,28 +234,26 @@ export default function Header() {
                   variants={menuContainerVariants}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pt-2 pb-8">
-                    <motion.ul
-                      variants={menuListVariants}
-                      className="flex flex-col gap-2"
-                    >
-                      {[
-                        { href: "/about", label: "About Me" },
-                        { href: "/#work", label: "My Work" },
-                        { href: "/contact", label: "Contact" },
-                      ].map((item) => (
-                        <motion.li key={item.href} variants={menuItemVariants}>
-                          <Link
-                            href={item.href}
-                            onClick={(e) => handleMenuClick(e, item.href)}
-                            className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-colors duration-300 hover:text-muted-foreground"
-                          >
-                            {item.label}
-                          </Link>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-                  </div>
+                  <motion.ul
+                    variants={menuListVariants}
+                    className="flex flex-col gap-2 px-6 pt-2 pb-8"
+                  >
+                    {[
+                      { href: "/about", label: "About Me" },
+                      { href: "/#work", label: "My Work" },
+                      { href: "/contact", label: "Contact" },
+                    ].map((item) => (
+                      <motion.li key={item.href} variants={menuItemVariants}>
+                        <Link
+                          href={item.href}
+                          onClick={(e) => handleMenuClick(e, item.href)}
+                          className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-colors duration-300 hover:text-muted-foreground py-3"
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
                 </motion.div>
               )}
             </AnimatePresence>
