@@ -10,11 +10,11 @@ const AboutPage = () => {
     <div className="bg-background text-foreground">
       <Header />
       <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="flex flex-col items-center">
           
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 items-center max-w-xl">
             <ScrollAnimation>
-                <h1 className="font-display font-bold text-4xl md:text-5xl text-text-dark tracking-tight mb-4">
+                <h1 className="font-display font-bold text-4xl md:text-5xl text-text-dark tracking-tight mb-4 text-center">
                 About Me
                 </h1>
             </ScrollAnimation>
@@ -30,7 +30,7 @@ const AboutPage = () => {
             </ScrollAnimation>
           </div>
           
-          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-none">
+          <div className="prose prose-lg lg:prose-xl text-text-secondary max-w-2xl mt-12 text-center">
             <ScrollAnimation delay={300}>
                 <p>
                     I'm a passionate UI/UX Designer with 3 years of experience creating intuitive, engaging, and beautiful user experiences. I believe great design solves real-world problems and makes technology more human-centric.
@@ -44,7 +44,7 @@ const AboutPage = () => {
             <ScrollAnimation delay={600}>
                 <h3 className="font-display font-semibold text-2xl mt-12 mb-4 text-text-dark">My Design Philosophy</h3>
             </ScrollAnimation>
-            <ul className="space-y-4 !pl-0">
+            <ul className="space-y-4 !pl-0 inline-block text-left">
               <ScrollAnimation delay={750}>
                   <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
