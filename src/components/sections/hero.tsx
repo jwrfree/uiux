@@ -116,7 +116,7 @@ const HeroSection = () => {
           className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
           variants={itemVariants}
         >
-          <span>I bridge research, strategy, and visual design to shape human-centered platforms that drive measurable business outcomes.</span>
+          <span>From behavior change platforms to mission-critical workflows, I craft intuitive journeys that balance empathy, clarity, and measurable results.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
