@@ -17,7 +17,7 @@ const AboutSection = () => {
       <div className="container">
         <div id="about" className="flex flex-col">
           <ScrollReveal
-            baseOpacity={0}
+            baseOpacity={0.1}
             enableBlur={true}
             baseRotation={0}
             blurStrength={10}
