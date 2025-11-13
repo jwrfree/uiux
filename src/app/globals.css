@@ -126,8 +126,8 @@
   --color-gradient-secondary-end: #f3f3ed;
   --color-overlay-dark: rgba(0, 0, 0, 0.4);
 
-  --font-display: 'PP Neue Montreal', 'Inter', sans-serif;
-  --font-body: 'PP Neue Montreal', 'Inter', sans-serif;
+  --font-display: 'PP Neue Montreal', sans-serif;
+  --font-body: 'PP Neue Montreal', sans-serif;
 }
 
 /*
