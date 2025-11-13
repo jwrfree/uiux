@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="py-10">
       <div className="container flex flex-col sm:flex-row justify-center items-center gap-4">
-        <p className="text-sm font-medium order-2 sm:order-1 text-foreground">
+        <p className="text-sm font-medium order-2 sm:order-1 text-text-dark-secondary">
           © 2025 Wruhantojati. All rights reserved.
         </p>
         {footerLinks.length > 0 && (
