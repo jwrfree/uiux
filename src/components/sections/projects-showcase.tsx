@@ -24,9 +24,9 @@ const projectsData: Project[] = [
     tags: "Website, B2B, Internship",
   },
   {
-    title: "SaaS dashboard redesign that improved user engagement and feature discoverability",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/bc92d5a2-14ee-4285-94ac-5ada736f5089-offmenu-design/assets/images/flex-thumb_2x-2.webp",
-    link: "/projects/flex",
+    title: "Metta Restaurant Homepage Design",
+    image: "https://picsum.photos/seed/metta/1600/1200",
+    link: "/projects/metta-restaurant",
     tags: "UI/UX Design, Web",
   },
   {
@@ -86,7 +86,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={project.title}
           width={1600}
           height={1200}
-          data-ai-hint="tech website"
+          data-ai-hint="restaurant website"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-105"
         />
         {/* Mobile layout */}
