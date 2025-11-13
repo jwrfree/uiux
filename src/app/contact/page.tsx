@@ -61,7 +61,7 @@ const ContactPage = () => {
                           <Mail className="h-8 w-8 text-primary mr-4" />
                           <div>
                               <h4 className="font-semibold text-xl">Email</h4>
-                              <a href="mailto:jwrite.free@gmail.com" className="text-lg text-text-secondary hover:text-primary transition-colors">jwrite.free@gmail.com</a>
+                              <a href="mailto:jati.uiux@gmail.com" className="text-lg text-text-secondary hover:text-primary transition-colors">jati.uiux@gmail.com</a>
                           </div>
                       </div>
                     </ScrollAnimation>
