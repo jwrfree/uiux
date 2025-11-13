@@ -130,14 +130,16 @@ export default function Header() {
     <header 
       className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center"
     >
-      <motion.div
-        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
-        initial={{ scale: 1 }}
-        animate={{ scale: isScrolled ? 0.8 : 1 }}
+      <div
+        className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto origin-center`}
         >
         
-        <div 
+        <motion.div 
           className="flex justify-center"
+          initial={{ scale: 1 }}
+          animate={{ scale: isScrolled ? 0.8 : 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          style={{ transformOrigin: 'top center' }}
           onMouseEnter={() => setIsHeaderHovered(true)}
           onMouseLeave={() => setIsHeaderHovered(false)}
         >
@@ -263,8 +265,8 @@ export default function Header() {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </header>
   );
 }
