@@ -172,7 +172,7 @@ export default function Header() {
             />
 
             {/* Header Bar */}
-            <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
+            <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] px-3`}>
               <motion.div 
                 className="flex justify-start items-center h-full"
                 initial={{ opacity: 0, x: -10 }}
