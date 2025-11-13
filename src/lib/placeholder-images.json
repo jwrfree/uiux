@@ -1,0 +1,22 @@
+{
+  "mettaHero": {
+    "src": "https://picsum.photos/seed/metta-hero/1600/900",
+    "hint": "restaurant interior"
+  },
+  "mettaFinal1": {
+    "src": "https://picsum.photos/seed/metta-final1/1600/900",
+    "hint": "website hero section"
+  },
+  "mettaFinal2": {
+    "src": "https://picsum.photos/seed/metta-final2/1600/900",
+    "hint": "restaurant menu design"
+  },
+  "mettaFinal3": {
+    "src": "https://picsum.photos/seed/metta-final3/1600/900",
+    "hint": "website about section"
+  },
+  "mettaFinal4": {
+    "src": "https://picsum.photos/seed/metta-final4/1600/900",
+    "hint": "website contact form"
+  }
+}
