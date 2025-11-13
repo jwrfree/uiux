@@ -70,7 +70,7 @@ const ContactPage = () => {
                           <Phone className="h-8 w-8 text-primary mr-4" />
                           <div>
                               <h4 className="font-semibold text-xl">Phone</h4>
-                              <span className="text-lg text-text-secondary">6281548300288</span>
+                              <a href="tel:+6281548300288" className="text-lg text-text-secondary hover:text-primary transition-colors">+62 815 4830 0288</a>
                           </div>
                       </div>
                     </ScrollAnimation>
