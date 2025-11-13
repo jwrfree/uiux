@@ -18,14 +18,10 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "Mobile banking app redesign focused on improving user onboarding and core features",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/bc92d5a2-14ee-4285-94ac-5ada736f5089-offmenu-design/assets/images/ditto-thumb_2x-1.webp",
-    link: "/projects/ditto",
-    tags: "Product Design, Mobile",
-    stats: [
-      { value: "45%", label: "Faster Onboarding" },
-      { value: "4.8★", label: "App Store Rating" },
-    ],
+    title: "Teknovo Website Redesign: Redesigned homepage and about page to better communicate IT service value proposition",
+    image: "https://picsum.photos/seed/teknovo/1600/1200",
+    link: "/projects/teknovo",
+    tags: "Website, B2B, Internship",
   },
   {
     title: "SaaS dashboard redesign that improved user engagement and feature discoverability",
@@ -90,10 +86,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alt={project.title}
           width={1600}
           height={1200}
+          data-ai-hint="tech website"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-105"
         />
         {/* Mobile layout */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/80 to-transparent" />
+        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-20 p-6 flex flex-col justify-end text-text-light">
           <h3 className="font-medium text-[clamp(1.25rem,4vw,1.75rem)] leading-tight -tracking-[0.01em] text-balance max-w-[30ch]">
             {project.title}
@@ -101,7 +98,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-t from-white/90 via-white/70 to-white/30 backdrop-blur-xl md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-t from-white/90 via-white/85 to-white/30 backdrop-blur-xl md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
         <div className="hidden md:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between text-foreground opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
           <div className="flex flex-col gap-4">
             <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
