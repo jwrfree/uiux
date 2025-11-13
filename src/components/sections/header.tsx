@@ -133,7 +133,7 @@ export default function Header() {
       <motion.div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto transition-transform duration-500 ease-out origin-center`}
         initial={{ scale: 1 }}
-        animate={{ scale: isScrolled && !isMenuOpen ? 0.9 : 1 }}
+        animate={{ scale: isScrolled ? 0.8 : 1 }}
         >
         
         <div 
