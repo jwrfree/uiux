@@ -93,7 +93,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-105"
         />
         {/* Mobile layout */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/60 to-transparent backdrop-blur-sm" />
+        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-20 p-6 flex flex-col justify-end text-text-light">
           <h3 className="font-medium text-[clamp(1.25rem,4vw,1.75rem)] leading-tight -tracking-[0.01em] text-balance max-w-[30ch]">
             {project.title}
@@ -101,8 +101,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-br from-white/85 via-white/60 to-white/25 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(17,25,40,0.18)] md:bg-gradient-to-t md:from-white/75 md:via-white/55 md:to-white/20 md:backdrop-blur-xl md:border-none md:shadow-none md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
-        <div className="hidden md:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between text-foreground md:text-foreground opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-t from-white/90 via-white/70 to-white/30 backdrop-blur-xl md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="hidden md:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between text-foreground opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
           <div className="flex flex-col gap-4">
             <h3 className="font-medium text-[clamp(1.5rem,2.5vw,2.75rem)] leading-none -tracking-[0.015em] text-balance max-w-[30ch]">
               {project.title}
