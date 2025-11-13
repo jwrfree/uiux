@@ -16,7 +16,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 const ProjectTeknovoPage = () => {
     const projectDetails = [
-        { label: 'Role', value: 'UI/UX Design Intern', icon: User },
+        { label: 'Role', value: 'UI/UX Design Intern', icon: UserCheck },
         { label: 'Timeline', value: '3 months (Mar-May 2022)', icon: Calendar },
         { label: 'Tools', value: 'Figma, Miro', icon: Wrench },
     ];
@@ -384,5 +384,7 @@ const ProjectTeknovoPage = () => {
 };
 
 export default ProjectTeknovoPage;
+
+    
 
     
