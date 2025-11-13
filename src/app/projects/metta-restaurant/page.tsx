@@ -5,7 +5,7 @@ import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { ArrowUpRight, Calendar, User, Wrench, Zap, Gem, Repeat, CheckCircle, BarChart, Users, Target, Search, Palette, TestTube, Lightbulb, UsersRound, MessageSquareQuote } from "lucide-react";
+import { ArrowUpRight, Calendar, User, Wrench, Zap, Gem, Repeat, CheckCircle, BarChart, Users, Target, Search, Palette, TestTube, Lightbulb, UsersRound, MessageSquareQuote, FileText, TrendingUp, ShieldCheck, Scale } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import placeholderImages from '@/lib/placeholder-images.json';
@@ -80,39 +80,70 @@ const ProjectMettaPage = () => {
 
                             {/* Project Overview */}
                             <section id="overview" className="py-16 md:py-24 scroll-mt-24">
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
                                     <div className="lg:col-span-1">
                                         <ScrollAnimation>
-                                            <h2 className="font-display text-2xl font-bold mb-4">Project Info</h2>
+                                            <h2 className="font-display text-3xl font-bold mb-6 text-text-dark">Project Info</h2>
                                         </ScrollAnimation>
-                                        <div className="space-y-4">
+                                        <div className="space-y-6">
                                             {projectDetails.map((detail, index) => (
                                                 <ScrollAnimation key={index} delay={150 * (index + 1)}>
                                                     <div className="flex items-center">
-                                                        <detail.icon className="h-6 w-6 text-primary mr-3" />
+                                                        <detail.icon className="h-7 w-7 text-primary mr-4" />
                                                         <div>
-                                                            <h4 className="font-semibold text-text-dark">{detail.label}</h4>
-                                                            <p className="text-text-secondary">{detail.value}</p>
+                                                            <h4 className="font-semibold text-lg text-text-dark">{detail.label}</h4>
+                                                            <p className="text-lg text-text-secondary">{detail.value}</p>
                                                         </div>
                                                     </div>
                                                 </ScrollAnimation>
                                             ))}
+                                            <ScrollAnimation delay={600}>
+                                                <Button asChild variant="primary" size="lg" className="group rounded-full mt-6 w-full">
+                                                    <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
+                                                        <span>View Live Prototype</span>
+                                                        <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                    </Link>
+                                                </Button>
+                                            </ScrollAnimation>
                                         </div>
                                     </div>
-                                    <div className="lg:col-span-3 prose lg:prose-lg text-text-secondary text-lg max-w-none">
+                                    <div className="lg:col-span-2">
                                         <ScrollAnimation delay={300}>
-                                            <h2 className="font-display text-2xl font-bold mb-4">Overview</h2>
-                                            <p>
-                                                Metta is an innovative web platform dedicated to presenting a variety of world cuisines to culinary lovers. The challenge was to design a homepage that could attract the target audience and facilitate the reservation process easily, while reflecting Metta's identity as a premium multi-cuisine restaurant.
-                                            </p>
-                                        </ScrollAnimation>
-                                        <ScrollAnimation delay={450}>
-                                            <Button asChild variant="primary" size="lg" className="group rounded-full mt-6">
-                                                <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
-                                                    <span>View Live Prototype</span>
-                                                    <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                                </Link>
-                                            </Button>
+                                            <Card className="bg-secondary/50">
+                                                <CardHeader>
+                                                    <CardTitle className="flex items-center text-3xl"><Zap className="h-8 w-8 mr-3 text-primary"/>Impact Snapshot</CardTitle>
+                                                </CardHeader>
+                                                <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none space-y-6">
+                                                    <div>
+                                                        <h4 className="font-semibold text-text-dark !mb-2">Business Impact</h4>
+                                                        <ul className="!mt-0 !space-y-1">
+                                                            <li>Designed to increase reservation conversion through research-backed UX patterns.</li>
+                                                            <li>Addressed critical gap: 90% of diners research restaurants online before visiting, yet most sites fail to convert.</li>
+                                                            <li>Solution positioned Metta as premium multi-cuisine destination vs generic single-cuisine competitors.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="font-semibold text-text-dark !mb-2">Key Metrics Leveraged</h4>
+                                                        <ul className="!mt-0 !space-y-1">
+                                                            <li><strong className="text-text-dark">57% of restaurant traffic is mobile</strong> → Prioritized mobile-first responsive design.</li>
+                                                            <li><strong className="text-text-dark">94% more engagement with high-quality imagery</strong> → Food-first visual hierarchy.</li>
+                                                            <li><strong className="text-text-dark">68% higher conversion with persistent CTAs</strong> (industry benchmark) → Implemented sticky navigation with "Reserve Now" button.</li>
+                                                        </ul>
+                                                    </div>
+                                                     <div>
+                                                        <h4 className="font-semibold text-text-dark !mb-2">Problem Solved</h4>
+                                                        <p className="!mt-0">Metta needed to differentiate in crowded multi-cuisine market while facilitating seamless reservations. Initial brief lacked clear value proposition and booking flow optimization.</p>
+                                                     </div>
+                                                     <div>
+                                                        <h4 className="font-semibold text-text-dark !mb-2">My Approach</h4>
+                                                        <p className="!mt-0">Research-driven redesign combining competitive analysis (12 trend analysis + 3 in-depth competitor audits), dual-persona strategy, and iterative expert review to create conversion-focused homepage that balances exploratory storytelling with efficient decision-making.</p>
+                                                     </div>
+                                                     <div>
+                                                        <h4 className="font-semibold text-text-dark !mb-2">Outcome</h4>
+                                                        <p className="!mt-0">Delivered a complete design system and 7-section homepage optimized for two user types: adventurous foodies and busy professionals. Incorporated all feedback from three UX experts and ensured WCAG 2.1 AA compliance.</p>
+                                                     </div>
+                                                </CardContent>
+                                            </Card>
                                         </ScrollAnimation>
                                     </div>
                                 </div>
@@ -123,33 +154,41 @@ const ProjectMettaPage = () => {
                                 <ScrollAnimation>
                                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">Context & Challenge</h2>
                                 </ScrollAnimation>
-                                <div className="max-w-3xl mx-auto text-center">
-                                    <ScrollAnimation delay={150}>
-                                        <p className="text-xl md:text-2xl text-text-dark font-medium mb-8">
-                                        How can we design a homepage that attracts our target audience, simplifies reservations, and solidifies Metta’s identity as a premium multi-cuisine restaurant?
+                                <div className="max-w-3xl mx-auto">
+                                     <ScrollAnimation delay={150}>
+                                        <p className="text-xl md:text-2xl text-text-dark font-medium mb-8 text-center">
+                                        Bagaimana mendesain homepage yang dapat menarik target audience dan memfasilitasi proses reservasi dengan mudah, sambil mencerminkan identitas Metta sebagai restoran multi-cuisine berkelas premium?
                                         </p>
                                     </ScrollAnimation>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                                         <ScrollAnimation delay={300}>
-                                            <div>
-                                                <h4 className="font-semibold text-xl text-text-dark mb-2 flex items-center"><Target className="h-5 w-5 mr-2 text-primary"/>Business Goals</h4>
-                                                <ul className="list-disc list-inside text-lg text-text-secondary space-y-1">
-                                                    <li>Increase conversion rate for online reservations.</li>
-                                                    <li>Build a brand image as a premium culinary destination.</li>
-                                                    <li>Attract a target audience that values quality and culinary diversity.</li>
-                                                </ul>
-                                            </div>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle className="flex items-center text-2xl"><Target className="h-6 w-6 mr-3 text-primary"/>Business Goals</CardTitle>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="list-disc list-inside text-lg text-text-secondary space-y-2">
+                                                        <li>Meningkatkan conversion rate untuk reservasi online.</li>
+                                                        <li>Membangun brand image sebagai destinasi kuliner berkelas premium.</li>
+                                                        <li>Menarik target audience yang menghargai kualitas dan keberagaman kuliner.</li>
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
                                         </ScrollAnimation>
                                         <ScrollAnimation delay={450}>
-                                            <div>
-                                                <h4 className="font-semibold text-xl text-text-dark mb-2 flex items-center"><UsersRound className="h-5 w-5 mr-2 text-primary"/>User Goals</h4>
-                                                <ul className="list-disc list-inside text-lg text-text-secondary space-y-1">
-                                                    <li>Find restaurant information quickly and easily.</li>
-                                                    <li>Preview the menu and popular dishes.</li>
-                                                    <li>Make reservations with a smooth and efficient process.</li>
-                                                    <li>Understand the atmosphere and value proposition of the restaurant.</li>
-                                                </ul>
-                                            </div>
+                                            <Card>
+                                                <CardHeader>
+                                                    <CardTitle className="flex items-center text-2xl"><Users className="h-6 w-6 mr-3 text-primary"/>User Goals</CardTitle>
+                                                </CardHeader>
+                                                <CardContent>
+                                                    <ul className="list-disc list-inside text-lg text-text-secondary space-y-2">
+                                                        <li>Menemukan informasi restoran dengan cepat dan mudah.</li>
+                                                        <li>Melihat preview menu dan hidangan populer.</li>
+                                                        <li>Melakukan reservasi dengan proses yang smooth dan efisien.</li>
+                                                        <li>Memahami atmosfer dan value proposition restoran.</li>
+                                                    </ul>
+                                                </CardContent>
+                                            </Card>
                                         </ScrollAnimation>
                                     </div>
                                 </div>
@@ -161,11 +200,11 @@ const ProjectMettaPage = () => {
                                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">Research & Discovery</h2>
                                     <p className="text-lg md:text-xl text-text-secondary mb-16 text-center">Understanding the landscape to build a research-backed design strategy.</p>
                                 </ScrollAnimation>
-                                <div className="max-w-4xl mx-auto space-y-16">
+                                <div className="max-w-5xl mx-auto space-y-16">
                                     <ScrollAnimation>
                                         <Card>
                                             <CardHeader>
-                                                <CardTitle className="flex items-center"><Search className="h-6 w-6 mr-3 text-primary"/>Competitive Analysis</CardTitle>
+                                                <CardTitle className="flex items-center text-2xl"><Search className="h-6 w-6 mr-3 text-primary"/>Competitive Analysis</CardTitle>
                                             </CardHeader>
                                             <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none">
                                                 <p>I analyzed 3 high-end multi-cuisine restaurants to identify strengths, weaknesses, and opportunities. This informed Metta's strategic positioning.</p>
@@ -190,7 +229,7 @@ const ProjectMettaPage = () => {
                                     <ScrollAnimation delay={150}>
                                         <Card>
                                             <CardHeader>
-                                                <CardTitle className="flex items-center"><Users className="h-6 w-6 mr-3 text-primary"/>User Personas</CardTitle>
+                                                <CardTitle className="flex items-center text-2xl"><Users className="h-6 w-6 mr-3 text-primary"/>User Personas</CardTitle>
                                             </CardHeader>
                                             <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none">
                                                 <p>Based on research, I developed two primary personas to guide design decisions, ensuring the final product catered to both exploratory and efficiency-driven users.</p>
@@ -242,30 +281,30 @@ const ProjectMettaPage = () => {
                                 <ScrollAnimation>
                                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-16 text-center">Key Design Decisions</h2>
                                 </ScrollAnimation>
-                                <div className="max-w-4xl mx-auto space-y-8">
+                                <div className="max-w-4xl mx-auto grid grid-cols-1 gap-8">
                                     <ScrollAnimation delay={150}>
-                                        <div className="bg-secondary p-8 rounded-3xl shadow-lg">
-                                            <h3 className="font-semibold text-2xl text-text-dark mb-2">Skipped Dark Mode</h3>
-                                            <p className="text-lg text-text-secondary">
-                                                Although premium restaurants often favor dark themes, I prioritized delivering core features over this aesthetic choice. This avoided significant accessibility work and allowed focus on mobile-first design, high-quality imagery, and clear CTAs, while a gold accent maintained a premium feel.
-                                            </p>
-                                        </div>
+                                        <Card>
+                                            <CardHeader><CardTitle className="text-2xl flex items-center"><Scale className="h-6 w-6 mr-3 text-primary"/>Trade-off: Skipped Dark Mode</CardTitle></CardHeader>
+                                            <CardContent className="text-lg text-text-secondary">
+                                                <p>Although premium restaurants often favor dark themes, I prioritized delivering core features over this aesthetic choice. This avoided significant accessibility work and allowed focus on mobile-first design, high-quality imagery, and clear CTAs, while a gold accent maintained a premium feel.</p>
+                                            </CardContent>
+                                        </Card>
                                     </ScrollAnimation>
                                     <ScrollAnimation delay={300}>
-                                        <div className="bg-secondary p-8 rounded-3xl shadow-lg">
-                                            <h3 className="font-semibold text-2xl text-text-dark mb-2">Sticky Navigation with Persistent CTA</h3>
-                                            <p className="text-lg text-text-secondary">
-                                                To cater to the "Busy Professional" persona who values efficiency, a sticky navigation bar with a "Reserve Now" button was implemented. This sacrifices minor screen real estate but significantly reduces cognitive load and provides a constant, easy path to conversion.
-                                            </p>
-                                        </div>
+                                        <Card>
+                                            <CardHeader><CardTitle className="text-2xl flex items-center"><TrendingUp className="h-6 w-6 mr-3 text-primary"/>Conversion Boost: Sticky Navigation</CardTitle></CardHeader>
+                                            <CardContent className="text-lg text-text-secondary">
+                                                <p>To cater to the "Busy Professional" persona who values efficiency, a sticky navigation bar with a "Reserve Now" button was implemented. This sacrifices minor screen real estate but significantly reduces cognitive load and provides a constant, easy path to conversion.</p>
+                                            </CardContent>
+                                        </Card>
                                     </ScrollAnimation>
                                     <ScrollAnimation delay={450}>
-                                        <div className="bg-secondary p-8 rounded-3xl shadow-lg">
-                                            <h3 className="font-semibold text-2xl text-text-dark mb-2">Food-First Visual Hierarchy</h3>
-                                            <p className="text-lg text-text-secondary">
-                                                Recognizing that visual appeal is a primary decision factor, the design prioritizes high-quality food photography. This approach instantly communicates the value proposition and is more persuasive than copy alone, catering to both user personas.
-                                            </p>
-                                        </div>
+                                        <Card>
+                                            <CardHeader><CardTitle className="text-2xl flex items-center"><ShieldCheck className="h-6 w-6 mr-3 text-primary"/>User-Centric: Food-First Hierarchy</CardTitle></CardHeader>
+                                            <CardContent className="text-lg text-text-secondary">
+                                                <p>Recognizing that visual appeal is a primary decision factor, the design prioritizes high-quality food photography. This approach instantly communicates the value proposition and is more persuasive than copy alone, catering to both user personas.</p>
+                                            </CardContent>
+                                        </Card>
                                     </ScrollAnimation>
                                 </div>
                             </section>
