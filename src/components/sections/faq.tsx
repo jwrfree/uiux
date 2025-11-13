@@ -69,9 +69,6 @@ const Faq = () => {
                   <span className="flex-1 pr-4 text-xl font-semibold text-text-dark md:text-2xl">
                     {item.question}
                   </span>
-                  <div className="ml-4 flex-shrink-0">
-                    <ChevronDown className="h-6 w-6 text-text-dark transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </div>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 pr-10">
                   <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
