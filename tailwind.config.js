@@ -58,6 +58,11 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        display: ['Satoshi-Variable', 'sans-serif'],
+        body: ['Satoshi-Variable', 'sans-serif'],
+        sans: ['Satoshi-Variable', 'sans-serif'],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
