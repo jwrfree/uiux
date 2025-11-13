@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import CtaSection from "@/components/sections/cta";
@@ -98,12 +99,20 @@ const ProjectMettaPage = () => {
                                                 </ScrollAnimation>
                                             ))}
                                             <ScrollAnimation delay={600}>
-                                                <Button asChild variant="primary" size="lg" className="group rounded-full mt-6 w-full">
-                                                    <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
-                                                        <span>View Live Prototype</span>
-                                                        <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                                    </Link>
-                                                </Button>
+                                                <div className="flex flex-col gap-4 mt-6">
+                                                    <Button asChild variant="primary" size="lg" className="group rounded-full w-full">
+                                                        <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
+                                                            <span>View Live Prototype</span>
+                                                            <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                        </Link>
+                                                    </Button>
+                                                    <Button asChild variant="secondary" size="lg" className="group rounded-full w-full">
+                                                        <Link href="https://docs.google.com/presentation/d/1B7tvfGhHVD2aq9Y8bqC69iqzOsb0tOva_tajPwPVACE/edit?usp=drive_web" target="_blank" rel="noopener noreferrer">
+                                                            <span>View Slide Deck</span>
+                                                            <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                        </Link>
+                                                    </Button>
+                                                </div>
                                             </ScrollAnimation>
                                         </div>
                                     </div>
