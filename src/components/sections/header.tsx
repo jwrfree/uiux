@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -82,6 +82,7 @@ export default function Header() {
   const [isHovered, setIsHovered] = useState(false);
   const [isHeaderHovered, setIsHeaderHovered] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,6 +94,22 @@ export default function Header() {
         window.removeEventListener("scroll", handleScroll)
     };
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -129,19 +146,17 @@ export default function Header() {
   return (
     <header 
       className="fixed top-0 z-50 w-full p-4 md:p-6 lg:p-8 pointer-events-none flex justify-center"
+      ref={headerRef}
     >
       <div
         className={`w-full max-w-[calc(100vw-2rem)] sm:max-w-md md:max-w-lg mx-auto pointer-events-auto origin-center`}
         >
         
-        <motion.div 
-          className="flex justify-center"
+        <motion.div
           initial={{ scale: 1 }}
-          animate={{ scale: isScrolled ? 0.8 : 1 }}
+          animate={{ scale: isScrolled ? 0.9 : 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           style={{ transformOrigin: 'top center' }}
-          onMouseEnter={() => setIsHeaderHovered(true)}
-          onMouseLeave={() => setIsHeaderHovered(false)}
         >
           <motion.div
             className="relative rounded-[36px] w-full origin-center"
@@ -159,7 +174,10 @@ export default function Header() {
               border: '1px solid rgba(255, 255, 255, 0.6)',
               boxShadow: getBoxShadow(),
               transition: 'box-shadow 0.3s ease-out'
-            }}>
+            }}
+            onMouseEnter={() => setIsHeaderHovered(true)}
+            onMouseLeave={() => setIsHeaderHovered(false)}
+          >
 
             {/* Glass shine effect */}
             <motion.div
