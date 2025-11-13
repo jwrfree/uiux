@@ -233,15 +233,15 @@ const ProjectMettaPage = () => {
                                 <ul className="space-y-4">
                                     <li className="flex items-start">
                                         <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                                        <span>**Ruthless Consistency is Key:** Small inconsistencies in a design system (like button radius or color usage) can diminish the perceived quality. A tight, well-defined system is crucial for a professional finish and smoother development handoff.</span>
+                                        <span><strong className="font-semibold text-text-dark">Ruthless Consistency is Key:</strong> Small inconsistencies in a design system (like button radius or color usage) can diminish the perceived quality. A tight, well-defined system is crucial for a professional finish and smoother development handoff.</span>
                                     </li>
                                     <li className="flex items-start">
                                         <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                                        <span>**Clarity Over Ambiguity:** A value proposition must be understood within seconds. Iterating on the hero copy to be explicit about the offering ("Multi-Cuisine Fine Dining") was a critical change that eliminated user confusion.</span>
+                                        <span><strong className="font-semibold text-text-dark">Clarity Over Ambiguity:</strong> A value proposition must be understood within seconds. Iterating on the hero copy to be explicit about the offering ("Multi-Cuisine Fine Dining") was a critical change that eliminated user confusion.</span>
                                     </li>
                                     <li className="flex items-start">
                                         <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                                        <span>**Prioritize for Impact:** When faced with constraints, every design decision must be a strategic trade-off. Choosing to implement a sticky navigation CTA over a purely aesthetic dark mode was a decision to prioritize measurable conversion goals over visual trends.</span>
+                                        <span><strong className="font-semibold text-text-dark">Prioritize for Impact:</strong> When faced with constraints, every design decision must be a strategic trade-off. Choosing to implement a sticky navigation CTA over a purely aesthetic dark mode was a decision to prioritize measurable conversion goals over visual trends.</span>
                                     </li>
                                 </ul>
                             </ScrollAnimation>
