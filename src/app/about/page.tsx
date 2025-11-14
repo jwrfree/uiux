@@ -6,6 +6,8 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase, Bike, Coffee, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Timeline from "@/components/ui/timeline";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const AboutPage = () => {
   return (
@@ -19,7 +21,7 @@ const AboutPage = () => {
                         Designing for People, Not Just Pixels
                     </h1>
                     <p className="text-xl md:text-2xl text-text-dark-secondary">
-                        I build bridges between human needs and digital products.
+                        I turn messy human problems into measurable outcomes—balancing empathy, behavior science, and product goals.
                     </p>
                 </ScrollAnimation>
             </div>
@@ -29,12 +31,13 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
                 <ScrollAnimation delay={150}>
                     <div className="relative w-full aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-sm mx-auto md:max-w-none animate-[levitate_6s_ease-in-out_infinite]">
-                    <Image
-                        src="https://i.imgur.com/P7sZTw4.png"
+                      <Image
+                        src="/img_profile_jati.jpg"
                         alt="Wruhantojati - UI/UX Designer"
                         fill
+                        priority
                         className="object-cover"
-                    />
+                      />
                     </div>
                 </ScrollAnimation>
             
@@ -46,8 +49,21 @@ const AboutPage = () => {
                 </ScrollAnimation>
                 <ScrollAnimation delay={450}>
                     <p>
-                        I believe great design isn't just about making things look good—it's about understanding people, their struggles, and designing solutions that genuinely improve their lives. For the past 2+ years, I've been designing for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
+                        I believe great design isn&apos;t just about making things look good—it&apos;s about understanding people, their struggles, and designing solutions that genuinely improve their lives. Over the last 3 years I&apos;ve designed for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
                     </p>
+                </ScrollAnimation>
+                <ScrollAnimation delay={550}>
+                  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {[
+                      { value: "10K+", label: "households nudged toward sustainable waste behavior" },
+                      { value: "92%", label: "task success rate after redesigning a grief-support workflow" },
+                    ].map((stat) => (
+                      <div key={stat.label} className="rounded-2xl border border-border/60 bg-background/70 p-6 shadow-md">
+                        <p className="text-4xl font-display font-semibold text-text-dark">{stat.value}</p>
+                        <p className="mt-2 text-base text-text-secondary">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </ScrollAnimation>
               </div>
             </div>
@@ -120,7 +136,7 @@ const AboutPage = () => {
             <div className="container mx-auto px-4 py-24 md:py-32">
                 <div className="max-w-5xl mx-auto">
                     <ScrollAnimation>
-                      <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">What I Bring</h2>
+                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">What I Bring</h2>
                       <p className="text-lg md:text-xl text-text-secondary mb-16 text-center">Skills & Approach</p>
                     </ScrollAnimation>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -146,9 +162,34 @@ const AboutPage = () => {
                             <p className="text-lg text-text-secondary">
                                 Figma • FigJam • Maze • Optimal Workshop • HTML/CSS/JS basics
                             </p>
-                        </div>
+                     </div>
                     </ScrollAnimation>
                 </div>
+                <ScrollAnimation delay={600}>
+                  <div className="mt-20 flex flex-col items-center gap-6 text-center">
+                    <p className="text-xl text-text-dark max-w-2xl">
+                      Want a deeper look? Browse the case studies I&apos;ve shipped or grab the one-page resume for a quick download.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                      <Button asChild variant="primary" size="xl" className="group rounded-full">
+                        <Link href="/#work">
+                          <span className="font-semibold drop-shadow-sm">View Case Studies</span>
+                          <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                            <CheckCircle className="h-4 w-4" />
+                          </div>
+                        </Link>
+                      </Button>
+                      <Button asChild variant="frosted" size="xl" className="group rounded-full">
+                        <Link href="/resume.pdf" download>
+                          <span className="font-semibold drop-shadow-sm">Download Resume</span>
+                          <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                            <Sparkles className="h-4 w-4" />
+                          </div>
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </ScrollAnimation>
             </div>
         </div>
 

@@ -6,9 +6,11 @@
         "dev": "next dev --turbopack",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "compress:image": "node scripts/compress-profile.cjs"
     },
     "dependencies": {
+        "@babel/parser": "^7.28.5",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
         "@hookform/resolvers": "^5.1.1",
@@ -63,6 +65,7 @@
         "embla-carousel-auto-scroll": "^8.6.0",
         "embla-carousel-autoplay": "^8.6.0",
         "embla-carousel-react": "^8.6.0",
+        "estree-walker": "2.0.2",
         "framer-motion": "^12.23.24",
         "gsap": "^3.13.0",
         "input-otp": "^1.4.2",
@@ -86,6 +89,7 @@
         "react-syntax-highlighter": "^16.1.0",
         "react-wrap-balancer": "^1.1.1",
         "recharts": "^3.0.2",
+        "sharp": "^0.34.5",
         "simplex-noise": "^4.0.3",
         "sonner": "^2.0.6",
         "stripe": "^19.2.0",
@@ -95,9 +99,7 @@
         "three": "^0.178.0",
         "three-globe": "^2.43.0",
         "vaul": "^1.1.2",
-        "zod": "^4.1.12",
-        "estree-walker": "2.0.2",
-        "@babel/parser": "^7.28.5"
+        "zod": "^4.1.12"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
