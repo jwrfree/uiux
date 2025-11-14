@@ -120,10 +120,12 @@ const ProjectTeknovoPage = () => {
                                             ))}
                                             <ScrollAnimation delay={600}>
                                                 <div className="flex flex-col gap-4 mt-6">
-                                                     <Button asChild variant="primary" size="lg" className="group rounded-full w-full">
+                                                     <Button asChild variant="primary" size="xl" className="group rounded-full w-full">
                                                         <Link href="https://teknovo.com" target="_blank" rel="noopener noreferrer">
-                                                            <span>View Live Website</span>
-                                                            <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                                            <span className="font-semibold drop-shadow-sm">View Live Website</span>
+                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                                                                <ArrowUpRight className="h-4 w-4" />
+                                                            </div>
                                                         </Link>
                                                     </Button>
                                                 </div>

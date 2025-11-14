@@ -22,13 +22,13 @@ const CtaSection = () => {
         </h2>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
         <Button asChild variant="primary" size="xl" className="group rounded-full">
-          <a href="mailto:wruhantojati@gmail.com">
+          <a href="mailto:wruhantojati@gmail.com" className="flex items-center gap-2">
             <Mail className="h-5 w-5" />
-            <span className="font-medium">
+            <span className="font-semibold drop-shadow-sm">
               Send me an email
             </span>
-            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-700 ease-in-out">
-                <ArrowRight className="h-5 w-5" />
+            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                <ArrowRight className="h-4 w-4" />
             </div>
           </a>
         </Button>
@@ -37,13 +37,14 @@ const CtaSection = () => {
             href="https://linkedin.com/in/wrjati"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center gap-2"
           >
             <Linkedin className="h-5 w-5" />
-            <span className="font-medium">
+            <span className="font-semibold drop-shadow-sm">
               Connect on LinkedIn
             </span>
-            <div className="w-0 opacity-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-1 transition-all duration-700 ease-in-out">
-                <ArrowUpRight className="h-5 w-5" />
+            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                <ArrowUpRight className="h-4 w-4" />
             </div>
           </a>
         </Button>

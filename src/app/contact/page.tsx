@@ -41,8 +41,8 @@ const ContactPage = () => {
                     <label htmlFor="message" className="block text-base font-medium text-text-secondary mb-2">Message</label>
                     <Textarea id="message" placeholder="How can I help you?" rows={5} className="bg-white/70 dark:bg-black/30" />
                   </div>
-                  <Button type="submit" variant="primary" size="lg" className="w-full rounded-full group">
-                    Send Message
+                  <Button type="submit" variant="primary" size="xl" className="w-full rounded-full group">
+                    <span className="font-semibold drop-shadow-sm">Send Message</span>
                     <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                         <ArrowRight className="h-4 w-4" />
                     </div>

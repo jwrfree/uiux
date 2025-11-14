@@ -1,5 +1,5 @@
 
-import { ArrowLeft, SearchX } from "lucide-react";
+import { ArrowRight, SearchX } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/sections/header";
@@ -25,10 +25,12 @@ const NotFoundPage = () => {
             </p>
         </ScrollAnimation>
         <ScrollAnimation delay={450}>
-            <Button asChild variant="primary" size="lg" className="group rounded-full">
+            <Button asChild variant="primary" size="xl" className="group rounded-full">
                 <Link href="/">
-                    <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                    <span>Return to Homepage</span>
+                    <span className="font-semibold drop-shadow-sm">Return to Homepage</span>
+                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                        <ArrowRight className="h-4 w-4" />
+                    </div>
                 </Link>
             </Button>
         </ScrollAnimation>

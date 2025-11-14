@@ -159,7 +159,7 @@ export default function Header() {
           style={{ transformOrigin: 'top center' }}
         >
           <motion.div
-            className="relative rounded-[36px] w-full origin-center"
+            className="relative rounded-[32px] w-full origin-center"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ 
@@ -184,7 +184,7 @@ export default function Header() {
               initial={{ opacity: 0}}
               animate={{ opacity: 1}}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="animate-shine absolute inset-0 rounded-[36px] opacity-50 pointer-events-none"
+              className="animate-shine absolute inset-0 rounded-[32px] opacity-50 pointer-events-none"
               style={{
                 background: 'linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%)',
                 backgroundSize: '200% 100%',
@@ -192,7 +192,7 @@ export default function Header() {
             />
 
             {/* Header Bar */}
-            <div className={`relative h-[72px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-6' : 'px-3'}`}>
+            <div className={`relative h-[66px] grid grid-cols-3 items-center z-10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isMenuOpen ? 'px-4 py-2' : 'px-2 py-1'}`}>
               <motion.div 
                 className="flex justify-start items-center h-full"
                 initial={{ opacity: 0, x: -10 }}
@@ -227,7 +227,7 @@ export default function Header() {
               >
                 <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
                   <a href="mailto:wruhantojati@gmail.com">
-                    <span>Get in Touch</span>
+                    <span className="font-semibold drop-shadow-sm">Get in Touch</span>
                     <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                       <ArrowRight className="h-4 w-4" />
                     </div>
