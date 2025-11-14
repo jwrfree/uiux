@@ -7,7 +7,7 @@ const Footer = () => {
  return (
   <footer role="contentinfo" aria-label="Site footer" className="bg-background border-t py-10">
    <div className="container flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
-    <p className="text-sm md:text-base font-semibold tracking-[0.08em] order-2 sm:order-1 text-stone-600 dark:text-white/90 ">
+    <p className="text-[14px] font-medium tracking-[0.08em] order-2 sm:order-1 text-stone-600 dark:text-white/90 ">
      &copy; {year} Wruhantojati. All rights reserved.
     </p>
     {footerLinks.length > 0 && (

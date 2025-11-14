@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, PauseCircle, PlayCircle } from "lucide-react";
+import { ArrowRight, Pause, Play } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -130,29 +130,49 @@ const HeroSection = () => {
         variants={reduceMotion ? staticContainerVariants : containerVariants}
         initial={initialVariant}
         animate="visible"
-        className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
+        className="relative z-[2] container px-6 sm:px-8 flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
         <div className="absolute top-6 right-6 flex items-center gap-2">
           <Button
-            variant="secondary"
+            variant="primary"
             size="sm"
-            className="rounded-full hover:scale-[1.02] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="rounded-full hover:scale-[1.02] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black text-white [&_svg]:text-white border border-white/30 bg-black/60"
             onClick={() => setIsVideoPaused((v) => !v)}
           >
-            {isVideoPaused ? (
-              <>
-                <PlayCircle className="h-4 w-4 mr-2" />
-                <span>Play Reel</span>
-              </>
-            ) : (
-              <>
-                <PauseCircle className="h-4 w-4 mr-2" />
-                <span>Pause Reel</span>
-              </>
-            )}
+            <AnimatePresence mode="wait" initial={false}>
+              {isVideoPaused ? (
+                <motion.span
+                  key="play"
+                  className="inline-flex items-center"
+                  initial={{ opacity: 0, x: 6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -6 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  <Play className="h-4 w-4 mr-2" />
+                  <span>Play Reel</span>
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="pause"
+                  className="inline-flex items-center"
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 6 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  <Pause className="h-4 w-4 mr-2" />
+                  <span>Pause Reel</span>
+                </motion.span>
+              )}
+            </AnimatePresence>
           </Button>
         </div>
-        <h1 className="font-display font-bold text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap">
+          <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
+          Open for full-time opportunities
+        </span>
+        <h1 className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           <motion.span 
             className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
             variants={reduceMotion ? staticItemVariants : itemVariants}
@@ -168,7 +188,7 @@ const HeroSection = () => {
           initial={initialVariant}
           animate="visible"
         >
-          <span>From behavior change platforms to mission-critical workflows, I craft intuitive journeys that balance empathy, clarity, and measurable results.</span>
+          <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools—nudging 10,000+ users toward better habits and lifting onboarding completion by 37%.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
@@ -180,17 +200,17 @@ const HeroSection = () => {
           initial={initialVariant}
           animate="visible"
         >
-          <Button asChild variant="primary" size="xl" className="group rounded-full">
-            <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")}>
-              <span className="font-semibold drop-shadow-sm">Explore Case Studies</span>
+          <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
+            <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
+              <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
                 <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                     <ArrowRight className="h-4 w-4" />
                 </div>
             </Link>
           </Button>
-          <Button asChild variant="frosted" size="xl" className="group rounded-full text-white dark:text-white">
-            <a href="/resume.pdf" download>
-              <span className="font-semibold drop-shadow-sm">Get the Resume</span>
+          <Button asChild variant="frosted" size="xl" className="group rounded-full text-white dark:text-white w-full sm:w-auto">
+            <a href="/resume.pdf" download className="flex items-center justify-center">
+              <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
@@ -198,6 +218,7 @@ const HeroSection = () => {
                   autoplay
                   width={24}
                   height={24}
+                  style={{ filter: "brightness(0) invert(1)" }}
                 />
               </div>
             </a>
@@ -209,13 +230,13 @@ const HeroSection = () => {
       <a
         href="#about"
         onClick={(e) => handleScrollTo(e, "#about")}
-        className="absolute z-[2] bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 cursor-pointer"
-        style={{ width: '50px', height: '50px' }}
+        className="absolute z-[2] bottom-16 md:bottom-24 left-1/2 -translate-x-1/2 cursor-pointer w-10 h-10 sm:w-12 sm:h-12"
       >
         <DotLottieReact
             src="https://lottie.host/02ea0f83-ebc3-40b2-b381-17a8d8b711d3/2tBUg5ux5t.lottie"
             loop
             autoplay
+            style={{ width: "100%", height: "100%" }}
         />
       </a>
 

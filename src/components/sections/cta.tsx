@@ -21,10 +21,10 @@ const CtaSection = () => {
           Currently open to new opportunities. Feel free to reach out via email or connect with me on LinkedIn.
         </h2>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Button asChild variant="primary" size="xl" className="group rounded-full">
-          <a href="mailto:wruhantojati@gmail.com" className="flex items-center gap-2">
+        <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
+          <a href="mailto:wruhantojati@gmail.com" className="flex items-center gap-2 justify-center">
             <Mail className="h-5 w-5" />
-            <span className="font-semibold drop-shadow-sm">
+            <span className="font-medium sm:font-semibold drop-shadow-sm">
               Send me an email
             </span>
             <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
@@ -32,15 +32,15 @@ const CtaSection = () => {
             </div>
           </a>
         </Button>
-        <Button asChild variant="secondary" size="xl" className="group rounded-full">
+        <Button asChild variant="secondary" size="xl" className="group rounded-full w-full sm:w-auto">
           <a
             href="https://linkedin.com/in/wrjati"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 justify-center"
           >
             <Linkedin className="h-5 w-5" />
-            <span className="font-semibold drop-shadow-sm">
+            <span className="font-medium sm:font-semibold drop-shadow-sm">
               Connect on LinkedIn
             </span>
             <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">

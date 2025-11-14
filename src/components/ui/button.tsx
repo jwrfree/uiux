@@ -51,7 +51,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:hover:bg-input/50",
-        primary: `${glassmorphismEffect} bg-black/60 text-white hover:shadow-black/20 dark:bg-white/20 dark:text-black before:bg-black/50 dark:before:bg-white/50 border border-white/20 dark:border-black/30`,
+        primary: `${glassmorphismEffect} bg-black/55 text-white hover:shadow-black/35 border-2 border-white/20 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-xl before:bg-black/50`,
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
         secondary: `${glassmorphismEffect} bg-white/40 border border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/30 before:bg-white/60 dark:before:bg-black/60`,
@@ -61,11 +61,11 @@ const buttonVariants = cva(
         frosted: `${glassmorphismEffect} backdrop-blur-xl bg-white/25 border-2 border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
       },
       size: {
-        default: "h-10 px-4 text-sm",
-        sm: "h-9 px-3 text-sm",
-        lg: "h-12 px-6 text-base",
-        xl: "h-14 px-8 text-base",
-        icon: "size-12",
+        default: "h-10 sm:h-11 px-4 text-sm",
+        sm: "h-9 sm:h-10 px-3 text-sm",
+        lg: "h-11 sm:h-12 px-6 text-base",
+        xl: "h-12 sm:h-14 px-8 text-base",
+        icon: "size-10 sm:size-12",
       },
     },
     defaultVariants: {

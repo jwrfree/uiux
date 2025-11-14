@@ -135,11 +135,11 @@ export default function Header() {
 
 
   const getBoxShadow = () => {
-    const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.8)';
+    const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.7)';
     if (isMenuOpen || isHeaderHovered) {
-      return `0 8px 32px rgba(0, 0, 0, 0.1), ${inset}`;
+      return `0 30px 70px rgba(15, 23, 42, 0.18), 0 12px 30px rgba(15, 23, 42, 0.12), ${inset}`;
     }
-    return `0 2px 4px rgba(0, 0, 0, 0.02), ${inset}`;
+    return `0 18px 40px rgba(15, 23, 42, 0.12), 0 8px 20px rgba(15, 23, 42, 0.08), ${inset}`;
   };
 
 
@@ -168,12 +168,12 @@ export default function Header() {
               delay: 0.1
             }}
             style={{
-              background: 'rgba(250, 250, 249, 0.6)',
-              backdropFilter: 'blur(20px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-              border: '1px solid rgba(255, 255, 255, 0.6)',
+              background: 'rgba(255, 255, 255, 0.58)',
+              backdropFilter: 'blur(32px) saturate(200%)',
+              WebkitBackdropFilter: 'blur(32px) saturate(200%)',
+              border: '2px solid rgba(255, 255, 255, 0.35)',
               boxShadow: getBoxShadow(),
-              transition: 'box-shadow 0.3s ease-out'
+              transition: 'box-shadow 0.3s ease-out, background 0.3s ease-out, border 0.3s ease-out'
             }}
             onMouseEnter={() => setIsHeaderHovered(true)}
             onMouseLeave={() => setIsHeaderHovered(false)}
@@ -227,7 +227,7 @@ export default function Header() {
               >
                 <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
                   <a href="mailto:wruhantojati@gmail.com">
-                    <span className="font-semibold drop-shadow-sm">Get in Touch</span>
+                    <span className="font-medium sm:font-semibold drop-shadow-sm">Get in Touch</span>
                     <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                       <ArrowRight className="h-4 w-4" />
                     </div>

@@ -173,7 +173,7 @@ const AboutPage = () => {
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                       <Button asChild variant="primary" size="xl" className="group rounded-full">
                         <Link href="/#work">
-                          <span className="font-semibold drop-shadow-sm">View Case Studies</span>
+                          <span className="font-medium sm:font-semibold drop-shadow-sm">View Case Studies</span>
                           <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                             <CheckCircle className="h-4 w-4" />
                           </div>
@@ -181,7 +181,7 @@ const AboutPage = () => {
                       </Button>
                       <Button asChild variant="frosted" size="xl" className="group rounded-full">
                         <Link href="/resume.pdf" download>
-                          <span className="font-semibold drop-shadow-sm">Download Resume</span>
+                          <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
                           <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                             <Sparkles className="h-4 w-4" />
                           </div>
