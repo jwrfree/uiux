@@ -51,13 +51,14 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-background shadow-xs hover:bg-accent dark:bg-input/30 dark:hover:bg-input/50",
-        primary: `${glassmorphismEffect} bg-black/60 text-white hover:shadow-black/20 dark:bg-white/20 dark:text-black before:bg-black/50 dark:before:bg-white/50`,
+        primary: `${glassmorphismEffect} bg-black/60 text-white hover:shadow-black/20 dark:bg-white/20 dark:text-black before:bg-black/50 dark:before:bg-white/50 border border-white/20 dark:border-black/30`,
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
         secondary: `${glassmorphismEffect} bg-white/40 border border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/30 before:bg-white/60 dark:before:bg-black/60`,
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        glass: `${glassmorphismEffect} bg-white/20 text-foreground hover:shadow-primary/20 dark:bg-black/20 before:bg-white/50 dark:before:bg-black/50`,
+        glass: `${glassmorphismEffect} bg-white/40 text-foreground hover:shadow-primary/20 dark:bg-black/20 before:bg-white/50 dark:before:bg-black/50`,
+        frosted: `${glassmorphismEffect} backdrop-blur-xl bg-white/25 border-2 border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
       },
       size: {
         default: "h-10 px-4 text-sm",

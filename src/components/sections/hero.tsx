@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pause, Play } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -64,11 +64,11 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(5px)' },
+  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: "blur(0px)",
     transition: {
       ease: "easeOut",
       duration: 0.8,
@@ -76,7 +76,34 @@ const itemVariants = {
   },
 };
 
+const staticContainerVariants = { visible: { opacity: 1 } };
+const staticItemVariants = {
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+const staticCtaVariants = { visible: { opacity: 1, y: 0 } };
+
 const HeroSection = () => {
+  const reduceMotion = useReducedMotion();
+  const [isVideoPaused, setIsVideoPaused] = React.useState(reduceMotion);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (isVideoPaused) {
+      v.pause();
+    } else {
+      v.play().catch(() => {});
+    }
+  }, [isVideoPaused]);
+
+  React.useEffect(() => {
+    if (reduceMotion) {
+      setIsVideoPaused(true);
+    }
+  }, [reduceMotion]);
+
+  const initialVariant = reduceMotion ? "visible" : "hidden";
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();
     gsap.to(window, { duration: 1.5, scrollTo: target, ease: "power2.inOut" });
@@ -92,48 +119,78 @@ const HeroSection = () => {
           muted
           playsInline
           poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" 
+          ref={videoRef}
         >
-          <source src="https://www.offmenu.design/videos/hero-video.webm" type="video/webm" />
-          <source src="https://www.offmenu.design/videos/hero-video.mp4" type="video/mp4" />
+          <source src="/videos/hero_video.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="absolute inset-0 w-full h-full z-[1] bg-gradient-to-b from-transparent via-transparent to-[rgba(0,0,0,0.6)]"></div>
 
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
+        variants={reduceMotion ? staticContainerVariants : containerVariants}
+        initial={initialVariant}
         animate="visible"
         className="relative z-[2] container flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
+        <div className="absolute top-6 right-6 flex items-center gap-2">
+          <Button
+            variant="frosted"
+            size="sm"
+            className="rounded-full"
+            onClick={() => setIsVideoPaused((v) => !v)}
+          >
+            {isVideoPaused ? (
+              <>
+                <Play className="h-4 w-4 mr-2" />
+                <span>Play Video</span>
+              </>
+            ) : (
+              <>
+                <Pause className="h-4 w-4 mr-2" />
+                <span>Pause Video</span>
+              </>
+            )}
+          </Button>
+        </div>
         <h1 className="font-display font-bold text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
           <motion.span 
             className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
-            variants={itemVariants}
+            variants={reduceMotion ? staticItemVariants : itemVariants}
+            initial={initialVariant}
+            animate="visible"
            >
             Crafting Product Narratives People Feel
           </motion.span>
         </h1>
         <motion.p 
           className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
-          variants={itemVariants}
+          variants={reduceMotion ? staticItemVariants : itemVariants}
+          initial={initialVariant}
+          animate="visible"
         >
           <span>From behavior change platforms to mission-critical workflows, I craft intuitive journeys that balance empathy, clarity, and measurable results.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
-          variants={itemVariants}
+          variants={
+            reduceMotion
+              ? staticCtaVariants
+              : { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.8 } } }
+          }
+          initial={initialVariant}
+          animate="visible"
         >
           <Button asChild variant="primary" size="xl" className="group rounded-full">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")}>
-              <span>Explore Case Studies</span>
+              <span className="font-semibold drop-shadow-sm">Explore Case Studies</span>
                 <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
                     <ArrowRight className="h-4 w-4" />
                 </div>
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="xl" className="group rounded-full">
+          <Button asChild variant="frosted" size="xl" className="group rounded-full text-white dark:text-white">
             <a href="/resume.pdf" download>
-              <span>Get the Résumé</span>
+              <span className="font-semibold drop-shadow-sm">Get the Résumé</span>
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
