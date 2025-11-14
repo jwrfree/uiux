@@ -136,7 +136,7 @@ const HeroSection = () => {
           <Button
             variant="secondary"
             size="sm"
-            className="rounded-full"
+            className="rounded-full hover:scale-[1.02] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             onClick={() => setIsVideoPaused((v) => !v)}
           >
             {isVideoPaused ? (

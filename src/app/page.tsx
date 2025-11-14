@@ -34,9 +34,7 @@ export default function Home() {
           <CtaSection />
         </ScrollAnimation>
       </main>
-      <ScrollAnimation delay={50}>
-        <Footer />
-      </ScrollAnimation>
+      <Footer />
     </div>
   );
 }
