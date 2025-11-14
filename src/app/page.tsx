@@ -34,7 +34,7 @@ export default function Home() {
           <CtaSection />
         </ScrollAnimation>
       </main>
-      <Footer />
+      {/* Footer is rendered globally in layout */}
     </div>
   );
 }

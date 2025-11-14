@@ -3,6 +3,7 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
+import Footer from "@/components/sections/footer";
 
 export const metadata: Metadata = {
   title: "Wruhantojati - UI/UX Designer Portfolio",
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased min-h-screen bg-background text-foreground flex flex-col">
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
@@ -28,7 +29,10 @@ export default function RootLayout({
           data-debug="true"
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
         <VisualEditsMessenger />
       </body>
     </html>
