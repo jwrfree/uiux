@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Pause, Play } from "lucide-react";
+import { ArrowRight, PauseCircle, PlayCircle } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import React from "react";
@@ -134,20 +134,20 @@ const HeroSection = () => {
       >
         <div className="absolute top-6 right-6 flex items-center gap-2">
           <Button
-            variant="frosted"
+            variant="secondary"
             size="sm"
             className="rounded-full"
             onClick={() => setIsVideoPaused((v) => !v)}
           >
             {isVideoPaused ? (
               <>
-                <Play className="h-4 w-4 mr-2" />
-                <span>Play Video</span>
+                <PlayCircle className="h-4 w-4 mr-2" />
+                <span>Play Reel</span>
               </>
             ) : (
               <>
-                <Pause className="h-4 w-4 mr-2" />
-                <span>Pause Video</span>
+                <PauseCircle className="h-4 w-4 mr-2" />
+                <span>Pause Reel</span>
               </>
             )}
           </Button>
@@ -190,7 +190,7 @@ const HeroSection = () => {
           </Button>
           <Button asChild variant="frosted" size="xl" className="group rounded-full text-white dark:text-white">
             <a href="/resume.pdf" download>
-              <span className="font-semibold drop-shadow-sm">Get the Résumé</span>
+              <span className="font-semibold drop-shadow-sm">Get the Resume</span>
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
                 <DotLottieReact
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
