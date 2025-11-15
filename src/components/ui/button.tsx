@@ -54,7 +54,7 @@ const buttonVariants = cva(
         primary: `${glassmorphismEffect} bg-black/55 text-white hover:shadow-black/35 border-2 border-white/20 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-xl before:bg-black/50`,
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
-        secondary: `${glassmorphismEffect} bg-white/40 border border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/30 before:bg-white/60 dark:before:bg-black/60`,
+        secondary: `${glassmorphismEffect} bg-white/35 text-text-dark border-2 border-white/50 hover:shadow-white/30 before:bg-white/50 backdrop-blur-2xl dark:bg-black/40 dark:text-white dark:border-white/10`,
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         glass: `${glassmorphismEffect} bg-white/40 text-foreground hover:shadow-primary/20 dark:bg-black/20 before:bg-white/50 dark:before:bg-black/50`,
