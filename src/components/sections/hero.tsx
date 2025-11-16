@@ -130,7 +130,7 @@ const HeroSection = () => {
         variants={reduceMotion ? staticContainerVariants : containerVariants}
         initial={initialVariant}
         animate="visible"
-        className="relative z-[2] container px-6 sm:px-8 flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
+        className="relative z-[2] container px-8 sm:px-12 lg:px-20 flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
         <div className="absolute top-6 right-6 flex items-center gap-2">
           <Button
@@ -183,7 +183,7 @@ const HeroSection = () => {
           </motion.span>
         </h1>
         <motion.p 
-          className="mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
+          className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl"
           variants={reduceMotion ? staticItemVariants : itemVariants}
           initial={initialVariant}
           animate="visible"
