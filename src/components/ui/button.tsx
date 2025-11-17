@@ -4,22 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-const glassmorphismEffect = [
+const frostedGlassEffect = [
   "relative",
+  "isolate",
   "overflow-hidden",
-  "backdrop-blur-lg",
-  "hover:shadow-lg",
+  "backdrop-blur-[30px]",
+  "backdrop-saturate-[220%]",
   "active:scale-95",
-  "before:content-['''']",
+  "before:content-['']",
   "before:absolute",
   "before:inset-0",
-  "before:w-0",
-  "before:origin-left",
-  "before:transition-width",
-  "before:duration-700",
-  "before:ease-in-out",
-  "hover:before:w-full",
-  "[&>*]:relative", 
+  "before:-z-10",
+  "before:rounded-[inherit]",
+  "before:bg-white/25",
+  "before:opacity-90",
+  "before:transition-opacity",
+  "before:duration-[350ms]",
+  "before:ease-[cubic-bezier(0.4,0,0.2,1)]",
+  "hover:before:opacity-100",
+  "[&>*]:relative",
   "[&>*]:z-10"
 ].join(" ")
 
@@ -50,14 +53,13 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-background hover:bg-accent dark:bg-input/30 dark:hover:bg-input/50",
-        primary: `${glassmorphismEffect} bg-black/55 text-white hover:shadow-black/35 border-[1.3px] border-white/20 backdrop-blur-xl before:bg-black/50`,
+        primary: `${frostedGlassEffect} bg-black/55 text-white border border-white/20 before:bg-black/50`,
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 dark:bg-destructive/60",
-        secondary: `${glassmorphismEffect} bg-white/35 text-text-dark border-[1.3px] border-white/50 hover:shadow-white/30 before:bg-white/50 backdrop-blur-2xl dark:bg-black/40 dark:text-white dark:border-white/10`,
+          "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
+        secondary: `${frostedGlassEffect} bg-white/45 border border-white/60 text-foreground saturate-150 dark:bg-white/10 dark:text-white dark:border-white/20 before:bg-white/60 dark:before:bg-white/25`,
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        glass: `${glassmorphismEffect} bg-white/40 text-foreground hover:shadow-primary/20 dark:bg-black/20 before:bg-white/50 dark:before:bg-black/50`,
-        frosted: `${glassmorphismEffect} backdrop-blur-xl bg-white/25 border-[1.3px] border-white/40 text-foreground hover:shadow-white/20 dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
+        frosted: `${frostedGlassEffect} backdrop-blur-xl bg-white/25 border border-white/40 text-foreground dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
       },
       size: {
         default: "h-10 sm:h-11 px-4 text-sm",
