@@ -12,7 +12,7 @@ interface Project {
   alt: string;
   link: string;
   tags: string[];
-  titleColor: string;
+  summary: string;
   stats?: {
     value: string;
     label: string;
@@ -22,7 +22,7 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Teknovo Website Redesign",
-    image: "/img-card-teknovo.png",
+    image: "/img-card-teknovo.webp",
     alt: "Teknovo IT services marketing site redesign",
     link: "/projects/teknovo",
     tags: ["Web", "B2B", "Internship"],
@@ -30,12 +30,13 @@ const projectsData: Project[] = [
   },
   {
     title: "Metta Restaurant Homepage",
-    image: "/img-card-metta.jpg",
+    image: "/img-card-metta.webp",
     alt: "Metta Restaurant responsive homepage concept",
     link: "/projects/metta-restaurant",
     tags: ["Web", "F&B", "Concept"],
-    titleColor: "#A7F3D0",
+    titleColor: "#98FF98",
   },
+  /*
   {
     title: "Bukunest Bookstore App",
     image: "/img-card-bukunest.jpg",
@@ -69,6 +70,7 @@ const projectsData: Project[] = [
     tags: ["Product", "AI/ML"],
     titleColor: "#A78BFA",
   },
+  */
 ];
 
 const cardVariants = {
@@ -86,11 +88,8 @@ const cardVariants = {
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  const titleStyle = {
-    color: project.titleColor,
-    WebkitTextFillColor: project.titleColor,
-    transition: "color 300ms ease",
-  } as React.CSSProperties;
+  const titleClass =
+    "font-medium text-[clamp(1.4rem,2.4vw,2.6rem)] leading-tight -tracking-[0.015em] text-balance max-w-[30ch] text-foreground";
 
   return (
     <motion.div
@@ -99,68 +98,91 @@ const ProjectCard = ({ project }: { project: Project }) => {
         scale: 1.03,
         transition: { type: "tween", ease: "easeInOut", duration: 0.5 },
       }}
-      className="md:hover:!opacity-100 md:group-hover/grid:opacity-60 transition-opacity duration-300"
+      className="lg:hover:!opacity-100 lg:group-hover/grid:opacity-60 transition-opacity duration-300"
     >
-      <Link
-        href={project.link}
-        className="group/card relative block overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]"
-      >
-        <Image
-          src={project.image}
-          alt={project.alt}
-          width={1600}
-          height={1200}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover/card:scale-105"
-        />
+      <Link href={project.link} className="group/card block space-y-4">
+        <div className="relative overflow-hidden rounded-2xl md:rounded-[2rem] bg-bg-card aspect-[4/3]">
+          <Image
+            src={project.image}
+            alt={project.alt}
+            width={1600}
+            height={1200}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out lg:group-hover/card:scale-105"
+          />
 
-        {/* Mobile overlay */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-10 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="md:hidden absolute bottom-0 left-0 right-0 h-2/5 z-20 p-6 flex flex-col justify-end">
-          <h3
-            className="font-medium text-[clamp(1.25rem,4vw,1.75rem)] leading-tight -tracking-[0.01em] text-balance max-w-[28ch]"
-            style={titleStyle}
-          >
-            {project.title}
-          </h3>
+          {/* Desktop overlay */}
+          <div className="hidden lg:block absolute inset-0 z-10 rounded-2xl md:rounded-[2rem] border-2 border-white/40 bg-white/20 dark:border-black/30 dark:bg-black/20 backdrop-blur-2xl lg:translate-y-full lg:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
+          <div className="hidden lg:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between opacity-0 lg:group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
+            <div className="flex flex-col gap-4">
+              <h3 className={titleClass}>{project.title}</h3>
+              <p className="text-base text-foreground/80 leading-relaxed">
+                {project.summary}
+              </p>
+              {project.stats && (
+                <div className="mt-4 flex flex-col gap-3 text-base text-foreground/70 sm:flex-row sm:gap-8">
+                  {project.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <span className="font-semibold text-foreground">{stat.value}</span>{" "}
+                      <span className="opacity-70">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          <div className="flex flex-row items-center justify-between gap-4 text-base">
+            <div className="flex items-center gap-1 font-medium">
+              <span>View Case Study</span>
+              <ArrowRight className="h-4 w-4 transition-transform lg:group-hover/card:translate-x-1" />
+            </div>
+              <div className="flex flex-wrap justify-end gap-2">
+                {project.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className="rounded-full px-3 py-1 text-xs uppercase tracking-wide"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Desktop overlay */}
-        <div className="hidden md:block absolute inset-0 z-10 rounded-2xl md:rounded-[2rem] border-2 border-white/40 bg-white/20 dark:border-black/30 dark:bg-black/20 backdrop-blur-2xl md:translate-y-full md:group-hover/card:translate-y-0 transition-transform duration-500 ease-in-out" />
-        <div className="hidden md:flex absolute inset-0 z-20 p-6 md:p-8 flex-col justify-between opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 ease-in-out">
-          <div className="flex flex-col gap-4">
-            <h3
-              className="font-medium text-[clamp(1.4rem,2.4vw,2.6rem)] leading-tight -tracking-[0.015em] text-balance max-w-[30ch]"
-              style={titleStyle}
-            >
-              {project.title}
-            </h3>
+        {/* Mobile & tablet details */}
+        <div className="lg:hidden px-1 text-foreground flex flex-col gap-3">
+          <h3 className="font-semibold text-xl leading-tight text-balance text-foreground">
+            {project.title}
+          </h3>
+          <p className="text-sm leading-relaxed text-foreground/80">
+            {project.summary}
+          </p>
+          <div className="flex flex-wrap gap-2 text-foreground">
+            {project.tags.map((tag) => (
+              <Badge
+                key={tag}
+                variant="secondary"
+                className="rounded-full px-3 py-1 text-xs uppercase tracking-wide"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <div className="flex items-center justify-between text-sm font-medium text-foreground pt-1">
+            <span className="inline-flex items-center gap-1">
+              View Case Study
+              <ArrowRight className="h-4 w-4" />
+            </span>
             {project.stats && (
-              <div className="mt-4 flex flex-col gap-3 text-base text-foreground/70 sm:flex-row sm:gap-8">
+              <div className="text-right text-xs text-foreground/70">
                 {project.stats.map((stat) => (
                   <div key={stat.label}>
                     <span className="font-semibold text-foreground">{stat.value}</span>{" "}
-                    <span className="opacity-70">{stat.label}</span>
+                    <span>{stat.label}</span>
                   </div>
                 ))}
               </div>
             )}
-          </div>
-          <div className="flex flex-row items-center justify-between gap-4 text-base">
-            <div className="flex items-center gap-1 font-medium">
-              <span>View Case Study</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover/card:translate-x-1" />
-            </div>
-            <div className="flex flex-wrap justify-end gap-2">
-              {project.tags.map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="rounded-full px-3 py-1 text-xs uppercase tracking-wide"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
           </div>
         </div>
       </Link>
@@ -198,7 +220,7 @@ const ProjectsShowcase = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="group/grid relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6"
+          className="group/grid relative z-10 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-14"
         >
           {projectsData.map((project) => (
             <ProjectCard key={project.title} project={project} />

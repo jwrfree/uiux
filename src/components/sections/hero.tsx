@@ -121,6 +121,7 @@ const HeroSection = () => {
           poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" 
           ref={videoRef}
         >
+          <source src="/videos/hero_video.webm" type="video/webm" />
           <source src="/videos/hero_video.mp4" type="video/mp4" />
         </video>
       </div>
@@ -172,18 +173,26 @@ const HeroSection = () => {
           <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
           Open for full-time opportunities
         </span>
-        <h1 className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.1] md:text-[3.5rem] lg:text-[4.5rem] tracking-[-0.02em] max-w-4xl">
+        <h1 className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl">
           <motion.span 
-            className="inline-block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
+            className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent"
             variants={reduceMotion ? staticItemVariants : itemVariants}
             initial={initialVariant}
             animate="visible"
-           >
-            Crafting Product Narratives People Feel
+          >
+            Product Designer Driving Results
+          </motion.span>
+          <motion.span 
+            className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
+            variants={reduceMotion ? staticItemVariants : itemVariants}
+            initial={initialVariant}
+            animate="visible"
+          >
+            Through Narrative & Data
           </motion.span>
         </h1>
         <motion.p 
-          className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl"
+          className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium"
           variants={reduceMotion ? staticItemVariants : itemVariants}
           initial={initialVariant}
           animate="visible"

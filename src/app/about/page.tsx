@@ -32,7 +32,7 @@ const AboutPage = () => {
                 <ScrollAnimation delay={150}>
                     <div className="relative w-full aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-sm mx-auto md:max-w-none animate-[levitate_6s_ease-in-out_infinite]">
                       <Image
-                        src="/img_profile_jati.jpg"
+                        src="/img_profile_jati.webp"
                         alt="Wruhantojati - UI/UX Designer"
                         fill
                         priority
