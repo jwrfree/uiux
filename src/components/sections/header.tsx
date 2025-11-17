@@ -136,9 +136,18 @@ export default function Header() {
 
   const getBoxShadow = () => {
     const inset = 'inset 0 1px 0 rgba(255, 255, 255, 0.7)';
+
+    // When idle (not scrolled) and not interacted with, show minimal shadow.
+    if (!isScrolled && !isMenuOpen && !isHeaderHovered) {
+      return inset;
+    }
+
+    // When menu is open or header is hovered, show a stronger shadow.
     if (isMenuOpen || isHeaderHovered) {
       return `0 30px 70px rgba(15, 23, 42, 0.18), 0 12px 30px rgba(15, 23, 42, 0.12), ${inset}`;
     }
+    
+    // Default shadow for the scrolled state.
     return `0 18px 40px rgba(15, 23, 42, 0.12), 0 8px 20px rgba(15, 23, 42, 0.08), ${inset}`;
   };
 
@@ -209,11 +218,27 @@ export default function Header() {
               </motion.div>
 
               <div className="flex justify-center items-center h-full">
+                <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+                  {[
+                    { href: "/about", label: "About" },
+                    { href: "/#work", label: "Work" },
+                    { href: "/contact", label: "Contact" },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={(e) => handleMenuClick(e, item.href)}
+                      className="text-foreground/90 hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
-                  className="group flex items-center justify-center w-12 h-12 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95"
+                  className="group flex items-center justify-center w-12 h-12 cursor-pointer rounded-full transition-all duration-300 hover:bg-black/5 active:scale-95 lg:hidden"
                   aria-label="Toggle menu">
                   <AnimatedMenuIcon isOpen={isMenuOpen} isHovered={isHovered} />
                 </button>

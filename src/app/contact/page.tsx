@@ -1,13 +1,64 @@
 
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import emailjs from "@emailjs/browser";
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { Textarea } from "@/components/ui/textarea";
+import { Spinner } from "@/components/ui/spinner";
 import { Mail, Phone, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  message: z
+    .string()
+    .min(10, { message: "Message should be at least 10 characters." })
+    .max(2000, { message: "Message is too long." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const ContactPage = () => {
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting, isValid },
+    reset,
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    mode: "onBlur",
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    setSubmitMessage("");
+    try {
+      await emailjs.send(
+        "service_8q859bz", // Service ID
+        "template_255ehg8", // Template ID
+        data,
+        "rso8qfCxGAfaObNqe" // Public Key
+      );
+
+      setIsSuccess(true);
+      reset();
+    } catch (error) {
+      setSubmitMessage("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <div className="bg-background text-foreground">
       <Header />
@@ -15,39 +66,122 @@ const ContactPage = () => {
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
             <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-text-dark tracking-tighter mb-6 text-center">
-              Contact Me
+              Let's Build Something Great
             </h1>
           </ScrollAnimation>
           <ScrollAnimation delay={150}>
             <p className="text-xl md:text-2xl text-text-secondary mb-12 text-center max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out to me.
+              I'm currently available for full-time roles and open to discussing new projects. Let's connect and see how I can bring your vision to life.
             </p>
           </ScrollAnimation>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             <ScrollAnimation delay={300}>
               <div className="bg-white/50 dark:bg-black/20 p-8 rounded-3xl shadow-lg border border-white/70 h-full">
-                <h3 className="font-display font-semibold text-3xl mb-6">Send a Message</h3>
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-base font-medium text-text-secondary mb-2">Name</label>
-                    <Input id="name" placeholder="Your Name" className="bg-white/70 dark:bg-black/30" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-base font-medium text-text-secondary mb-2">Email</label>
-                    <Input id="email" type="email" placeholder="your@email.com" className="bg-white/70 dark:bg-black/30" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-base font-medium text-text-secondary mb-2">Message</label>
-                    <Textarea id="message" placeholder="How can I help you?" rows={5} className="bg-white/70 dark:bg-black/30" />
-                  </div>
-                  <Button type="submit" variant="primary" size="xl" className="w-full rounded-full group">
-                    <span className="font-medium sm:font-semibold drop-shadow-sm">Send Message</span>
-                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
-                        <ArrowRight className="h-4 w-4" />
+                {isSuccess ? (
+                  <div className="flex flex-col items-center text-center space-y-4 py-10 px-4">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                     </div>
-                  </Button>
-                </form>
+                    <h3 className="font-display font-semibold text-3xl">Message Sent!</h3>
+                    <p className="text-lg text-text-secondary">
+                      Thanks for reaching out. I’ll get back within 24 hours. In the meantime, feel free to explore case studies or download my resume.
+                    </p>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                      <Button asChild variant="primary" size="lg" className="rounded-full">
+                        <Link href="/#work">
+                          View Case Studies
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="secondary" size="lg" className="rounded-full">
+                        <a href="/resume.pdf" download>
+                          Download Resume
+                        </a>
+                      </Button>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsSuccess(false);
+                        setSubmitMessage("");
+                      }}
+                      className="text-sm text-text-secondary hover:text-foreground underline underline-offset-4"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <h3 className="font-display font-semibold text-3xl mb-6">Send a Message</h3>
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                      <div>
+                        <label htmlFor="name" className="block text-base font-medium text-text-secondary mb-2">Name</label>
+                        <Input
+                          id="name"
+                          placeholder="Your Name"
+                          aria-invalid={errors.name ? "true" : "false"}
+                          className={cn(
+                            "bg-white/70 dark:bg-black/30",
+                            errors.name && "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/30"
+                          )}
+                          {...register("name")}
+                        />
+                        {errors.name && <p className="text-sm text-red-500 mt-2">{errors.name.message}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-base font-medium text-text-secondary mb-2">Email</label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          aria-invalid={errors.email ? "true" : "false"}
+                          className={cn(
+                            "bg-white/70 dark:bg-black/30",
+                            errors.email && "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/30"
+                          )}
+                          {...register("email")}
+                        />
+                        {errors.email && <p className="text-sm text-red-500 mt-2">{errors.email.message}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-base font-medium text-text-secondary mb-2">Message</label>
+                        <Textarea
+                          id="message"
+                          placeholder="Hi Jati, I'm [Name] from [Company]. I was impressed by your work on the [Project Name] case study and would love to discuss a potential role with you."
+                          rows={7}
+                          aria-invalid={errors.message ? "true" : "false"}
+                          className={cn(
+                            "bg-white/70 dark:bg-black/30",
+                            errors.message && "border-destructive focus-visible:border-destructive focus-visible:ring-destructive/30"
+                          )}
+                          {...register("message")}
+                        />
+                        {errors.message && <p className="text-sm text-red-500 mt-2">{errors.message.message}</p>}
+                      </div>
+                      <Button 
+                        type="submit" 
+                        variant="primary" 
+                        size="xl" 
+                        className="w-full rounded-full group flex items-center justify-center"
+                        disabled={isSubmitting || !isValid}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Spinner className="mr-2" />
+                            <span className="font-medium sm:font-semibold drop-shadow-sm">Sending...</span>
+                          </>
+                        ) : (
+                          <span className="font-medium sm:font-semibold drop-shadow-sm">Send Message</span>
+                        )}
+                      </Button>
+                      {submitMessage && !submitMessage.includes("success") && (
+                        <p className="text-sm text-red-500 text-center">{submitMessage}</p>
+                      )}
+                    </form>
+                  </>
+                )}
               </div>
             </ScrollAnimation>
 
