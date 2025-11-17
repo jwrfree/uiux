@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -25,29 +25,29 @@ const AnimatedMenuIcon = ({ isOpen, isHovered }: {isOpen: boolean;isHovered: boo
 
   </div>;
 
-const menuContainerVariants = {
+const menuContainerVariants: Variants = {
   closed: {
     height: 0,
     opacity: 0,
     transition: {
-      type: "tween",
+      type: "tween" as const,
       duration: 0.3,
-      ease: "easeOut",
-      when: "afterChildren",
+      ease: "easeOut" as const,
+      when: "afterChildren" as const,
     },
   },
   open: {
     height: "auto",
     opacity: 1,
     transition: {
-      type: "tween",
+      type: "tween" as const,
       duration: 0.4,
-      ease: "easeOut",
+      ease: "easeOut" as const,
     },
   },
 };
 
-const menuListVariants = {
+const menuListVariants: Variants = {
   closed: {
     transition: {
       staggerChildren: 0.05,
@@ -62,16 +62,16 @@ const menuListVariants = {
   },
 };
 
-const menuItemVariants = {
+const menuItemVariants: Variants = {
   closed: {
     opacity: 0,
     y: 10,
-    transition: { type: "tween", ease: "easeIn", duration: 0.2 },
+    transition: { type: "tween" as const, ease: "easeIn" as const, duration: 0.2 },
   },
   open: {
     opacity: 1,
     y: 0,
-    transition: { type: "tween", ease: "easeOut", duration: 0.3 },
+    transition: { type: "tween" as const, ease: "easeOut" as const, duration: 0.3 },
   },
 };
 
@@ -227,6 +227,7 @@ export default function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      prefetch={false}
                       onClick={(e) => handleMenuClick(e, item.href)}
                       className="text-foreground/90 hover:text-foreground transition-colors"
                     >
@@ -290,6 +291,7 @@ export default function Header() {
                         >
                         <Link
                           href={item.href}
+                          prefetch={false}
                           onClick={(e) => handleMenuClick(e, item.href)}
                           className="block text-center text-2xl md:text-3xl font-medium text-foreground transition-all duration-300 py-3"
                           style={{
