@@ -103,7 +103,7 @@ const ProjectMettaPage = () => {
                                                     <Button asChild variant="primary" size="xl" className="group rounded-full w-full">
                                                         <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
                                                             <span className="font-medium sm:font-semibold drop-shadow-sm">View Live Prototype</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                                                                 <ArrowUpRight className="h-4 w-4" />
                                                             </div>
                                                         </Link>
@@ -111,7 +111,7 @@ const ProjectMettaPage = () => {
                                                     <Button asChild variant="secondary" size="xl" className="group rounded-full w-full">
                                                         <Link href="https://docs.google.com/presentation/d/1B7tvfGhHVD2aq9Y8bqC69iqzOsb0tOva_tajPwPVACE/edit?usp=drive_web" target="_blank" rel="noopener noreferrer">
                                                             <span className="font-medium sm:font-semibold drop-shadow-sm">View Slide Deck</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                                                                 <ArrowUpRight className="h-4 w-4" />
                                                             </div>
                                                         </Link>

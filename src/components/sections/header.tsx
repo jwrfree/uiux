@@ -182,7 +182,7 @@ export default function Header() {
               WebkitBackdropFilter: 'blur(32px) saturate(200%)',
               border: '2px solid rgba(255, 255, 255, 0.35)',
               boxShadow: getBoxShadow(),
-              transition: 'box-shadow 0.3s ease-out, background 0.3s ease-out, border 0.3s ease-out'
+              transition: 'box-shadow 0.55s cubic-bezier(0.4,0,0.2,1), background 0.55s cubic-bezier(0.4,0,0.2,1), border 0.55s cubic-bezier(0.4,0,0.2,1)'
             }}
             onMouseEnter={() => setIsHeaderHovered(true)}
             onMouseLeave={() => setIsHeaderHovered(false)}
@@ -229,7 +229,7 @@ export default function Header() {
                       href={item.href}
                       prefetch={false}
                       onClick={(e) => handleMenuClick(e, item.href)}
-                      className="text-foreground/90 hover:text-foreground transition-colors"
+                      className="text-foreground/90 hover:text-foreground transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
                     >
                       {item.label}
                     </Link>
@@ -256,9 +256,14 @@ export default function Header() {
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Get in Touch</span>
                   </a>
                 </Button>
-                <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12 border-[1.3px]">
+                <Button
+                  asChild
+                  variant="primary"
+                  size="lg"
+                  className="group md:hidden rounded-full text-sm"
+                >
                   <a href="mailto:wruhantojati@gmail.com">
-                    <span className="font-medium text-sm">Contact</span>
+                    <span className="font-medium">Get in Touch</span>
                   </a>
                 </Button>
               </motion.div>

@@ -61,7 +61,7 @@ const AboutSection = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center font-medium leading-none -tracking-[0.025em] w-full">
+              <div className="flex flex-col gap-4 items-start w-full">
                 <div className="text-left">
                   <p className="text-[22px] lg:text-[28px] bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
                     <span className="opacity-40">Preferred setup</span>
@@ -69,15 +69,15 @@ const AboutSection = () => {
                     <span>Remote · Hybrid · Onsite</span>
                   </p>
                 </div>
-                <Button variant="secondary" size="xl" asChild className="group hover:shadow-2xl hover:shadow-primary/30 rounded-full w-full sm:w-auto">
+                <Button variant="secondary" size="xl" asChild className="group rounded-full w-full sm:w-auto">
                   <a href="/resume.pdf" download>
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                         <ArrowRight className="h-4 w-4" />
                     </div>
                   </a>
                 </Button>
-              </div>
+              </div> 
             </div>
             <div className="rounded-[32px] border border-border/70 bg-white/60/50 p-8 shadow-xl">
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-text-dark/70 mb-4">How I deliver measurable impact</h3>

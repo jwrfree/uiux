@@ -123,7 +123,7 @@ const ProjectTeknovoPage = () => {
                                                      <Button asChild variant="primary" size="xl" className="group rounded-full w-full">
                                                         <Link href="https://teknovo.com" target="_blank" rel="noopener noreferrer">
                                                             <span className="font-medium sm:font-semibold drop-shadow-sm">View Live Website</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                                                                 <ArrowUpRight className="h-4 w-4" />
                                                             </div>
                                                         </Link>

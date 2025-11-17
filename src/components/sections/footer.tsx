@@ -20,10 +20,15 @@ const Footer = () => {
        href={link.href}
        target={link.href.startsWith("http") ? "_blank" : undefined}
        rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-       className="relative inline-flex items-center gap-1 text-sm font-medium text-text-dark hover:text-primary dark:text-white/80 dark:hover:text-white transition-all after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full focus-visible:after:w-full"
+       className="group relative inline-flex items-center gap-1 text-sm font-medium text-text-dark hover:text-primary dark:text-white/80 dark:hover:text-white transition-all after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full focus-visible:after:w-full"
       >
        <span>{link.name}</span>
-       {link.href.startsWith("http") && <ArrowUpRight className="h-3.5 w-3.5" />}
+       {link.href.startsWith("http") && (
+        <span className="relative h-3.5 w-3.5 overflow-hidden">
+         <ArrowUpRight className="absolute inset-0 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-full group-hover:translate-x-full" />
+         <ArrowUpRight className="absolute inset-0 h-3.5 w-3.5 translate-y-full -translate-x-full transition-transform duration-300 group-hover:translate-y-0 group-hover:translate-x-0" />
+        </span>
+       )}
       </a>
      ))}
     </div>

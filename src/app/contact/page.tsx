@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +32,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactPage = () => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [clickIndicator, setClickIndicator] = useState<{ x: number; y: number; id: number } | null>(null);
 
   const {
     register,
@@ -41,6 +43,13 @@ const ContactPage = () => {
     resolver: zodResolver(contactFormSchema),
     mode: "onBlur",
   });
+
+  useEffect(() => {
+    if (!clickIndicator) return;
+
+    const timeout = setTimeout(() => setClickIndicator(null), 600);
+    return () => clearTimeout(timeout);
+  }, [clickIndicator]);
 
   const onSubmit = async (data: ContactFormValues) => {
     setSubmitMessage("");
@@ -57,6 +66,16 @@ const ContactPage = () => {
     } catch (error) {
       setSubmitMessage("Failed to send message. Please try again.");
     }
+  };
+
+  const handleButtonMouseDown = (event: ReactMouseEvent<HTMLButtonElement>) => {
+    if (isSubmitting || !isValid) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    setClickIndicator({ x, y, id: Date.now() });
   };
 
   return (
@@ -164,9 +183,17 @@ const ContactPage = () => {
                         type="submit" 
                         variant="primary" 
                         size="xl" 
-                        className="w-full rounded-full group flex items-center justify-center"
+                        className="w-full rounded-full group flex items-center justify-center relative overflow-hidden"
                         disabled={isSubmitting || !isValid}
+                        onMouseDown={handleButtonMouseDown}
                       >
+                        {clickIndicator && (
+                          <span
+                            key={clickIndicator.id}
+                            className="pointer-events-none absolute w-24 h-24 rounded-full bg-white/40 dark:bg-white/20 animate-ping -translate-x-1/2 -translate-y-1/2"
+                            style={{ left: clickIndicator.x, top: clickIndicator.y }}
+                          />
+                        )}
                         {isSubmitting ? (
                           <>
                             <Spinner className="mr-2" />

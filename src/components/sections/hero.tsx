@@ -204,7 +204,7 @@ const HeroSection = () => {
           <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
               <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
-                <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
+                <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                     <ArrowRight className="h-4 w-4" />
                 </div>
             </Link>
@@ -212,7 +212,7 @@ const HeroSection = () => {
           <Button asChild variant="frosted" size="xl" className="group rounded-full text-white dark:text-white w-full sm:w-auto">
             <a href="/resume.pdf" download className="flex items-center justify-center">
               <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-              <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out h-6">
+              <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
                 <DotLottieReact
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
                   loop
