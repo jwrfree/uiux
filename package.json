@@ -7,10 +7,12 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "compress:image": "node scripts/compress-profile.cjs"
+        "compress:image": "node scripts/compress-profile.cjs",
+        "convert:webp": "node scripts/convert-all-to-webp.mjs"
     },
     "dependencies": {
         "@babel/parser": "^7.28.5",
+        "@emailjs/browser": "^4.4.1",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
         "@hookform/resolvers": "^5.1.1",

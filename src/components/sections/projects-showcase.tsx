@@ -22,7 +22,7 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Teknovo Website Redesign",
-    image: "/img-card-teknovo.webp",
+    image: "/images/img-card-teknovo.webp",
     alt: "Teknovo IT services marketing site redesign",
     link: "/projects/teknovo",
     tags: ["Web", "B2B", "Internship"],
@@ -30,7 +30,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Metta Restaurant Homepage",
-    image: "/img-card-metta.webp",
+    image: "/images/img-card-metta.webp",
     alt: "Metta Restaurant responsive homepage concept",
     link: "/projects/metta-restaurant",
     tags: ["Web", "F&B", "Concept"],
@@ -39,7 +39,7 @@ const projectsData: Project[] = [
   /*
   {
     title: "Bukunest Bookstore App",
-    image: "/img-card-bukunest.jpg",
+    image: "/img-card-bukunest.webp",
     alt: "Bukunest mobile bookstore concept screens",
     link: "/projects/midfunnel",
     tags: ["Mobile", "Concept"],
@@ -47,7 +47,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Skilvul Personal Brand Site",
-    image: "/img-card-skilvul.png",
+    image: "/img-card-skilvul.webp",
     alt: "Content-focused personal brand website layout",
     link: "/projects/sahilbloom",
     tags: ["Web", "Branding"],
@@ -56,7 +56,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Vidio Design System",
-    image: "/img-card-vidio.png",
+    image: "/img-card-vidio.webp",
     alt: "Design system documentation for Vidio product",
     link: "/projects/utility",
     tags: ["Design System", "Product"],

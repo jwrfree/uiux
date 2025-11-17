@@ -57,7 +57,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.25,
       delayChildren: 0.2,
     },
   },
@@ -169,45 +169,37 @@ const HeroSection = () => {
             </AnimatePresence>
           </Button>
         </div>
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap">
+        <motion.span
+          className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap"
+          variants={reduceMotion ? staticItemVariants : itemVariants}
+        >
           <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
           Open for full-time opportunities
-        </span>
-        <h1 className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl">
-          <motion.span 
-            className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent"
-            variants={reduceMotion ? staticItemVariants : itemVariants}
-            initial={initialVariant}
-            animate="visible"
+        </motion.span>
+        <motion.h1 
+          className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl"
+          variants={reduceMotion ? staticItemVariants : itemVariants}
+        >
+          <span 
+            className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent py-2"
           >
             Product Designer Driving Results
-          </motion.span>
-          <motion.span 
-            className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent"
-            variants={reduceMotion ? staticItemVariants : itemVariants}
-            initial={initialVariant}
-            animate="visible"
+          </span>
+          <span 
+            className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent py-2"
           >
             Through Narrative & Data
-          </motion.span>
-        </h1>
+          </span>
+        </motion.h1>
         <motion.p 
           className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium"
           variants={reduceMotion ? staticItemVariants : itemVariants}
-          initial={initialVariant}
-          animate="visible"
         >
           <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools—nudging 10,000+ users toward better habits and lifting onboarding completion by 37%.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
-          variants={
-            reduceMotion
-              ? staticCtaVariants
-              : { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.8 } } }
-          }
-          initial={initialVariant}
-          animate="visible"
+          variants={reduceMotion ? staticCtaVariants : itemVariants}
         >
           <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
@@ -236,10 +228,13 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Scroll Down Indicator */}
-      <a
+      <motion.a
         href="#about"
         onClick={(e) => handleScrollTo(e, "#about")}
         className="absolute z-[2] bottom-16 md:bottom-24 left-1/2 -translate-x-1/2 cursor-pointer w-10 h-10 sm:w-12 sm:h-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 3, duration: 0.8, ease: "easeOut" }}
       >
         <DotLottieReact
             src="https://lottie.host/02ea0f83-ebc3-40b2-b381-17a8d8b711d3/2tBUg5ux5t.lottie"
@@ -247,7 +242,7 @@ const HeroSection = () => {
             autoplay
             style={{ width: "100%", height: "100%" }}
         />
-      </a>
+      </motion.a>
 
       <div className="absolute bottom-0 left-0 right-0 z-[2] w-full py-8 md:py-12">
         <LogoCarousel />

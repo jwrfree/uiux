@@ -218,7 +218,7 @@ export default function Header() {
               </motion.div>
 
               <div className="flex justify-center items-center h-full">
-                <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+                <nav className="hidden lg:flex items-center gap-6 text-base font-medium">
                   {[
                     { href: "/about", label: "About" },
                     { href: "/#work", label: "Work" },
@@ -250,17 +250,14 @@ export default function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full">
+                <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full border-[1.3px]">
                   <a href="mailto:wruhantojati@gmail.com">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Get in Touch</span>
-                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-700 ease-in-out">
-                      <ArrowRight className="h-4 w-4" />
-                    </div>
                   </a>
                 </Button>
-                <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12">
+                <Button asChild variant="primary" size="icon" className="group md:hidden rounded-full w-12 h-12 border-[1.3px]">
                   <a href="mailto:wruhantojati@gmail.com">
-                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-30deg] group-hover:scale-110" />
+                    <span className="font-medium text-sm">Contact</span>
                   </a>
                 </Button>
               </motion.div>

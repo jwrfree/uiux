@@ -4,7 +4,6 @@ import Header from '@/components/sections/header';
 import HeroSection from '@/components/sections/hero';
 import AboutSection from '@/components/sections/about';
 import ProjectsShowcase from '@/components/sections/projects-showcase';
-import ProcessSection from '@/components/sections/process';
 import Faq from '@/components/sections/faq';
 import CtaSection from '@/components/sections/cta';
 import Footer from '@/components/sections/footer';
@@ -23,9 +22,6 @@ export default function Home() {
         </ScrollAnimation>
         <ScrollAnimation delay={150}>
           <ProjectsShowcase />
-        </ScrollAnimation>
-        <ScrollAnimation delay={200}>
-          <ProcessSection />
         </ScrollAnimation>
         <ScrollAnimation delay={150}>
           <Faq />

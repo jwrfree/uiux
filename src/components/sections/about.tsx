@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Activity, Layers, Zap, TrendingUp } from 'lucide-react';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -12,19 +12,23 @@ const AboutSection = () => {
   const services = [
     {
       title: "Behavior research",
-      description: "Qual interviews, diary studies, and Jobs-to-be-Done mapping for high-stakes problems.",
+      description: "Qual & diary studies to uncover habit friction within two sprints.",
+      icon: Activity,
     },
     {
       title: "Systems & journeys",
-      description: "Service blueprints, responsive UI kits, and measurable product narratives.",
+      description: "Service blueprints and responsive UI kits that keep shipping consistent.",
+      icon: Layers,
     },
     {
       title: "Rapid prototyping",
-      description: "End-to-end Figma flows, usability testing, and dev handoff that scales.",
+      description: "Clickable Figma flows, user tests, and ready-to-build specs in under 5 days.",
+      icon: Zap,
     },
     {
       title: "Optimization & growth",
-      description: "Experiment design, onboarding uplift, and KPI instrumentation with PMs.",
+      description: "Experiment design that lifted onboarding completion by 37%.",
+      icon: TrendingUp,
     },
   ];
 
@@ -34,7 +38,7 @@ const AboutSection = () => {
         <div id="about" className="flex flex-col">
           <div className="space-y-6">
             <h1 className="my-0 font-display text-[42px] md:text-[72px] font-medium leading-[1.15] -tracking-[0.02em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
-              I help mid-stage teams ship humane, measurable product experiences.
+              I help civic and behavior-change teams ship humane experiences backed by measurable outcomes.
             </h1>
             <div className="grid gap-4 text-left">
               <div className="rounded-2xl border border-border/70 bg-white/70 px-4 py-3 shadow-sm">
@@ -76,19 +80,22 @@ const AboutSection = () => {
               </div>
             </div>
             <div className="rounded-[32px] border border-border/70 bg-white/60/50 p-8 shadow-xl">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-text-dark/70 mb-4">How I deliver</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-text-dark/70 mb-4">How I deliver measurable impact</h3>
               <ul className="flex flex-col gap-4 list-none m-0 p-0">
-                {services.map((service) => (
-                  <li key={service.title} className="flex items-start gap-3">
-                    <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-full bg-black/5 text-text-dark">
-                      <ArrowRight className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="font-body text-lg font-semibold text-text-dark">{service.title}</p>
-                      <p className="text-base text-text-secondary">{service.description}</p>
-                    </div>
-                  </li>
-                ))}
+                {services.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <li key={service.title} className="flex items-start gap-3">
+                      <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-full bg-black/5 text-text-dark shrink-0">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="font-body text-lg font-semibold text-text-dark">{service.title}</p>
+                        <p className="text-base text-text-secondary">{service.description}</p>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
