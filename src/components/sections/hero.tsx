@@ -173,7 +173,7 @@ const HeroSection = () => {
                 </div>
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="xl" className="group rounded-full text-white dark:text-white w-full sm:w-auto">
+          <Button asChild variant="secondary" size="xl" className="group rounded-full w-full sm:w-auto">
             <a href="/resume.pdf" download className="flex items-center justify-center">
               <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
               <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
