@@ -3,8 +3,6 @@
 
 import Link from "next/link";
 import { ArrowRight, Pause, Play } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -13,46 +11,6 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 gsap.registerPlugin(ScrollToPlugin);
-
-const toolLogos = [
-  { name: "Figma" },
-  { name: "Adobe XD" },
-  { name: "Sketch" },
-  { name: "InVision" },
-  { name: "Framer" },
-  { name: "Zeplin" },
-  { name: "Principle" },
-];
-
-function LogoCarousel() {
-  const [emblaRef] = useEmblaCarousel(
-    { loop: true, align: "start" },
-    [Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })]
-  );
-  
-  const extendedLogos = [...toolLogos, ...toolLogos];
-
-  return (
-    <div className="w-full">
-      <div className="embla overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex items-center">
-          {extendedLogos.map((logo, index) => (
-            <div
-              key={index}
-              className="embla__slide flex-[0_0_auto] min-w-0 px-8"
-            >
-              <div className="flex h-10 items-center justify-center">
-                 <span className="text-2xl font-medium text-white/60 transition-colors">
-                  {logo.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const containerVariants = {
   hidden: {},
@@ -194,7 +152,7 @@ const HeroSection = () => {
 
       {/* Bottom Controls */}
       <motion.div
-        className="absolute z-[2] bottom-24 left-1/2 -translate-x-1/2 w-full flex justify-center items-end"
+        className="absolute z-[2] bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center items-end"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
@@ -217,7 +175,7 @@ const HeroSection = () => {
         <Button
             variant="secondary"
             size="icon"
-            className="absolute z-[2] bottom-28 md:bottom-32 right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12 active:scale-95 hover:scale-105 transition-transform"
+            className="absolute z-[2] bottom-8 right-4 sm:right-6 md:right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12 active:scale-95 hover:scale-105 transition-transform"
             onClick={() => setIsVideoPaused((v) => !v)}
             aria-label={isVideoPaused ? "Play" : "Pause"}
         >
@@ -246,13 +204,9 @@ const HeroSection = () => {
             </AnimatePresence>
         </Button>
 
-      <div className="absolute bottom-0 left-0 right-0 z-[2] w-full py-8 md:py-12">
-        <LogoCarousel />
-      </div>
+      {/* The LogoCarousel is now removed from here */}
     </section>
   );
 };
 
 export default HeroSection;
-
-    
