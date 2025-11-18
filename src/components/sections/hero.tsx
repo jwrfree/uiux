@@ -169,15 +169,15 @@ const HeroSection = () => {
           <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
             <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
               <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
-                <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+                <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                     <ArrowRight className="h-4 w-4" />
                 </div>
             </Link>
           </Button>
-          <Button asChild variant="frosted" size="xl" className="group rounded-full w-full sm:w-auto">
+          <Button asChild variant="frosted" size="xl" className="group rounded-full text-foreground w-full sm:w-auto">
             <a href="/resume.pdf" download className="flex items-center justify-center">
               <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-              <div className="w-0 opacity-0 group-hover:w-6 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
+              <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
                 <DotLottieReact
                   src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
                   loop
@@ -219,7 +219,7 @@ const HeroSection = () => {
             size="icon"
             className="absolute z-[2] bottom-28 md:bottom-32 right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12 active:scale-95 hover:scale-105 transition-transform"
             onClick={() => setIsVideoPaused((v) => !v)}
-            aria-label={isVideoPaused ? "Play video" : "Pause video"}
+            aria-label={isVideoPaused ? "Play" : "Pause"}
         >
             <AnimatePresence mode="wait" initial={false}>
             {isVideoPaused ? (
