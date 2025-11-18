@@ -7,7 +7,6 @@ import ProcessSection from '@/components/sections/process';
 import ProjectsShowcase from '@/components/sections/projects-showcase';
 import Faq from '@/components/sections/faq';
 import CtaSection from '@/components/sections/cta';
-import Footer from '@/components/sections/footer';
 import { ScrollAnimation } from '@/components/ui/scroll-animation';
 
 export default function Home() {
