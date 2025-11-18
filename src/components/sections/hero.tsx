@@ -130,7 +130,7 @@ const HeroSection = () => {
         <Button
             variant="secondary"
             size="icon"
-            className="absolute z-[2] bottom-8 right-4 sm:right-6 md:right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12 active:scale-95 hover:scale-105 transition-transform"
+            className="absolute z-[2] bottom-8 right-4 sm:right-6 md:right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12 active:scale-95 hover:scale-105 transition-transform backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40"
             onClick={() => setIsVideoPaused((v) => !v)}
             aria-label={isVideoPaused ? "Play" : "Pause"}
         >
