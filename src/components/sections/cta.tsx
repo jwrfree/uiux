@@ -18,7 +18,7 @@ const CtaSection = () => {
       </div>
       <div className="container relative z-10 mx-auto flex flex-col items-center text-center">
         <h2 className="max-w-5xl font-display text-4xl font-medium leading-tight bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-5xl lg:text-[56px] lg:leading-[1.1]">
-          Currently open to new opportunities. Feel free to reach out via email or connect with me on LinkedIn.
+          Have a project in mind? Let's build something great together.
         </h2>
         <div className="mt-12 flex flex-col sm:flex-row gap-4 items-center justify-center">
         <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
@@ -32,7 +32,7 @@ const CtaSection = () => {
             </div>
           </a>
         </Button>
-        <Button asChild variant="secondary" size="xl" className="group rounded-full w-full sm:w-auto">
+        <Button asChild variant="frosted" size="xl" className="group rounded-full w-full sm:w-auto">
           <a
             href="https://linkedin.com/in/wrjati"
             target="_blank"

@@ -139,7 +139,7 @@ const HeroSection = () => {
           variants={reduceMotion ? staticItemVariants : itemVariants}
         >
           <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
-          Open for full-time opportunities
+          Available for Full-Time Roles
         </motion.span>
         <motion.h1 
           className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl"
@@ -148,12 +148,12 @@ const HeroSection = () => {
           <span 
             className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent py-2"
           >
-            Product Designer Driving Results
+            Human-centered experiences,
           </span>
           <span 
             className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent py-2"
           >
-            Through Narrative & Data
+            measurable results.
           </span>
         </motion.h1>
         <motion.p 

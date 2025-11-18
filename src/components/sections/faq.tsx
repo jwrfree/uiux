@@ -52,9 +52,9 @@ const Faq = () => {
       <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.35fr_0.65fr] md:gap-16">
           <h2 className="font-display text-5xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-7xl">
-            Frequently
+            Your Questions,
             <br />
-            asked questions
+            Answered
           </h2>
           <Accordion type="single" collapsible className="w-full">
             {faqItems.map((item) => (

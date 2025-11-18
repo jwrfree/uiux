@@ -38,16 +38,16 @@ const AboutSection = () => {
         <div id="about" className="flex flex-col">
           <div className="space-y-6">
             <h1 className="my-0 font-display text-[42px] md:text-[72px] font-medium leading-[1.15] -tracking-[0.02em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
-              I help civic and behavior-change teams ship humane experiences backed by measurable outcomes.
+              I help civic and behavior-change teams deliver humane experiences backed by measurable outcomes.
             </h1>
             <div className="grid gap-4 text-left">
               <div className="rounded-2xl border border-border/70 bg-white/70 px-4 py-3 shadow-sm">
-                <p className="text-sm font-semibold text-text-dark">Cross-functional by default</p>
+                <p className="text-sm font-semibold text-text-dark">A natural collaborator</p>
                 <p className="text-base text-text-dark/70">Partnering with PMs, researchers, and engineers from discovery to release.</p>
               </div>
               <div className="rounded-2xl border border-border/70 bg-white/70 px-4 py-3 shadow-sm">
-                <p className="text-sm font-semibold text-text-dark">Quant & qual blended</p>
-                <p className="text-base text-text-dark/70">Mixing behavior science, data, and motion craft to ship measurable outcomes.</p>
+                <p className="text-sm font-semibold text-text-dark">Blending quant & qual</p>
+                <p className="text-base text-text-dark/70">Mixing behavior science, data, and motion craft to deliver measurable results.</p>
               </div>
             </div>
           </div>
