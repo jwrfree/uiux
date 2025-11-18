@@ -56,10 +56,10 @@ const buttonVariants = cva(
         primary: `bg-gradient-to-b from-primary to-[#191b18] text-primary-foreground`,
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
-        secondary: `${frostedGlassEffect} bg-white/45 border border-white/60 text-foreground saturate-150 dark:bg-white/10 dark:text-foreground dark:border-white/20 before:bg-white/60 dark:before:bg-white/25`,
+        secondary: `bg-secondary hover:bg-secondary/80 text-secondary-foreground`,
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        frosted: `${frostedGlassEffect} backdrop-blur-xl bg-white/25 border border-white/40 text-foreground dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
+        frosted: `${frostedGlassEffect} bg-white/25 border border-white/40 text-foreground dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
       },
       size: {
         default: "h-10 sm:h-11 px-4 text-sm",
