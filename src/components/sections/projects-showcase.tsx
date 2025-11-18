@@ -26,7 +26,7 @@ const projectsData: Project[] = [
     alt: "Teknovo IT services marketing site redesign",
     link: "/projects/teknovo",
     tags: ["Web", "B2B", "Internship"],
-    titleColor: "#C0FF6A",
+    summary: "In 3 months as an intern, I redesigned the core user experience—fixing navigation, expanding search, and bringing visual consistency across 15+ pages.",
   },
   {
     title: "Metta Restaurant Homepage",
@@ -34,7 +34,7 @@ const projectsData: Project[] = [
     alt: "Metta Restaurant responsive homepage concept",
     link: "/projects/metta-restaurant",
     tags: ["Web", "F&B", "Concept"],
-    titleColor: "#98FF98",
+    summary: "A homepage design proposal for a multi-cuisine restaurant platform, aimed at increasing reservation conversions and establishing a premium brand image.",
   },
   /*
   {
