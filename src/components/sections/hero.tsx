@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -183,7 +184,7 @@ const HeroSection = () => {
                   autoplay
                   width={24}
                   height={24}
-                  style={{ filter: "brightness(0) invert(1)" }}
+                  style={{ filter: "brightness(0)" }}
                 />
               </div>
             </a>
