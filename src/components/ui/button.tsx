@@ -15,7 +15,6 @@ const frostedGlassEffect = [
   "before:inset-0",
   "before:-z-10",
   "before:rounded-[inherit]",
-  "before:bg-white/25",
   "before:opacity-90",
   "before:transition-opacity",
   "before:duration-[350ms]",
@@ -59,7 +58,7 @@ const buttonVariants = cva(
         secondary: `bg-secondary hover:bg-secondary/80 text-secondary-foreground`,
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        frosted: `${frostedGlassEffect} bg-white/25 border border-white/40 text-foreground dark:bg-black/25 dark:text-foreground dark:border-black/40 before:bg-white/40 dark:before:bg-black/40`,
+        frosted: `${frostedGlassEffect} bg-white/45 border border-white/60 saturate-150 dark:bg-white/10 dark:border-white/20 before:bg-white/60 dark:before:bg-white/25`,
       },
       size: {
         default: "h-10 sm:h-11 px-4 text-sm",
