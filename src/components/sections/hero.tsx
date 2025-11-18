@@ -78,12 +78,12 @@ const HeroSection = () => {
         </ScrollAnimation>
         <ScrollAnimation delay={300}>
             <p className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium">
-                <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools, where I've nudged 10,000+ users toward better habits and lifting onboarding completion by 37%.</span>
+                <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools, where I've nudged over 10,000 users toward better habits and lifted onboarding completion by 37%.</span>
             </p>
         </ScrollAnimation>
         <ScrollAnimation delay={450}>
             <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-                <Button asChild variant="frosted" size="xl" className="group rounded-full w-full sm:w-auto dark:text-white">
+                <Button asChild size="xl" className="group rounded-full w-full sm:w-auto text-white border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
                     <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
                         <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
@@ -91,7 +91,7 @@ const HeroSection = () => {
                         </div>
                     </Link>
                 </Button>
-                <Button asChild variant="frosted" size="xl" className="group rounded-full text-foreground w-full sm:w-auto">
+                <Button asChild size="xl" className="group rounded-full text-white w-full sm:w-auto border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
                     <a href="/resume.pdf" download className="flex items-center justify-center">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
                     <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
