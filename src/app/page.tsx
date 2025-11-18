@@ -7,31 +7,18 @@ import ProcessSection from '@/components/sections/process';
 import ProjectsShowcase from '@/components/sections/projects-showcase';
 import Faq from '@/components/sections/faq';
 import CtaSection from '@/components/sections/cta';
-import { ScrollAnimation } from '@/components/ui/scroll-animation';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <ScrollAnimation>
-          <HeroSection />
-        </ScrollAnimation>
-        <ScrollAnimation delay={100}>
-          <AboutSection />
-        </ScrollAnimation>
-        <ScrollAnimation delay={150}>
-          <ProcessSection />
-        </ScrollAnimation>
-        <ScrollAnimation delay={150}>
-          <ProjectsShowcase />
-        </ScrollAnimation>
-        <ScrollAnimation delay={150}>
-          <Faq />
-        </ScrollAnimation>
-        <ScrollAnimation delay={100}>
-          <CtaSection />
-        </ScrollAnimation>
+        <HeroSection />
+        <AboutSection />
+        <ProcessSection />
+        <ProjectsShowcase />
+        <Faq />
+        <CtaSection />
       </main>
       {/* Footer is rendered globally in layout */}
     </div>

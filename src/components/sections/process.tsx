@@ -1,5 +1,6 @@
 import React from 'react';
 import { Gem, Zap, Repeat } from 'lucide-react';
+import { ScrollAnimation } from '../ui/scroll-animation';
 
 const processData = [
   {
@@ -41,34 +42,38 @@ const ProcessSection = () => {
             </div>
 
             <div className="container relative z-10">
-                <h2 className="font-display text-4xl md:text-6xl font-medium !leading-tight text-center max-w-5xl mx-auto text-balance bg-gradient-to-b from-text-dark to-text-dark-secondary bg-clip-text text-transparent">
-                    My approach is collaborative and the results are user-centered.
-                </h2>
+                <ScrollAnimation>
+                    <h2 className="font-display text-4xl md:text-6xl font-medium !leading-tight text-center max-w-5xl mx-auto text-balance bg-gradient-to-b from-text-dark to-text-dark-secondary bg-clip-text text-transparent">
+                        My approach is collaborative and the results are user-centered.
+                    </h2>
+                </ScrollAnimation>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-y-16 md:gap-y-0 md:gap-x-8 lg:gap-x-16 mt-20">
                     {processData.map((item, index) => {
                         const Icon = item.icon;
                         return (
-                            <div key={index} className="flex flex-col items-center text-center">
-                                <div className="mb-6 md:mb-8">
-                                    <Icon className="w-16 h-16 text-foreground/40" strokeWidth={1} />
-                                </div>
-                                <div className="flex flex-col items-center gap-4 flex-grow">
-                                  <h3 className="text-xl font-semibold text-text-dark">{item.title}</h3>
-                                  <p className="text-lg text-text-dark-secondary leading-relaxed max-w-[320px]">
-                                      {item.description}
-                                  </p>
-                                </div>
-                                <div className="mt-8 pt-8">
-                                    <p className="text-[120px] font-medium leading-none bg-gradient-to-b from-text-dark to-text-dark-secondary bg-clip-text text-transparent">
-                                        {item.stat}
-                                        {item.statUnit && <span className="text-7xl align-middle"> {item.statUnit}</span>}
+                            <ScrollAnimation key={index} delay={150 * (index + 1)}>
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="mb-6 md:mb-8">
+                                        <Icon className="w-16 h-16 text-foreground/40" strokeWidth={1} />
+                                    </div>
+                                    <div className="flex flex-col items-center gap-4 flex-grow">
+                                    <h3 className="text-xl font-semibold text-text-dark">{item.title}</h3>
+                                    <p className="text-lg text-text-dark-secondary leading-relaxed max-w-[320px]">
+                                        {item.description}
                                     </p>
-                                    <p className="text-sm text-text-dark-secondary/80 mt-3 max-w-[140px] mx-auto">
-                                        {item.statLabel}
-                                    </p>
+                                    </div>
+                                    <div className="mt-8 pt-8">
+                                        <p className="text-[120px] font-medium leading-none bg-gradient-to-b from-text-dark to-text-dark-secondary bg-clip-text text-transparent">
+                                            {item.stat}
+                                            {item.statUnit && <span className="text-7xl align-middle"> {item.statUnit}</span>}
+                                        </p>
+                                        <p className="text-sm text-text-dark-secondary/80 mt-3 max-w-[140px] mx-auto">
+                                            {item.statLabel}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </ScrollAnimation>
                         );
                     })}
                 </div>

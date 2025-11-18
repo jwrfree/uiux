@@ -9,37 +9,9 @@ import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { ScrollAnimation } from "../ui/scroll-animation";
 
 gsap.registerPlugin(ScrollToPlugin);
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      ease: "easeOut",
-      duration: 0.8,
-    },
-  },
-};
-
-const staticContainerVariants = { visible: { opacity: 1 } };
-const staticItemVariants = {
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-};
-const staticCtaVariants = { visible: { opacity: 1, y: 0 } };
 
 const HeroSection = () => {
   const reduceMotion = useReducedMotion();
@@ -62,7 +34,6 @@ const HeroSection = () => {
     }
   }, [reduceMotion]);
 
-  const initialVariant = reduceMotion ? "visible" : "hidden";
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     e.preventDefault();
     gsap.to(window, { duration: 1.5, scrollTo: target, ease: "power2.inOut" });
@@ -86,77 +57,61 @@ const HeroSection = () => {
       </div>
       <div className="absolute inset-0 w-full h-full z-[1] bg-gradient-to-b from-transparent via-transparent to-[rgba(0,0,0,0.6)]"></div>
 
-      <motion.div
-        variants={reduceMotion ? staticContainerVariants : containerVariants}
-        initial={initialVariant}
-        animate="visible"
+      <div
         className="relative z-[2] container px-8 sm:px-12 lg:px-20 flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
-        <motion.span
-          className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap"
-          variants={reduceMotion ? staticItemVariants : itemVariants}
-        >
-          <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
-          Available for Full-Time Roles
-        </motion.span>
-        <motion.h1 
-          className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl"
-          variants={reduceMotion ? staticItemVariants : itemVariants}
-        >
-          <span 
-            className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent py-2"
-          >
-            Human-centered experiences,
-          </span>
-          <span 
-            className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent py-2"
-          >
-            measurable results.
-          </span>
-        </motion.h1>
-        <motion.p 
-          className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium"
-          variants={reduceMotion ? staticItemVariants : itemVariants}
-        >
-          <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools, where I've nudged 10,000+ users toward better habits and lifted onboarding completion by 37%.</span>
-        </motion.p>
-        <motion.div 
-          className="mt-10 flex flex-row flex-wrap justify-center gap-4"
-          variants={reduceMotion ? staticCtaVariants : itemVariants}
-        >
-          <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
-            <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
-              <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
-                <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                    <ArrowRight className="h-4 w-4" />
-                </div>
-            </Link>
-          </Button>
-          <Button asChild variant="frosted" size="xl" className="group rounded-full text-foreground w-full sm:w-auto">
-            <a href="/resume.pdf" download className="flex items-center justify-center">
-              <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-              <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
-                <DotLottieReact
-                  src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
-                  loop
-                  autoplay
-                  width={24}
-                  height={24}
-                  style={{ filter: "invert(1)" }}
-                />
-              </div>
-            </a>
-          </Button>
-        </motion.div>
-      </motion.div>
+        <ScrollAnimation>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap">
+                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-300 animate-pulse" />
+                Available for Full-Time Roles
+            </span>
+        </ScrollAnimation>
+        <ScrollAnimation delay={150}>
+            <h1 className="mt-6 font-display font-bold text-white text-balance text-[2.5rem] leading-[1.12] md:text-[3.5rem] lg:text-[4.25rem] tracking-[-0.02em] max-w-5xl">
+                <span className="block bg-gradient-to-b from-white to-white/65 bg-clip-text text-transparent py-2">
+                    Human-centered experiences,
+                </span>
+                <span className="block bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent py-2">
+                    measurable results.
+                </span>
+            </h1>
+        </ScrollAnimation>
+        <ScrollAnimation delay={300}>
+            <p className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium">
+                <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools, where I've nudged 10,000+ users toward better habits and lifting onboarding completion by 37%.</span>
+            </p>
+        </ScrollAnimation>
+        <ScrollAnimation delay={450}>
+            <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
+                <Button asChild variant="primary" size="xl" className="group rounded-full w-full sm:w-auto">
+                    <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
+                    <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
+                        <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+                            <ArrowRight className="h-4 w-4" />
+                        </div>
+                    </Link>
+                </Button>
+                <Button asChild variant="frosted" size="xl" className="group rounded-full text-foreground w-full sm:w-auto">
+                    <a href="/resume.pdf" download className="flex items-center justify-center">
+                    <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
+                    <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
+                        <DotLottieReact
+                        src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
+                        loop
+                        autoplay
+                        width={24}
+                        height={24}
+                        style={{ filter: "invert(1)" }}
+                        />
+                    </div>
+                    </a>
+                </Button>
+            </div>
+        </ScrollAnimation>
+      </div>
 
       {/* Bottom Controls */}
-      <motion.div
-        className="absolute z-[2] bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center items-end"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-      >
+      <ScrollAnimation delay={600} className="absolute z-[2] bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center items-end">
         <a
             href="#about"
             onClick={(e) => handleScrollTo(e, "#about")}
@@ -170,7 +125,7 @@ const HeroSection = () => {
                 style={{ width: "100%", height: "100%" }}
             />
         </a>
-      </motion.div>
+      </ScrollAnimation>
 
         <Button
             variant="secondary"
@@ -203,8 +158,6 @@ const HeroSection = () => {
             )}
             </AnimatePresence>
         </Button>
-
-      {/* The LogoCarousel is now removed from here */}
     </section>
   );
 };

@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ScrollAnimation } from "../ui/scroll-animation";
 const faqItems = [
   {
     value: "item-1",
@@ -51,27 +52,30 @@ const Faq = () => {
     <section className="bg-background py-20 sm:py-24 md:py-40 lg:py-48">
       <div className="container">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.35fr_0.65fr] md:gap-16">
-          <h2 className="font-display text-5xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-7xl">
-            Your Questions,
-            <br />
-            Answered
-          </h2>
+          <ScrollAnimation>
+            <h2 className="font-display text-5xl font-medium leading-[1.1] tracking-tight text-balance bg-gradient-to-b from-gradient-text-start to-gradient-text-end bg-clip-text text-transparent md:text-7xl">
+                Your Questions,
+                <br />
+                Answered
+            </h2>
+          </ScrollAnimation>
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item) => (
-              <AccordionItem
-                value={item.value}
-                key={item.value}
-                className="border-b border-border-subtle"
-              >
-                <AccordionTrigger className="group flex w-full items-center justify-between gap-4 py-6 text-left transition-all duration-300 hover:no-underline">
-                  <span className="flex-1 pr-4 text-xl font-semibold text-text-dark md:text-2xl">
-                    {item.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 pr-10 text-lg leading-relaxed text-muted-foreground md:text-xl transition-all duration-300 data-[state=closed]:translate-y-2 data-[state=closed]:opacity-0 data-[state=open]:translate-y-0 data-[state=open]:opacity-100">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
+            {faqItems.map((item, index) => (
+              <ScrollAnimation key={item.value} delay={150 * (index + 1)}>
+                <AccordionItem
+                    value={item.value}
+                    className="border-b border-border-subtle"
+                >
+                    <AccordionTrigger className="group flex w-full items-center justify-between gap-4 py-6 text-left transition-all duration-300 hover:no-underline">
+                    <span className="flex-1 pr-4 text-xl font-semibold text-text-dark md:text-2xl">
+                        {item.question}
+                    </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6 pr-10 text-lg leading-relaxed text-muted-foreground md:text-xl transition-all duration-300 data-[state=closed]:translate-y-2 data-[state=closed]:opacity-0 data-[state=open]:translate-y-0 data-[state=open]:opacity-100">
+                    {item.answer}
+                    </AccordionContent>
+                </AccordionItem>
+              </ScrollAnimation>
             ))}
           </Accordion>
         </div>
