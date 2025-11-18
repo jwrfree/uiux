@@ -38,6 +38,7 @@ const buttonVariants = cva(
     "transition-all",
     "duration-300",
     "ease-out",
+    "active:scale-95",
     "disabled:pointer-events-none",
     "disabled:opacity-50",
     "[&_svg]:pointer-events-none",
