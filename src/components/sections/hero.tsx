@@ -83,7 +83,7 @@ const HeroSection = () => {
         </ScrollAnimation>
         <ScrollAnimation delay={450}>
             <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-                <Button asChild size="xl" className="group rounded-full w-full sm:w-auto text-white border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
+                <Button asChild size="xl" className="group rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90">
                     <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
                         <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
