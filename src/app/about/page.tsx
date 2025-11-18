@@ -18,10 +18,10 @@ const AboutPage = () => {
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                 <ScrollAnimation>
                     <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4 bg-gradient-to-r from-stone-800 to-stone-200 bg-clip-text text-transparent">
-                        Designing for People, Not Just Pixels
+                        I turn messy human problems into measurable outcomes.
                     </h1>
                     <p className="text-xl md:text-2xl text-text-dark-secondary">
-                        I turn messy human problems into measurable outcomes—balancing empathy, behavior science, and product goals.
+                        A product designer balancing empathy, behavior science, and business goals.
                     </p>
                 </ScrollAnimation>
             </div>
@@ -49,7 +49,7 @@ const AboutPage = () => {
                 </ScrollAnimation>
                 <ScrollAnimation delay={450}>
                     <p>
-                        I believe great design isn&apos;t just about making things look good—it&apos;s about understanding people, their struggles, and designing solutions that genuinely improve their lives. Over the last 3 years I&apos;ve designed for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
+                        For me, great design has never been just about aesthetics—it&apos;s about understanding people, their struggles, and designing solutions that genuinely improve their lives. Over the last 3 years I&apos;ve designed for problems that matter: from helping 10,000+ users shift from burning waste to recycling, to supporting families through grief with compassionate digital services.
                     </p>
                 </ScrollAnimation>
                 <ScrollAnimation delay={550}>
@@ -136,8 +136,8 @@ const AboutPage = () => {
             <div className="container mx-auto px-4 py-24 md:py-32">
                 <div className="max-w-5xl mx-auto">
                     <ScrollAnimation>
-                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">What I Bring</h2>
-                      <p className="text-lg md:text-xl text-text-secondary mb-16 text-center">Skills & Approach</p>
+                     <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center">My Core Strengths</h2>
+                      <p className="text-lg md:text-xl text-text-secondary mb-16 text-center">My Design Toolkit</p>
                     </ScrollAnimation>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {[
