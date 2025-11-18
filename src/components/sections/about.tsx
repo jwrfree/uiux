@@ -1,3 +1,4 @@
+
 import { ArrowRight, Activity, Layers, Zap, TrendingUp } from 'lucide-react';
 import React from 'react';
 import { Button } from '@/components/ui/button';
@@ -56,7 +57,7 @@ const AboutSection = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
                 {stats.map((stat) => (
                   <div key={stat.label} className="rounded-3xl border border-border/70 bg-white/40 px-4 py-6 shadow-lg text-start">
-                    <p className="text-3xl font-display font-semibold text-text-dark">{stat.value}</p>
+                    <p className="text-4xl font-display font-semibold text-text-dark">{stat.value}</p>
                     <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-text-secondary">{stat.label}</p>
                   </div>
                 ))}
@@ -87,7 +88,7 @@ const AboutSection = () => {
                   return (
                     <li key={service.title} className="flex items-start gap-3">
                       <div className="mt-1 h-8 w-8 flex items-center justify-center rounded-full bg-black/5 text-text-dark shrink-0">
-                        <Icon className="h-4 w-4" />
+                        <Icon className="h-4 w-4" strokeWidth={2} />
                       </div>
                       <div>
                         <p className="font-body text-lg font-semibold text-text-dark">{service.title}</p>
