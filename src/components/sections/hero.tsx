@@ -133,42 +133,6 @@ const HeroSection = () => {
         animate="visible"
         className="relative z-[2] container px-8 sm:px-12 lg:px-20 flex flex-col items-center justify-center h-full text-center py-20 md:py-24 lg:py-32"
       >
-        <div className="absolute top-6 right-6 flex items-center gap-2">
-          <Button
-            variant="secondary"
-            size="sm"
-            className="rounded-full text-white/90"
-            onClick={() => setIsVideoPaused((v) => !v)}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              {isVideoPaused ? (
-                <motion.span
-                  key="play"
-                  className="inline-flex items-center"
-                  initial={{ opacity: 0, x: 6 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -6 }}
-                  transition={{ duration: 0.25, ease: "easeOut" }}
-                >
-                  <Play className="h-4 w-4 mr-2" />
-                  <span>Play</span>
-                </motion.span>
-              ) : (
-                <motion.span
-                  key="pause"
-                  className="inline-flex items-center"
-                  initial={{ opacity: 0, x: -6 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 6 }}
-                  transition={{ duration: 0.25, ease: "easeOut" }}
-                >
-                  <Pause className="h-4 w-4 mr-2" />
-                  <span>Pause</span>
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </Button>
-        </div>
         <motion.span
           className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20/50 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white/80 backdrop-blur-md whitespace-nowrap"
           variants={reduceMotion ? staticItemVariants : itemVariants}
@@ -227,22 +191,58 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Down Indicator */}
-      <motion.a
-        href="#about"
-        onClick={(e) => handleScrollTo(e, "#about")}
-        className="absolute z-[2] bottom-16 md:bottom-24 left-1/2 -translate-x-1/2 cursor-pointer w-10 h-10 sm:w-12 sm:h-12"
+      {/* Bottom Controls */}
+      <motion.div
+        className="absolute z-[2] bottom-10 left-1/2 -translate-x-1/2 w-full flex justify-center items-end gap-8"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
       >
-        <DotLottieReact
-            src="https://lottie.host/02ea0f83-ebc3-40b2-b381-17a8d8b711d3/2tBUg5ux5t.lottie"
-            loop
-            autoplay
-            style={{ width: "100%", height: "100%" }}
-        />
-      </motion.a>
+        <a
+            href="#about"
+            onClick={(e) => handleScrollTo(e, "#about")}
+            className="cursor-pointer w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center"
+            aria-label="Scroll down"
+        >
+            <DotLottieReact
+                src="https://lottie.host/02ea0f83-ebc3-40b2-b381-17a8d8b711d3/2tBUg5ux5t.lottie"
+                loop
+                autoplay
+                style={{ width: "100%", height: "100%" }}
+            />
+        </a>
+        <Button
+            variant="secondary"
+            size="icon"
+            className="rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12"
+            onClick={() => setIsVideoPaused((v) => !v)}
+            aria-label={isVideoPaused ? "Play video" : "Pause video"}
+        >
+            <AnimatePresence mode="wait" initial={false}>
+            {isVideoPaused ? (
+                <motion.span
+                key="play"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                <Play className="h-5 w-5 fill-current" />
+                </motion.span>
+            ) : (
+                <motion.span
+                key="pause"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                <Pause className="h-5 w-5 fill-current" />
+                </motion.span>
+            )}
+            </AnimatePresence>
+        </Button>
+      </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 z-[2] w-full py-8 md:py-12">
         <LogoCarousel />
