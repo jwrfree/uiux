@@ -53,7 +53,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-background hover:bg-accent dark:bg-input/30 dark:hover:bg-input/50",
-        primary: `${frostedGlassEffect} bg-black/55 text-white border border-white/20 before:bg-black/50`,
+        primary: `${frostedGlassEffect} bg-white/25 text-text-dark border border-white/30 before:bg-white/35 dark:bg-black/65 dark:text-white dark:border-white/15 dark:before:bg-black/55`,
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 dark:bg-destructive/60",
         secondary: `${frostedGlassEffect} bg-white/45 border border-white/60 text-foreground saturate-150 dark:bg-white/10 dark:text-white dark:border-white/20 before:bg-white/60 dark:before:bg-white/25`,
