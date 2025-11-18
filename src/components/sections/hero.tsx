@@ -193,7 +193,7 @@ const HeroSection = () => {
 
       {/* Bottom Controls */}
       <motion.div
-        className="absolute z-[2] bottom-10 left-1/2 -translate-x-1/2 w-full flex justify-center items-end gap-8"
+        className="absolute z-[2] bottom-10 left-1/2 -translate-x-1/2 w-full flex justify-center items-end"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
@@ -211,10 +211,12 @@ const HeroSection = () => {
                 style={{ width: "100%", height: "100%" }}
             />
         </a>
+      </motion.div>
+
         <Button
             variant="secondary"
             size="icon"
-            className="rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12"
+            className="absolute z-[2] bottom-10 right-10 rounded-full text-white/90 w-10 h-10 sm:w-12 sm:h-12"
             onClick={() => setIsVideoPaused((v) => !v)}
             aria-label={isVideoPaused ? "Play video" : "Pause video"}
         >
@@ -242,7 +244,6 @@ const HeroSection = () => {
             )}
             </AnimatePresence>
         </Button>
-      </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 z-[2] w-full py-8 md:py-12">
         <LogoCarousel />
