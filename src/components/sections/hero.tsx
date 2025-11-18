@@ -160,7 +160,7 @@ const HeroSection = () => {
           className="mt-6 w-full max-w-3xl lg:max-w-4xl text-lg text-white/80 md:text-xl font-medium"
           variants={reduceMotion ? staticItemVariants : itemVariants}
         >
-          <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools—nudging 10,000+ users toward better habits and lifting onboarding completion by 37%.</span>
+          <span>Mid-level UI/UX designer with 3+ years shipping behavior-change platforms and civic tools, where I've nudged 10,000+ users toward better habits and lifted onboarding completion by 37%.</span>
         </motion.p>
         <motion.div 
           className="mt-10 flex flex-row flex-wrap justify-center gap-4"
@@ -254,3 +254,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+    
