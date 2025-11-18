@@ -135,9 +135,9 @@ const HeroSection = () => {
       >
         <div className="absolute top-6 right-6 flex items-center gap-2">
           <Button
-            variant="primary"
+            variant="secondary"
             size="sm"
-            className="rounded-full hover:scale-[1.02] transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black text-white [&_svg]:text-white border border-white/30 bg-black/60"
+            className="rounded-full text-white/90"
             onClick={() => setIsVideoPaused((v) => !v)}
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -151,7 +151,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 >
                   <Play className="h-4 w-4 mr-2" />
-                  <span>Play Reel</span>
+                  <span>Play</span>
                 </motion.span>
               ) : (
                 <motion.span
@@ -163,7 +163,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 >
                   <Pause className="h-4 w-4 mr-2" />
-                  <span>Pause Reel</span>
+                  <span>Pause</span>
                 </motion.span>
               )}
             </AnimatePresence>
