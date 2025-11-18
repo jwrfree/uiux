@@ -163,7 +163,7 @@ export default function Header() {
         
         <motion.div
           initial={{ scale: 1 }}
-          animate={{ scale: isScrolled ? 0.9 : 1 }}
+          animate={{ scale: isScrolled && !isMenuOpen ? 0.9 : 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           style={{ transformOrigin: 'top center' }}
         >
@@ -229,7 +229,7 @@ export default function Header() {
                       href={item.href}
                       prefetch={false}
                       onClick={(e) => handleMenuClick(e, item.href)}
-                      className="text-foreground/90 hover:text-foreground transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      className="relative text-foreground/90 hover:text-foreground transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:origin-center after:bg-foreground after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:left-0"
                     >
                       {item.label}
                     </Link>
