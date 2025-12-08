@@ -53,6 +53,12 @@ const HeroSection = () => {
         >
           <source src="/videos/hero_video.webm" type="video/webm" />
           <source src="/videos/hero_video.mp4" type="video/mp4" />
+          <track
+            src="/videos/hero_video_captions.vtt"
+            kind="captions"
+            srcLang="en"
+            label="English"
+          />
         </video>
       </div>
       <div className="absolute inset-0 w-full h-full z-[1] bg-gradient-to-b from-transparent via-transparent to-[rgba(0,0,0,0.6)]"></div>

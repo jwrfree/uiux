@@ -77,12 +77,13 @@ function InputGroupAddon({
       keyboardEvent.preventDefault()
     }
 
-    e.currentTarget.parentElement?.querySelector("input, textarea")?.focus()
+    ;(e.currentTarget.parentElement?.querySelector("input, textarea") as HTMLElement)?.focus()
   }
   return (
     <div
       data-slot="input-group-addon"
       data-align={align}
+      role="button"
       tabIndex={0}
       className={cn(inputGroupAddonVariants({ align }), className)}
       onClick={handleInteraction}

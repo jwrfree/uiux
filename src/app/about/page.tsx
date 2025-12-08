@@ -1,5 +1,4 @@
-
-
+import { Metadata } from 'next';
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
@@ -8,6 +7,11 @@ import Image from "next/image";
 import Timeline from "@/components/ui/timeline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: 'About Wruhantojati',
+  description: 'Learn about Wruhantojati, a UI/UX designer in Yogyakarta with 3+ years of experience. Discover his design philosophy, core strengths in behavior change and systems thinking, and how he translates complex human problems into measurable design outcomes.',
+};
 
 const AboutPage = () => {
   return (
@@ -168,7 +172,7 @@ const AboutPage = () => {
                 <ScrollAnimation delay={600}>
                   <div className="mt-20 flex flex-col items-center gap-6 text-center">
                     <p className="text-xl text-text-dark max-w-2xl">
-                      Want a deeper look? Browse the case studies I&apos;ve shipped or grab the one-page resume for a quick download.
+                      Want a deeper look? Browse the case studies I've shipped or grab the one-page resume for a quick download.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                       <Button asChild variant="primary" size="xl" className="group rounded-full">

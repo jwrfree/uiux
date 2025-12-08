@@ -60,6 +60,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         frosted: `${frostedGlassEffect} bg-white/45 border border-white/60 saturate-150 text-foreground dark:bg-black/20 dark:border-white/20 before:bg-white/60 dark:before:bg-black/25`,
+        outline: "border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         default: "h-10 sm:h-11 px-4 text-sm",

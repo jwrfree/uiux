@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { postMessageDedup, parseOrchidsId } from './utils';
 import { CHANNEL } from './types';
 
@@ -16,6 +16,9 @@ export function useResizeHandlers(
   setHoverBoxes: (boxes: any[]) => void,
   lastHitElementRef: React.RefObject<HTMLElement | null>
 ) {
+    const isResizingRef = useRef(isResizing);
+    isResizingRef.current = isResizing;
+
   // Handle resize start
   const handleResizeStart = (e: React.MouseEvent, handle: string) => {
     if (!focusedElementRef.current) return;
@@ -111,9 +114,7 @@ export function useResizeHandlers(
       }
 
       // Ensure hover box stays hidden during resize
-      if (hoverBox) {
-        setHoverBox(null);
-      }
+      setHoverBox(null);
 
       // Send resize message to parent
       if (focusedElementId) {

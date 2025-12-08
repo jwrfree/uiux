@@ -20,7 +20,7 @@ export const SplitText: React.FC<SplitTextProps> = ({ text, word }) => {
         staggerChildren: word ? 0.05 : 0.015,
       },
     },
-  };
+  } as const;
 
   const childVariants = {
     hidden: { 
@@ -35,7 +35,7 @@ export const SplitText: React.FC<SplitTextProps> = ({ text, word }) => {
             duration: 0.8,
         },
     },
-  };
+  } as const;
 
   return (
     <motion.div

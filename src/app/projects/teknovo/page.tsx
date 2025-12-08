@@ -1,18 +1,19 @@
-
-'use client';
-
+import { Metadata } from 'next';
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { ArrowUpRight, Calendar, Users, Wrench, CheckCircle, Search, Wind, Eye, SlidersHorizontal, BarChart, FileText, Lightbulb, UserCheck, MessageSquareQuote, TrendingUp, ShieldCheck, Scale, Hand } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TableOfContents } from "@/components/ui/table-of-contents";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
+export const metadata: Metadata = {
+  title: 'Teknovo Case Study | Wruhantojati',
+  description: 'A UI/UX case study on redesigning the Teknovo website. See how a heuristic-driven approach fixed critical navigation and search issues, established a design system, and improved usability across 15+ pages—all within a 3-month internship.',
+};
 
 const ProjectTeknovoPage = () => {
     const projectDetails = [
@@ -78,11 +79,10 @@ const ProjectTeknovoPage = () => {
                             <section id="hero" className="mb-16 md:mb-24">
                                 <ScrollAnimation>
                                     <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                                        <Image
+                                        <img
                                             src="https://picsum.photos/seed/teknovo-hero/1600/900"
                                             alt="Teknovo Website Redesign Hero Image"
-                                            fill
-                                            className="object-cover"
+                                            className="object-cover w-full h-full"
                                             data-ai-hint="corporate website homepage"
                                         />
                                     </div>
@@ -275,11 +275,11 @@ const ProjectTeknovoPage = () => {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">Before</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-home-before/800/600" alt="Homepage Before" width={800} height={600} className="rounded-md" data-ai-hint="cluttered website design" />
+                                                    <img src="https://picsum.photos/seed/teknovo-home-before/800/600" alt="Homepage Before" width="800" height="600" className="rounded-md" data-ai-hint="cluttered website design" />
                                                 </div>
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">After</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-home-after/800/600" alt="Homepage After" width={800} height={600} className="rounded-md" data-ai-hint="clean website design" />
+                                                    <img src="https://picsum.photos/seed/teknovo-home-after/800/600" alt="Homepage After" width="800" height="600" className="rounded-md" data-ai-hint="clean website design" />
                                                 </div>
                                             </div>
                                         </div>
@@ -290,11 +290,11 @@ const ProjectTeknovoPage = () => {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">Before</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-plp-before/800/600" alt="Product Page Before" width={800} height={600} className="rounded-md" data-ai-hint="bad user interface" />
+                                                    <img src="https://picsum.photos/seed/teknovo-plp-before/800/600" alt="Product Page Before" width="800" height="600" className="rounded-md" data-ai-hint="bad user interface" />
                                                 </div>
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">After</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-plp-after/800/600" alt="Product Page After" width={800} height={600} className="rounded-md" data-ai-hint="good user interface" />
+                                                    <img src="https://picsum.photos/seed/teknovo-plp-after/800/600" alt="Product Page After" width="800" height="600" className="rounded-md" data-ai-hint="good user interface" />
                                                 </div>
                                             </div>
                                         </div>
@@ -386,7 +386,3 @@ const ProjectTeknovoPage = () => {
 };
 
 export default ProjectTeknovoPage;
-
-    
-
-    

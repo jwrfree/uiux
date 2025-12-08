@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "compress:image": "node scripts/compress-profile.cjs",
-    "convert:webp": "node scripts/convert-all-to-webp.mjs"
+    "convert:webp": "node scripts/convert-all-to-webp.mjs",
+    "build:analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@babel/parser": "^7.28.5",
@@ -105,6 +106,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
+    "@next/bundle-analyzer": "^16.0.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
