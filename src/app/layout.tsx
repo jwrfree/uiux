@@ -6,23 +6,24 @@ import Script from "next/script";
 import Footer from "@/components/sections/footer";
 
 const siteUrl = "https://wruhantojati.com";
-const siteName = "Wruhantojati Portfolio";
-const defaultTitle = "Wruhantojati | Product Designer";
+const siteName = "Wruhantojati | UI/UX Designer Portfolio";
+const defaultTitle = "Wruhantojati | UI/UX Designer";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Wruhantojati",
   url: siteUrl,
-  jobTitle: "Product Designer",
+  jobTitle: "UI/UX Designer",
   image: `${siteUrl}/images/profile.jpg`,
   description:
-    "Mid-level product designer crafting humane, measurable experiences for civic and growth teams.",
+    "Mid-level UI/UX designer specializing in creating intuitive, user-centric, and visually compelling digital experiences.",
   knowsAbout: [
-    "Product Design",
-    "Design Systems",
-    "Behavior Change",
+    "UI/UX Design",
+    "User-Centered Design",
     "Interaction Design",
     "User Research",
+    "Prototyping",
+    "Design Systems",
   ],
   worksFor: [
     {
@@ -39,14 +40,15 @@ export const metadata: Metadata = {
     template: "%s | Wruhantojati",
   },
   description:
-    "Wruhantojati is a mid-level product designer crafting humane, measurable experiences for civic, AI, and growth teams. Explore case studies, process, and outcomes.",
+    "Portfolio of Wruhantojati, a mid-level UI/UX designer focused on creating intuitive and impactful digital experiences. Explore case studies, design process, and professional work.",
   keywords: [
     "Wruhantojati",
-    "Product Designer",
     "UI/UX Designer",
+    "User Experience Designer",
+    "User Interface Designer",
     "Portfolio",
     "Case Studies",
-    "Behavior Change Products",
+    "Design Systems",
   ],
   authors: [{ name: "Wruhantojati" }],
   creator: "Wruhantojati",
@@ -65,19 +67,19 @@ export const metadata: Metadata = {
     siteName,
     title: defaultTitle,
     description:
-      "Human-centered product designer blending research, systems thinking, and measurable outcomes.",
+      "A UI/UX designer dedicated to blending user research, strategy, and visual design to create human-centric products.",
     images: [
       {
-        url: `${siteUrl}/og-cover.png`,
+        url: `${siteUrl}/og-cover.svg`,
         width: 1200,
         height: 630,
-        alt: "Wruhantojati - Product Designer",
+        alt: "Wruhantojati - UI/UX Designer Portfolio",
       },
       {
         url: `${siteUrl}/images/profile.jpg`,
         width: 800,
         height: 800,
-        alt: "Wruhantojati portrait",
+        alt: "A portrait of Wruhantojati",
       },
     ],
   },
@@ -86,8 +88,8 @@ export const metadata: Metadata = {
     creator: "@wruhantojati",
     title: defaultTitle,
     description:
-      "Product designer crafting humane, measurable experiences for civic and growth teams.",
-    images: [`${siteUrl}/og-cover.png`, `${siteUrl}/images/profile.jpg`],
+      "A UI/UX designer dedicated to blending user research, strategy, and visual design to create human-centric products.",
+    images: [`${siteUrl}/og-cover.svg`, `${siteUrl}/images/profile.jpg`],
   },
   icons: {
     icon: "/favicon.ico",
@@ -112,7 +114,7 @@ export default function RootLayout({
           data-include-search-params="true"
           data-only-in-iframe="true"
           data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+          data-custom-data='''{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'''
         />
         <Script
           id="ld-person"
