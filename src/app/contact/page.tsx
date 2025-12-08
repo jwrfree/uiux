@@ -1,6 +1,4 @@
-
-"use client";
-
+import { Metadata } from "next";
 import { useEffect, useState } from "react";
 import type { MouseEvent as ReactMouseEvent } from "react";
 import Link from "next/link";
@@ -17,6 +15,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Spinner } from "@/components/ui/spinner";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Ready to collaborate? Contact Wruhantojati for full-time opportunities or to discuss a new design project. Let\'s build something great together.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),

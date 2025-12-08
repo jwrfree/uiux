@@ -1,4 +1,6 @@
 
+import { Metadata } from 'next';
+
 'use client';
 
 import CtaSection from "@/components/sections/cta";
@@ -13,6 +15,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TableOfContents } from "@/components/ui/table-of-contents";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
+export const metadata: Metadata = {
+    title: "Teknovo Website Redesign Case Study | Wruhantojati",
+    description: "As a UI/UX intern, Wruhantojati overhauled the unusable Teknovo website. This case study details the process of using heuristic evaluation to fix critical navigation flaws, expand product filtering by 250%, and build a design system from scratch—all within a 3-month timeline with no research budget.",
+    alternates: {
+        canonical: "/projects/teknovo",
+    },
+};
 
 const ProjectTeknovoPage = () => {
     const projectDetails = [
@@ -386,7 +395,3 @@ const ProjectTeknovoPage = () => {
 };
 
 export default ProjectTeknovoPage;
-
-    
-
-    

@@ -1,5 +1,4 @@
-
-
+import { Metadata } from "next";
 import CtaSection from "@/components/sections/cta";
 import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
@@ -8,6 +7,14 @@ import Image from "next/image";
 import Timeline from "@/components/ui/timeline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn about Wruhantojati, a UI/UX Designer from Yogyakarta. Discover his design philosophy, core strengths in user research and behavior change, and how he turns complex human problems into measurable outcomes.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const AboutPage = () => {
   return (

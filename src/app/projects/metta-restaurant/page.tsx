@@ -1,4 +1,5 @@
 
+import { Metadata } from 'next';
 
 'use client';
 
@@ -13,6 +14,14 @@ import placeholderImages from '@/lib/placeholder-images.json';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TableOfContents } from "@/components/ui/table-of-contents";
+
+export const metadata: Metadata = {
+    title: "Metta Restaurant Case Study | Wruhantojati",
+    description: "A UI/UX case study on the homepage redesign for Metta Restaurant. See how Wruhantojati used competitive analysis and dual-persona strategy to create a conversion-focused design, aiming to increase online reservations for a premium, multi-cuisine platform.",
+    alternates: {
+        canonical: "/projects/metta-restaurant",
+    },
+};
 
 const ProjectMettaPage = () => {
     const projectDetails = [
