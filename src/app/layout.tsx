@@ -1,13 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import Footer from "@/components/sections/footer";
 
-const siteUrl = "https://wruhantojati.com";
+const siteUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 const siteName = "Wruhantojati Portfolio";
 const defaultTitle = "Wruhantojati | Product Designer";
+const unifiedDescription = "Wruhantojati is a mid-level product designer crafting humane, measurable experiences for civic, AI, and growth teams. Explore case studies, process, and outcomes.";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -15,8 +19,7 @@ const structuredData = {
   url: siteUrl,
   jobTitle: "Product Designer",
   image: `${siteUrl}/images/profile.jpg`,
-  description:
-    "Mid-level product designer crafting humane, measurable experiences for civic and growth teams.",
+  description: unifiedDescription,
   knowsAbout: [
     "Product Design",
     "Design Systems",
@@ -30,6 +33,12 @@ const structuredData = {
       name: "Independent",
     },
   ],
+  sameAs: [
+    "https://www.linkedin.com/in/your-profile/",
+    "https://dribbble.com/your-profile",
+    "https://www.behance.net/your-profile",
+    "https://github.com/your-username"
+  ]
 };
 
 export const metadata: Metadata = {
@@ -38,8 +47,7 @@ export const metadata: Metadata = {
     default: defaultTitle,
     template: "%s | Wruhantojati",
   },
-  description:
-    "Wruhantojati is a mid-level product designer crafting humane, measurable experiences for civic, AI, and growth teams. Explore case studies, process, and outcomes.",
+  description: unifiedDescription,
   keywords: [
     "Wruhantojati",
     "Product Designer",
@@ -64,8 +72,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName,
     title: defaultTitle,
-    description:
-      "Human-centered product designer blending research, systems thinking, and measurable outcomes.",
+    description: unifiedDescription,
     images: [
       {
         url: `${siteUrl}/og-cover.png`,
@@ -85,14 +92,25 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@wruhantojati",
     title: defaultTitle,
-    description:
-      "Product designer crafting humane, measurable experiences for civic and growth teams.",
+    description: unifiedDescription,
     images: [`${siteUrl}/og-cover.png`, `${siteUrl}/images/profile.jpg`],
   },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  viewportFit: "cover",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
