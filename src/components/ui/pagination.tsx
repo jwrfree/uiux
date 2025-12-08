@@ -46,6 +46,7 @@ function PaginationLink({
   className,
   isActive,
   size = "icon",
+  children,
   ...props
 }: PaginationLinkProps) {
   return (
@@ -61,7 +62,12 @@ function PaginationLink({
         className
       )}
       {...props}
-    />
+    >
+      {children}
+      {!children && props["aria-label"] && (
+        <span className="sr-only">{props["aria-label"]}</span>
+      )}
+    </a>
   )
 }
 
