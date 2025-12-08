@@ -108,7 +108,7 @@ export default function RootLayout({
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           data-target-origin="*"
           data-message-type="ROUTE_CHANGE"
           data-include-search-params="true"
@@ -119,7 +119,7 @@ export default function RootLayout({
         <Script
           id="ld-person"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <div className="flex-1">

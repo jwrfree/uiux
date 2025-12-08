@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
 import Header from '@/components/sections/header';
 import HeroSection from '@/components/sections/hero';
-import AboutSection from '@/components/sections/about';
-import ProcessSection from '@/components/sections/process';
-import ProjectsShowcase from '@/components/sections/projects-showcase';
-import Faq from '@/components/sections/faq';
-import CtaSection from '@/components/sections/cta';
+import dynamic from 'next/dynamic';
+
+const AboutSection = dynamic(() => import('@/components/sections/about'));
+const ProcessSection = dynamic(() => import('@/components/sections/process'));
+const ProjectsShowcase = dynamic(() => import('@/components/sections/projects-showcase'));
+const Faq = dynamic(() => import('@/components/sections/faq'));
+const CtaSection = dynamic(() => import('@/components/sections/cta'));
 
 export default function Home() {
   return (

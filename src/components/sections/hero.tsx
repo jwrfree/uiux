@@ -8,10 +8,12 @@ import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import dynamic from 'next/dynamic';
 import { ScrollAnimation } from "../ui/scroll-animation";
 
 gsap.registerPlugin(ScrollToPlugin);
+
+const DotLottieReact = dynamic(() => import('@lottiefiles/dotlottie-react').then(mod => mod.DotLottieReact), { ssr: false });
 
 const HeroSection = () => {
   const reduceMotion = useReducedMotion();
@@ -48,6 +50,8 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          preload="metadata"
+          // TODO: Replace with a real poster image for better performance
           poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" 
           ref={videoRef}
         >
