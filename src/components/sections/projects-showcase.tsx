@@ -40,7 +40,7 @@ const projectsData: Project[] = [
   /*
   {
     title: "Bukunest Bookstore App",
-    image: "/img-card-bukunest.webp",
+    image: "/images/img-card-bukunest.webp",
     alt: "Bukunest mobile bookstore concept screens",
     link: "/projects/midfunnel",
     tags: ["Mobile", "Concept"],
@@ -48,7 +48,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Skilvul Personal Brand Site",
-    image: "/img-card-skilvul.webp",
+    image: "/images/img-card-skilvul.webp",
     alt: "Content-focused personal brand website layout",
     link: "/projects/sahilbloom",
     tags: ["Web", "Branding"],
@@ -57,7 +57,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Vidio Design System",
-    image: "/img-card-vidio.webp",
+    image: "/images/img-card-vidio.webp",
     alt: "Design system documentation for Vidio product",
     link: "/projects/utility",
     tags: ["Design System", "Product"],
@@ -169,7 +169,7 @@ const ProjectCard = ({ project, delay }: { project: Project, delay: number }) =>
                       <span className="font-semibold text-foreground">{stat.value}</span>{" "}
                       <span>{stat.label}</span>
                     </div>
-                  ))}
+                  ))}\
                 </div>
               )}
             </div>
@@ -203,7 +203,7 @@ const ProjectsShowcase = () => {
         >
           {projectsData.map((project, index) => (
             <ProjectCard key={project.title} project={project} delay={index * 150} />
-          ))}
+          ))}\
         </div>
       </div>
     </section>

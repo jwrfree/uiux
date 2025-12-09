@@ -16,9 +16,14 @@ gsap.registerPlugin(ScrollToPlugin);
 const DotLottieReact = dynamic(() => import('@lottiefiles/dotlottie-react').then(mod => mod.DotLottieReact), { ssr: false });
 
 const HeroSection = () => {
+  const [isMounted, setIsMounted] = React.useState(false);
   const reduceMotion = useReducedMotion();
-  const [isVideoPaused, setIsVideoPaused] = React.useState(reduceMotion);
+  const [isVideoPaused, setIsVideoPaused] = React.useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   React.useEffect(() => {
     const v = videoRef.current;
@@ -51,8 +56,7 @@ const HeroSection = () => {
           muted
           playsInline
           preload="metadata"
-          // TODO: Replace with a real poster image for better performance
-          poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" 
+          poster="/images/hero-poster.webp"
           ref={videoRef}
         >
           <source src="/videos/hero_video.webm" type="video/webm" />
@@ -98,7 +102,7 @@ const HeroSection = () => {
                 <Button asChild size="xl" className="group rounded-full text-white w-full sm:w-auto border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
                     <a href="/resume.pdf" download className="flex items-center justify-center">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-                    <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
+                    {isMounted && <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
                         <DotLottieReact
                         src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
                         loop
@@ -107,15 +111,14 @@ const HeroSection = () => {
                         height={24}
                         style={{ filter: "invert(1)" }}
                         />
-                    </div>
+                    </div>}
                     </a>
                 </Button>
             </div>
         </ScrollAnimation>
       </div>
 
-      {/* Bottom Controls */}
-      <ScrollAnimation delay={600} className="absolute z-[2] bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center items-end">
+      {isMounted && <ScrollAnimation delay={600} className="absolute z-[2] bottom-8 left-1/2 -translate-x-1/2 w-full flex justify-center items-end">
         <a
             href="#about"
             onClick={(e) => handleScrollTo(e, "#about")}
@@ -129,7 +132,7 @@ const HeroSection = () => {
                 style={{ width: "100%", height: "100%" }}
             />
         </a>
-      </ScrollAnimation>
+      </ScrollAnimation>}
 
         <Button
             variant="secondary"
