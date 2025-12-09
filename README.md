@@ -1,67 +1,67 @@
-# Portfolio Desainer UI/UX
+# UI/UX Designer Portfolio
 
-Selamat datang di repositori kode untuk website portofolio saya. Website ini dirancang dan dikembangkan untuk menampilkan keahlian, proses desain, dan studi kasus saya dalam bidang UI/UX.
+Welcome to the code repository for my personal portfolio website. This site was designed and developed to showcase my skills, design process, and case studies in the UI/UX field.
 
-**[Lihat Website Langsung](https://your-live-website-url.com)** ➔ _(URL ini akan kita perbarui setelah deploy)_
+**[View Live Website](https://wruhantojati.com)** ➔
 
-## 🎯 Tujuan Proyek
+## 🎯 Project Goals
 
-Tujuan utama dari portofolio ini adalah untuk:
+The primary goals of this portfolio are to:
 
-1.  **Menarik Perekrut**: Menciptakan sebuah platform profesional yang dapat menarik perhatian manajer perekrutan dan tim desain.
-2.  **Menampilkan Keahlian**: Menunjukkan kompetensi dalam riset pengguna, desain antarmuka, desain pengalaman pengguna, dan implementasi desain menjadi produk nyata.
-3.  **Mendapatkan Peluang Kerja**: Menjadi alat utama dalam mencari kesempatan kerja full-time, baik remote, hybrid, maupun onsite.
+1.  **Attract Recruiters**: Create a professional platform that captures the attention of hiring managers and design teams.
+2.  **Showcase Skills**: Demonstrate competence in user research, interface design, user experience design, and the implementation of designs into real products.
+3.  **Secure Job Opportunities**: Serve as a primary tool in seeking full-time employment opportunities, whether remote, hybrid, or onsite.
 
-## ✨ Fitur Utama (Dari Perspektif Pengguna)
+## ✨ Key Features (From a User's Perspective)
 
-- **Desain Responsif**: Pengalaman pengguna yang mulus dan konsisten di semua perangkat, dari desktop hingga mobile.
-- **Studi Kasus Mendalam**: Bagian khusus untuk membedah setiap proyek, mulai dari masalah, proses desain, hingga solusi akhir.
-- **Animasi Halus**: Interaksi dan transisi mikro yang elegan untuk meningkatkan pengalaman dan estetika website.
-- **Navigasi Intuitif**: Struktur informasi yang jelas dan mudah diakses oleh pengguna.
+- **Responsive Design**: A seamless and consistent user experience across all devices, from desktop to mobile.
+- **In-Depth Case Studies**: Dedicated sections to break down each project, from the problem and design process to the final solution.
+- **Smooth Animations**: Elegant micro-interactions and transitions to enhance the user experience and aesthetics.
+- **Intuitive Navigation**: A clear and easily accessible information structure for users.
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Tech Stack
 
-Saya memilih tumpukan teknologi modern untuk memastikan performa, skalabilitas, dan pengalaman pengembang yang baik.
+I chose a modern technology stack to ensure performance, scalability, and a great developer experience.
 
-- **Framework:** [Next.js](https://nextjs.org/) (Untuk rendering sisi server yang cepat dan SEO-friendly)
-- **Bahasa:** [TypeScript](https://www.typescriptlang.org/) (Untuk kode yang lebih andal dan mudah dikelola)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Untuk membangun UI kustom dengan cepat dan konsisten)
-- **Ikon:** [Lucide React](https://lucide.dev/)
+- **Framework:** [Next.js](https://nextjs.org/) (For fast server-side rendering and SEO-friendliness)
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (For more reliable and maintainable code)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) (For building custom UIs quickly and consistently)
+- **Icons:** [Lucide React](https://lucide.dev/)
 - **Carousel:** [Embla Carousel](https://www.embla-carousel.com/)
 
 ---
 
 <details>
-<summary>💻 Untuk Pengembang: Menjalankan Proyek Secara Lokal</summary>
+<summary>💻 For Developers: Running the Project Locally</summary>
 
-### Prasyarat
+### Prerequisites
 
-- Node.js (versi 16 atau lebih tinggi)
-- npm atau yarn
+- Node.js (version 16 or higher)
+- npm or yarn
 
-### Instalasi
+### Installation
 
-1.  Clone repositori ini:
+1.  Clone this repository:
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/wruhantojati/wruhantojati-portfolio.git
     ```
-2.  Masuk ke direktori proyek:
+2.  Navigate to the project directory:
     ```bash
-    cd your-repo-name
+    cd wruhantojati-portfolio
     ```
-3.  Instal dependensi:
+3.  Install dependencies:
     ```bash
     npm install
     ```
-4.  Jalankan server pengembangan:
+4.  Run the development server:
     ```bash
     npm run dev
     ```
-5.  Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+5.  Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build untuk Produksi
+### Building for Production
 
-Untuk membuat build yang dioptimalkan untuk produksi:
+To create a production-optimized build:
 
 ```bash
 npm run build
@@ -70,10 +70,10 @@ npm start
 
 </details>
 
-## 📄 Lisensi
+## 📄 License
 
-Proyek ini dilisensikan di bawah Lisensi MIT - lihat file `LICENSE` untuk detailnya.
+This project is licensed under the MIT License - see the `LICENSE` file for details.
 
-## ✉️ Kontak
+## ✉️ Contact
 
-Untuk pertanyaan, kolaborasi, atau sekadar menyapa, silakan hubungi saya melalui bagian kontak di website.
+For questions, collaborations, or just to say hello, please contact me through the contact section on the website.

@@ -1,43 +1,26 @@
 
-import { ArrowRight, SearchX } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/sections/header";
-import CtaSection from "@/components/sections/cta";
-import { ScrollAnimation } from "@/components/ui/scroll-animation";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
-const NotFoundPage = () => {
+export default function NotFound() {
   return (
-    <div className="bg-background text-foreground">
-      <Header />
-      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] container mx-auto px-4 text-center pt-32 md:pt-40">
-        <ScrollAnimation>
-          <SearchX className="h-24 w-24 text-muted-foreground mx-auto mb-8" strokeWidth={1} />
-        </ScrollAnimation>
-        <ScrollAnimation delay={150}>
-            <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-text-dark tracking-tighter mb-4">
-            404 - Page Not Found
-            </h1>
-        </ScrollAnimation>
-        <ScrollAnimation delay={300}>
-            <p className="text-lg md:text-xl text-text-secondary mb-10 max-w-md mx-auto">
-            Oops! The page you're looking for doesn't seem to exist. It might have been moved or deleted.
-            </p>
-        </ScrollAnimation>
-        <ScrollAnimation delay={450}>
-            <Button asChild variant="primary" size="xl" className="group rounded-full">
-                <Link href="/">
-                    <span className="font-medium sm:font-semibold drop-shadow-sm">Return to Homepage</span>
-                    <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                        <ArrowRight className="h-4 w-4" />
-                    </div>
-                </Link>
-            </Button>
-        </ScrollAnimation>
-      </main>
-      <CtaSection />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground text-center px-4">
+      <div className="max-w-md">
+        <h1 className="text-6xl md:text-8xl font-bold text-primary tracking-tighter">404</h1>
+        <h2 className="text-2xl md:text-3xl font-semibold mt-4 text-slate-800 dark:text-slate-200">Page Not Found</h2>
+        <p className="mt-4 text-muted-foreground">
+          Sorry, we couldn't find the page you were looking for. It might have been mistyped or the page has been moved.
+        </p>
+        <div className="mt-8">
+          <Button asChild>
+            <Link href="/">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Return to Homepage
+            </Link>
+          </Button>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default NotFoundPage;
+}

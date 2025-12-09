@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
 
 type ReporterProps = {
   /*  ⎯⎯ props are only provided on the global-error page ⎯⎯ */
@@ -104,9 +105,14 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
               Something went wrong!
             </h1>
             <p className="text-muted-foreground">
-              An unexpected error occurred. Please try again fixing with Orchids
+              An unexpected error occurred. We've been notified and are looking into it. Please try refreshing the page.
             </p>
           </div>
+          {reset && (
+            <Button onClick={() => reset()} variant="secondary">
+                Try again
+            </Button>
+          )}
           <div className="space-y-2">
             {process.env.NODE_ENV === "development" && (
               <details className="mt-4 text-left">

@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: siteUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 1,
     },
     {
@@ -25,13 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${siteUrl}/projects/metta-restaurant`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
         {
       url: `${siteUrl}/projects/teknovo`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
   ];

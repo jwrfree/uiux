@@ -168,7 +168,7 @@ const ProjectMettaPage = () => {
                                 <div className="max-w-3xl mx-auto">
                                      <ScrollAnimation delay={150}>
                                         <p className="text-xl md:text-2xl text-text-dark font-medium mb-8 text-center">
-                                        Bagaimana mendesain homepage yang dapat menarik target audience dan memfasilitasi proses reservasi dengan mudah, sambil mencerminkan identitas Metta sebagai restoran multi-cuisine berkelas premium?
+                                        How to design a homepage that can attract the target audience and facilitate an easy reservation process, while reflecting Metta's identity as a premium multi-cuisine restaurant?
                                         </p>
                                     </ScrollAnimation>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
@@ -179,9 +179,9 @@ const ProjectMettaPage = () => {
                                                 </CardHeader>
                                                 <CardContent>
                                                     <ul className="list-disc list-inside text-lg text-text-secondary space-y-2">
-                                                        <li>Meningkatkan conversion rate untuk reservasi online.</li>
-                                                        <li>Membangun brand image sebagai destinasi kuliner berkelas premium.</li>
-                                                        <li>Menarik target audience yang menghargai kualitas dan keberagaman kuliner.</li>
+                                                        <li>Increase conversion rates for online reservations.</li>
+                                                        <li>Build a brand image as a premium culinary destination.</li>
+                                                        <li>Attract a target audience that values quality and culinary diversity.</li>
                                                     </ul>
                                                 </CardContent>
                                             </Card>
@@ -193,10 +193,10 @@ const ProjectMettaPage = () => {
                                                 </CardHeader>
                                                 <CardContent>
                                                     <ul className="list-disc list-inside text-lg text-text-secondary space-y-2">
-                                                        <li>Menemukan informasi restoran dengan cepat dan mudah.</li>
-                                                        <li>Melihat preview menu dan hidangan populer.</li>
-                                                        <li>Melakukan reservasi dengan proses yang smooth dan efisien.</li>
-                                                        <li>Memahami atmosfer dan value proposition restoran.</li>
+                                                        <li>Find restaurant information quickly and easily.</li>
+                                                        <li>Preview menus and popular dishes.</li>
+                                                        <li>Make a reservation through a smooth and efficient process.</li>
+                                                        <li>Understand the restaurant's atmosphere and value proposition.</li>
                                                     </ul>
                                                 </CardContent>
                                             </Card>
