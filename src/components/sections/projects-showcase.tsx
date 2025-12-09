@@ -37,41 +37,28 @@ const projectsData: Project[] = [
     tags: ["Web", "F&B", "Concept"],
     summary: "A homepage design proposal for a multi-cuisine restaurant platform, aimed at increasing reservation conversions and establishing a premium brand image.",
   },
-  /*
   {
     title: "Bukunest Bookstore App",
     image: "/images/img-card-bukunest.webp",
     alt: "Bukunest mobile bookstore concept screens",
-    link: "/projects/midfunnel",
+    link: "/projects/bukunest",
     tags: ["Mobile", "Concept"],
-    titleColor: "#67E8F9",
   },
   {
     title: "Skilvul Personal Brand Site",
     image: "/images/img-card-skilvul.webp",
     alt: "Content-focused personal brand website layout",
-    link: "/projects/sahilbloom",
+    link: "/projects/skilvul",
     tags: ["Web", "Branding"],
-    titleColor: "#FCD34D",
     stats: [{ value: "60%", label: "Longer Session Time" }],
   },
   {
     title: "Vidio Design System",
     image: "/images/img-card-vidio.webp",
     alt: "Design system documentation for Vidio product",
-    link: "/projects/utility",
+    link: "/projects/vidio",
     tags: ["Design System", "Product"],
-    titleColor: "#F472B6",
   },
-  {
-    title: "AI Assistant Interface",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/bc92d5a2-14ee-4285-94ac-5ada736f5089-offmenu-design/assets/images/super-thumb_2x-6.webp",
-    alt: "Accessible AI assistant interface in dark mode",
-    link: "/projects/super",
-    tags: ["Product", "AI/ML"],
-    titleColor: "#A78BFA",
-  },
-  */
 ];
 
 const ProjectCard = ({ project, delay }: { project: Project, delay: number }) => {
@@ -169,7 +156,7 @@ const ProjectCard = ({ project, delay }: { project: Project, delay: number }) =>
                       <span className="font-semibold text-foreground">{stat.value}</span>{" "}
                       <span>{stat.label}</span>
                     </div>
-                  ))}\
+                  ))}
                 </div>
               )}
             </div>
@@ -203,7 +190,7 @@ const ProjectsShowcase = () => {
         >
           {projectsData.map((project, index) => (
             <ProjectCard key={project.title} project={project} delay={index * 150} />
-          ))}\
+          ))}
         </div>
       </div>
     </section>

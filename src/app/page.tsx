@@ -12,9 +12,9 @@ const CtaSection = dynamic(() => import('@/components/sections/cta'));
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <Header />
-      <main>
+      <main className="flex-1">
         <HeroSection />
         <AboutSection />
         <ProcessSection />
@@ -23,6 +23,6 @@ export default function Home() {
         <CtaSection />
       </main>
       {/* Footer is rendered globally in layout */}
-    </div>
+    </>
   );
 }

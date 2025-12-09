@@ -1,7 +1,6 @@
 
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, Pause, Play } from "lucide-react";
 import React from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
@@ -92,12 +91,12 @@ const HeroSection = () => {
         <ScrollAnimation delay={450}>
             <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
                 <Button asChild size="xl" className="group rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90">
-                    <Link href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
+                    <a href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
                         <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
                             <ArrowRight className="h-4 w-4" />
                         </div>
-                    </Link>
+                    </a>
                 </Button>
                 <Button asChild size="xl" className="group rounded-full text-white w-full sm:w-auto border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
                     <a href="/resume.pdf" download className="flex items-center justify-center">

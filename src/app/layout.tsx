@@ -14,7 +14,7 @@ const structuredData = {
   name: "Wruhantojati",
   url: siteUrl,
   jobTitle: "UI/UX Designer",
-  image: `${siteUrl}/images/profile.jpg`,
+  image: `${siteUrl}/images/profile.webp`,
   description:
     "Mid-level UI/UX designer specializing in creating intuitive, user-centric, and visually compelling digital experiences.",
   knowsAbout: [
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
         alt: "Wruhantojati - UI/UX Designer Portfolio",
       },
       {
-        url: `${siteUrl}/images/profile.jpg`,
+        url: `${siteUrl}/images/profile.webp`,
         width: 800,
         height: 800,
         alt: "A portrait of Wruhantojati",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     title: defaultTitle,
     description:
       "A UI/UX designer dedicated to blending user research, strategy, and visual design to create human-centric products.",
-    images: [`${siteUrl}/og-cover.svg`, `${siteUrl}/images/profile.jpg`],
+    images: [`${siteUrl}/og-cover.svg`, `${siteUrl}/images/profile.webp`],
   },
   icons: {
     icon: "/favicon.ico",
@@ -122,9 +122,7 @@ export default function RootLayout({
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <div className="flex-1">
-          {children}
-        </div>
+        {children}
         <Footer />
         <VisualEditsMessenger />
       </body>
