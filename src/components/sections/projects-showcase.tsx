@@ -67,7 +67,7 @@ const projectsData: Project[] = [
   },
 ];
 
-const ProjectCard = ({ project, delay }: { project: Project, delay: number }) => {
+const ProjectCard = ({ project, delay, isPriority }: { project: Project, delay: number, isPriority: boolean }) => {
   const titleClass =
     "font-medium text-[clamp(1.4rem,2.4vw,2.6rem)] leading-tight -tracking-[0.015em] text-balance max-w-[30ch] text-foreground";
 
@@ -99,6 +99,8 @@ const ProjectCard = ({ project, delay }: { project: Project, delay: number }) =>
               alt={project.alt}
               width={1600}
               height={1200}
+              loading={isPriority ? "eager" : "lazy"}
+              priority={isPriority}
               className={`absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out ${isPublished ? 'lg:group-hover/card:scale-105' : ''}`}
             />
             
@@ -219,7 +221,12 @@ const ProjectsShowcase = () => {
           className="group/grid relative z-10 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-14"
         >
           {projectsData.map((project, index) => (
-            <ProjectCard key={project.title} project={project} delay={index * 150} />
+            <ProjectCard 
+              key={project.title} 
+              project={project} 
+              delay={index * 150} 
+              isPriority={index < 2}
+            />
           ))}
         </div>
       </div>
