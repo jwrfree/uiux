@@ -1,58 +1,79 @@
-gi# UI/UX Designer Portfolio
+# Portfolio Desainer UI/UX
 
-A clean, modern, and engaging portfolio website showcasing UI/UX design projects and skills.
+Selamat datang di repositori kode untuk website portofolio saya. Website ini dirancang dan dikembangkan untuk menampilkan keahlian, proses desain, dan studi kasus saya dalam bidang UI/UX.
 
-## Features
+**[Lihat Website Langsung](https://your-live-website-url.com)** ➔ _(URL ini akan kita perbarui setelah deploy)_
 
-- **Responsive Design:** Fully responsive layout that looks great on all devices
-- **Project Showcase:** Dedicated section to display detailed case studies
-- **Smooth Animations:** Subtle animations and transitions to enhance user experience
-- **About Section:** Information about background and design philosophy
-- **Process Overview:** Breakdown of design process and methodology
-- **FAQ Section:** Answers to frequently asked questions
-- **Contact CTA:** Clear call-to-action buttons for getting in touch
+## 🎯 Tujuan Proyek
 
-## Technologies Used
+Tujuan utama dari portofolio ini adalah untuk:
 
-- **Framework:** [Next.js](https://nextjs.org/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Carousels:** [Embla Carousel](https://www.embla-carousel.com/)
+1.  **Menarik Perekrut**: Menciptakan sebuah platform profesional yang dapat menarik perhatian manajer perekrutan dan tim desain.
+2.  **Menampilkan Keahlian**: Menunjukkan kompetensi dalam riset pengguna, desain antarmuka, desain pengalaman pengguna, dan implementasi desain menjadi produk nyata.
+3.  **Mendapatkan Peluang Kerja**: Menjadi alat utama dalam mencari kesempatan kerja full-time, baik remote, hybrid, maupun onsite.
 
-## Getting Started
+## ✨ Fitur Utama (Dari Perspektif Pengguna)
 
-### Prerequisites
+- **Desain Responsif**: Pengalaman pengguna yang mulus dan konsisten di semua perangkat, dari desktop hingga mobile.
+- **Studi Kasus Mendalam**: Bagian khusus untuk membedah setiap proyek, mulai dari masalah, proses desain, hingga solusi akhir.
+- **Animasi Halus**: Interaksi dan transisi mikro yang elegan untuk meningkatkan pengalaman dan estetika website.
+- **Navigasi Intuitif**: Struktur informasi yang jelas dan mudah diakses oleh pengguna.
 
-- Node.js (version 16 or higher)
-- npm or yarn
+## 🛠️ Teknologi yang Digunakan
 
-### Installation
+Saya memilih tumpukan teknologi modern untuk memastikan performa, skalabilitas, dan pengalaman pengembang yang baik.
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+- **Framework:** [Next.js](https://nextjs.org/) (Untuk rendering sisi server yang cepat dan SEO-friendly)
+- **Bahasa:** [TypeScript](https://www.typescriptlang.org/) (Untuk kode yang lebih andal dan mudah dikelola)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Untuk membangun UI kustom dengan cepat dan konsisten)
+- **Ikon:** [Lucide React](https://lucide.dev/)
+- **Carousel:** [Embla Carousel](https://www.embla-carousel.com/)
 
-## Building for Production
+---
 
-To create an optimized production build:
+<details>
+<summary>💻 Untuk Pengembang: Menjalankan Proyek Secara Lokal</summary>
+
+### Prasyarat
+
+- Node.js (versi 16 atau lebih tinggi)
+- npm atau yarn
+
+### Instalasi
+
+1.  Clone repositori ini:
+    ```bash
+    git clone https://github.com/your-username/your-repo-name.git
+    ```
+2.  Masuk ke direktori proyek:
+    ```bash
+    cd your-repo-name
+    ```
+3.  Instal dependensi:
+    ```bash
+    npm install
+    ```
+4.  Jalankan server pengembangan:
+    ```bash
+    npm run dev
+    ```
+5.  Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+
+### Build untuk Produksi
+
+Untuk membuat build yang dioptimalkan untuk produksi:
 
 ```bash
 npm run build
 npm start
 ```
 
-## License
+</details>
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📄 Lisensi
 
-## Contact
+Proyek ini dilisensikan di bawah Lisensi MIT - lihat file `LICENSE` untuk detailnya.
 
-For inquiries and collaborations, please feel free to reach out through the contact section on the website.
+## ✉️ Kontak
+
+Untuk pertanyaan, kolaborasi, atau sekadar menyapa, silakan hubungi saya melalui bagian kontak di website.
