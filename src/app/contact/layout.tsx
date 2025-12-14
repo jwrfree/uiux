@@ -1,13 +1,16 @@
-import { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-    title: "Contact Me | Wruhantojati",
-    description: "Let's connect. Whether you have a project in mind, a question, or just want to say hi, I'm open to new opportunities and collaborations. Reach out to discuss your next project or to learn more about my work.",
-    alternates: {
-        canonical: "/contact",
-    },
-};
+import { Toaster } from "@/components/ui/sonner";
 
-export default function ContactLayout({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+export default function ContactLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <section>
+      {children}
+      <Toaster />
+    </section>
+  );
 }
