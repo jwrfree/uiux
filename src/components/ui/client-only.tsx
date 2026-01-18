@@ -1,22 +1,15 @@
 "use client";
 
-import { useState, useEffect, type FC, type ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 
 interface ClientOnlyProps {
   children: ReactNode;
 }
 
 const ClientOnly: FC<ClientOnlyProps> = ({ children }) => {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted) {
+  if (typeof window === "undefined") {
     return null;
   }
-
   return <>{children}</>;
 };
 

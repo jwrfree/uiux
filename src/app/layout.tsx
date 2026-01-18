@@ -103,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased min-h-screen bg-background text-foreground flex flex-col">
         <ErrorReporter />
         <Script

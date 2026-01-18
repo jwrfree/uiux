@@ -1,0 +1,8 @@
+.sidebarWrapper {
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+}
+
+.sidebarSheetContent {
+  --sidebar-width: 18rem;
+}
