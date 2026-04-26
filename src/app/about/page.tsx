@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import CtaSection from "@/components/sections/cta";
-import Header from "@/components/sections/header";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase, Bike, Coffee, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -19,8 +18,7 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <div className="bg-background text-foreground">
-      <Header />
-      <main className="pt-32 md:pt-40 lg:pt-48">
+      <main id="main-content" className="pt-32 md:pt-40 lg:pt-48">
         <div className="container mx-auto px-4 pb-16 md:pb-24 lg:pb-32">
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                 <ScrollAnimation>
@@ -39,7 +37,7 @@ const AboutPage = () => {
                 <ScrollAnimation delay={150}>
                     <div className="relative w-full aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl max-w-sm mx-auto md:max-w-none">
                       <Image
-                        src="/images/img_profile_jati.webp"
+                        src="/images/profile.webp"
                         alt="Wruhantojati - UI/UX Designer"
                         fill
                         priority
@@ -51,7 +49,7 @@ const AboutPage = () => {
               <div className="prose lg:prose-lg text-text-secondary max-w-2xl text-lg">
                 <ScrollAnimation delay={300}>
                     <p className="text-2xl font-semibold text-text-dark">
-                        I'm Wruhantojati, a UI/UX designer based in Yogyakarta, Indonesia. 
+                        I&apos;m Wruhantojati, a UI/UX designer based in Yogyakarta, Indonesia.
                     </p>
                 </ScrollAnimation>
                 <ScrollAnimation delay={450}>

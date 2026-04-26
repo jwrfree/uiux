@@ -1,12 +1,13 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 const Footer = () => {
  const footerLinks: { name: string; href: string }[] = [
- { name: "Email", href: "mailto:wruhantojati@gmail.com" },
- { name: "LinkedIn", href: "https://linkedin.com/in/wrjati" },
- { name: "Behance", href: "https://www.behance.net/wruhantojati" },
-  { name: "Dribbble", href: "https://dribbble.com/wruhantojati" },
+  { name: "Email", href: `mailto:${SITE.email}` },
+  { name: "LinkedIn", href: SITE.linkedin },
+  { name: "Behance", href: SITE.behance },
+  { name: "Dribbble", href: SITE.dribbble },
 ];
  const year = new Date().getFullYear();
 
@@ -33,7 +34,7 @@ const Footer = () => {
      ))}
     </div>
     <p className="text-sm font-medium tracking-[0.08em] leading-relaxed order-2 sm:order-1 text-stone-600 dark:text-white/90">
-     &copy; {year} Wruhantojati. All rights reserved.
+     &copy; {year} {SITE.name}. All rights reserved.
     </p>
    </div>
   </footer>

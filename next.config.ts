@@ -1,32 +1,15 @@
 import type { NextConfig } from "next";
-import path from "node:path";
-
-const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["https://*.cloudworkstations.dev"],
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
+      // Restaurant competitor logos used on the Metta case study.
+      { protocol: "https", hostname: "logo.clearbit.com" },
+      // Project card placeholder photos. Remove once real assets are in place.
+      { protocol: "https", hostname: "picsum.photos" },
     ],
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  // turbopack: {
-  //   rules: {
-  //     "*.{jsx,tsx}": {
-  //       loaders: [LOADER]
-  //     }
-  //   }
-  // }
 };
 
 export default nextConfig;

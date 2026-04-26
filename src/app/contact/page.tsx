@@ -9,7 +9,6 @@ import { z } from "zod";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 import CtaSection from "@/components/sections/cta";
-import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
@@ -17,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Spinner } from "@/components/ui/spinner";
 import { Mail, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/lib/site";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -62,7 +62,7 @@ const ContactPage = () => {
 
       toast.success("Message Sent!", {
         id: toastId,
-        description: "Thanks for reaching out. I\'ll get back to you within 24 hours.",
+        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
         duration: 8000,
       });
       reset();
@@ -83,18 +83,17 @@ const ContactPage = () => {
 
   return (
     <div className="bg-background text-foreground">
-      <Header />
-      <main className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
+      <main id="main-content" className="container mx-auto px-4 py-16 md:py-24 lg:py-32 pt-32 md:pt-40 lg:pt-48">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div className="flex flex-col justify-center">
             <ScrollAnimation>
               <h1 className="font-display font-bold text-5xl md:text-6xl text-text-dark tracking-tighter mb-4">
-                Let\'s Build Something Great
+                Let&apos;s Build Something Great
               </h1>
             </ScrollAnimation>
             <ScrollAnimation delay={150}>
               <p className="text-xl md:text-2xl text-text-secondary mb-8">
-                I\'m currently available for full-time roles and open to discussing new projects. Let\'s connect and see how I can bring your vision to life.
+                I&apos;m currently available for full-time roles and open to discussing new projects. Let&apos;s connect and see how I can bring your vision to life.
               </p>
             </ScrollAnimation>
 
@@ -104,7 +103,7 @@ const ContactPage = () => {
                   <Mail className="h-8 w-8 text-primary mr-4" />
                   <div>
                     <h4 className="font-semibold text-xl">Email</h4>
-                    <a href="mailto:jati.uiux@gmail.com" className="text-lg text-text-secondary hover:text-primary transition-colors">jati.uiux@gmail.com</a>
+                    <a href={`mailto:${SITE.email}`} className="text-lg text-text-secondary hover:text-primary transition-colors">{SITE.email}</a>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -113,7 +112,7 @@ const ContactPage = () => {
                   <Phone className="h-8 w-8 text-primary mr-4" />
                   <div>
                     <h4 className="font-semibold text-xl">Phone</h4>
-                    <a href="tel:+6281548300288" className="text-lg text-text-secondary hover:text-primary transition-colors">+62 815 4830 0288</a>
+                    <a href={`tel:${SITE.phone}`} className="text-lg text-text-secondary hover:text-primary transition-colors">{SITE.phoneDisplay}</a>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -123,7 +122,7 @@ const ContactPage = () => {
           <ScrollAnimation delay={600}>
             <div className="bg-white/50 dark:bg-black/20 p-8 rounded-3xl shadow-lg border border-white/70">
               <h3 className="font-display font-semibold text-3xl mb-2">Send a Message</h3>
-              <p className="text-text-secondary mb-6">I\'ll get back to you within 24 hours.</p>
+              <p className="text-text-secondary mb-6">I&apos;ll get back to you within 24 hours.</p>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-base font-medium text-text-secondary mb-2">Name</label>
@@ -158,7 +157,7 @@ const ContactPage = () => {
                   <label htmlFor="message" className="block text-base font-medium text-text-secondary mb-2">Message</label>
                   <Textarea
                     id="message"
-                    placeholder="Hi Jati, I\'m [Name] from [Company]. I was impressed by your work on the [Project Name] case study and would love to discuss a potential role with you."
+                    placeholder="Hi Jati, I'm [Name] from [Company]. I was impressed by your work on the [Project Name] case study and would love to discuss a potential role with you."
                     rows={7}
                     aria-invalid={errors.message ? "true" : "false"}
                     className={cn(
