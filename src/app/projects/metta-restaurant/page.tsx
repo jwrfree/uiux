@@ -1,19 +1,19 @@
 import CtaSection from "@/components/sections/cta";
-import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { ArrowUpRight, Calendar, User, Wrench, Zap, Gem, Repeat, CheckCircle, BarChart, Users, Target, Search, Palette, TestTube, Lightbulb, UsersRound, MessageSquareQuote, FileText, TrendingUp, ShieldCheck, Scale } from "lucide-react";
+import { Calendar, User, Wrench, Gem, Repeat, CheckCircle, Users, Target, Search, Palette, TestTube, Lightbulb, UsersRound, FileText, ShieldCheck, Scale, TrendingUp } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import placeholderImages from '@/lib/placeholder-images.json';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TableOfContents } from "@/components/ui/table-of-contents";
+import { CaseStudySummary } from "@/components/case-study/case-study-summary";
 
 const ProjectMettaPage = () => {
     const projectDetails = [
-        { label: 'Role', value: 'Web Designer', icon: User },
+        { label: 'Role', value: 'Web Designer (solo)', icon: User },
         { label: 'Timeline', value: 'July 2024 (2 weeks)', icon: Calendar },
         { label: 'Tools', value: 'Figma, Miro, Adobe Photoshop', icon: Wrench },
+        { label: 'Project type', value: 'Concept project — Figma prototype + slide deck', icon: ShieldCheck },
     ];
 
     const finalDesigns = [
@@ -73,87 +73,82 @@ const ProjectMettaPage = () => {
                                 </ScrollAnimation>
                             </section>
 
-                            {/* Project Overview */}
+                            {/* Project Overview — TL;DR for recruiters */}
                             <section id="overview" className="py-16 md:py-24 scroll-mt-24">
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-                                    <div className="lg:col-span-1">
-                                        <ScrollAnimation>
-                                            <h2 className="font-display text-3xl font-bold mb-6 text-text-dark">Project Info</h2>
-                                        </ScrollAnimation>
-                                        <div className="space-y-6">
-                                            {projectDetails.map((detail, index) => (
-                                                <ScrollAnimation key={index} delay={150 * (index + 1)}>
-                                                    <div className="flex items-center">
-                                                        <detail.icon className="h-7 w-7 text-primary mr-4" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-lg text-text-dark">{detail.label}</h4>
-                                                            <p className="text-lg text-text-secondary">{detail.value}</p>
-                                                        </div>
-                                                    </div>
-                                                </ScrollAnimation>
-                                            ))}
-                                            <ScrollAnimation delay={600}>
-                                                <div className="flex flex-col gap-4 mt-6">
-                                                    <Button asChild variant="primary" size="xl" className="group rounded-full w-full">
-                                                        <Link href="https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer">
-                                                            <span className="font-medium sm:font-semibold drop-shadow-sm">View Live Prototype</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                                                                <ArrowUpRight className="h-4 w-4" />
-                                                            </div>
-                                                        </Link>
-                                                    </Button>
-                                                    <Button asChild variant="secondary" size="xl" className="group rounded-full w-full">
-                                                        <Link href="https://docs.google.com/presentation/d/1B7tvfGhHVD2aq9Y8bqC69iqzOsb0tOva_tajPwPVACE/edit?usp=drive_web" target="_blank" rel="noopener noreferrer">
-                                                            <span className="font-medium sm:font-semibold drop-shadow-sm">View Slide Deck</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                                                                <ArrowUpRight className="h-4 w-4" />
-                                                            </div>
-                                                        </Link>
-                                                    </Button>
-                                                </div>
-                                            </ScrollAnimation>
-                                        </div>
-                                    </div>
-                                    <div className="lg:col-span-2">
-                                        <ScrollAnimation delay={300}>
-                                            <Card className="bg-secondary/50">
-                                                <CardHeader>
-                                                    <CardTitle className="flex items-center text-3xl"><Zap className="h-8 w-8 mr-3 text-primary"/>Impact Snapshot</CardTitle>
-                                                </CardHeader>
-                                                <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none space-y-6">
-                                                    <div>
-                                                        <h4 className="font-semibold text-text-dark !mb-2">Business Impact</h4>
-                                                        <ul className="!mt-0 !space-y-1">
-                                                            <li>Designed to increase reservation conversion through research-backed UX patterns.</li>
-                                                            <li>Addressed critical gap: 90% of diners research restaurants online before visiting, yet most sites fail to convert.</li>
-                                                            <li>Solution positioned Metta as premium multi-cuisine destination vs generic single-cuisine competitors.</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="font-semibold text-text-dark !mb-2">Key Metrics Leveraged</h4>
-                                                        <ul className="!mt-0 !space-y-1">
-                                                            <li><strong className="text-text-dark">57% of restaurant traffic is mobile</strong> → Prioritized mobile-first responsive design.</li>
-                                                            <li><strong className="text-text-dark">94% more engagement with high-quality imagery</strong> → Food-first visual hierarchy.</li>
-                                                            <li><strong className="text-text-dark">68% higher conversion with persistent CTAs</strong> (industry benchmark) → Implemented sticky navigation with "Reserve Now" button.</li>
-                                                        </ul>
-                                                    </div>
-                                                     <div>
-                                                        <h4 className="font-semibold text-text-dark !mb-2">Problem Solved</h4>
-                                                        <p className="!mt-0">Metta needed to differentiate in crowded multi-cuisine market while facilitating seamless reservations. Initial brief lacked clear value proposition and booking flow optimization.</p>
-                                                     </div>
-                                                     <div>
-                                                        <h4 className="font-semibold text-text-dark !mb-2">My Approach</h4>
-                                                        <p className="!mt-0">Research-driven redesign combining competitive analysis (12 trend analysis + 3 in-depth competitor audits), dual-persona strategy, and iterative expert review to create conversion-focused homepage that balances exploratory storytelling with efficient decision-making.</p>
-                                                     </div>
-                                                     <div>
-                                                        <h4 className="font-semibold text-text-dark !mb-2">Outcome</h4>
-                                                        <p className="!mt-0">Delivered a complete design system and 7-section homepage optimized for two user types: adventurous foodies and busy professionals. Incorporated all feedback from three UX experts and ensured WCAG 2.1 AA compliance.</p>
-                                                     </div>
-                                                </CardContent>
-                                            </Card>
-                                        </ScrollAnimation>
-                                    </div>
-                                </div>
+                                <ScrollAnimation>
+                                    <CaseStudySummary
+                                        meta={projectDetails}
+                                        outcome={
+                                            <p>
+                                                A 7-section homepage and design-system proposal for a
+                                                multi-cuisine restaurant, optimized around two user types
+                                                (adventurous foodies and busy professionals) and reviewed
+                                                with three UX experts. WCAG 2.1 AA compliance built in.
+                                            </p>
+                                        }
+                                        outcomeNote="This is a concept project, not a shipped product — there are no live business metrics. The percentages cited in the research and decisions sections below are industry benchmarks that informed the design, not measured outcomes."
+                                        primaryCta={{
+                                            label: 'View Live Prototype',
+                                            href: 'https://www.figma.com/proto/X6VnVA261sm4YAlS5Yq2Sj/Metta-Restaurant?page-id=0%3A1&node-id=1-2&viewport=261%2C264%2C0.1&t=sC6wWn6xH3s0E7j8-1&scaling=min-zoom&content-scaling=fixed',
+                                        }}
+                                        secondaryCta={{
+                                            label: 'View Slide Deck',
+                                            href: 'https://docs.google.com/presentation/d/1B7tvfGhHVD2aq9Y8bqC69iqzOsb0tOva_tajPwPVACE/edit?usp=drive_web',
+                                        }}
+                                    />
+                                </ScrollAnimation>
+                            </section>
+
+                            {/* Approach digest — moved down from the old Impact Snapshot card */}
+                            <section className="pb-16 md:pb-24">
+                                <ScrollAnimation>
+                                    <Card className="bg-secondary/50 max-w-5xl mx-auto">
+                                        <CardHeader>
+                                            <CardTitle className="text-2xl">Approach digest</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none space-y-6">
+                                            <div>
+                                                <h4 className="font-semibold text-text-dark !mb-2">Problem framing</h4>
+                                                <p className="!mt-0">
+                                                    Metta needed to differentiate in a crowded multi-cuisine
+                                                    market while facilitating seamless reservations. The
+                                                    initial brief lacked a clear value proposition and a
+                                                    defined booking flow.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-semibold text-text-dark !mb-2">My approach</h4>
+                                                <p className="!mt-0">
+                                                    Research-driven: 12-source trend analysis, 3 in-depth
+                                                    competitor audits, dual-persona strategy, and three
+                                                    rounds of expert review. The result balances exploratory
+                                                    storytelling for foodies with efficient decision-making
+                                                    for busy professionals.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-semibold text-text-dark !mb-2">
+                                                    Industry benchmarks I designed against
+                                                </h4>
+                                                <ul className="!mt-0 !space-y-1">
+                                                    <li>
+                                                        <strong className="text-text-dark">57% of restaurant traffic is mobile</strong> → mobile-first responsive layout.
+                                                    </li>
+                                                    <li>
+                                                        <strong className="text-text-dark">94% more engagement with high-quality imagery</strong> → food-first visual hierarchy.
+                                                    </li>
+                                                    <li>
+                                                        <strong className="text-text-dark">68% higher conversion with persistent CTAs</strong> → sticky navigation with a permanent "Reserve Now" button.
+                                                    </li>
+                                                </ul>
+                                                <p className="text-sm !mt-2 italic">
+                                                    These are industry benchmarks the design responded to —
+                                                    not Metta-specific results.
+                                                </p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </ScrollAnimation>
                             </section>
 
                             {/* Context and Challenge */}
