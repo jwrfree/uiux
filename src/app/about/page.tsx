@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import CtaSection from "@/components/sections/cta";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase, Bike, Coffee, Sparkles } from "lucide-react";
+import { CheckCircle, Users, Repeat, Settings, TestTube, Briefcase, Bike, Coffee, Sparkles, MapPin, Layers, Mail } from "lucide-react";
 import Image from "next/image";
 import Timeline from "@/components/ui/timeline";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,10 +20,77 @@ const AboutPage = () => {
   return (
     <div className="bg-background text-foreground">
       <main id="main-content" className="pt-32 md:pt-40 lg:pt-48">
-        <div className="container mx-auto px-4 pb-16 md:pb-24 lg:pb-32">
+        <div className="container mx-auto px-4 pb-8 md:pb-12">
+            <div className="max-w-4xl mx-auto">
+                <ScrollAnimation>
+                    <section
+                        aria-label="Hire snapshot"
+                        className="rounded-3xl border border-border/70 bg-secondary/40 p-6 shadow-sm md:p-8"
+                    >
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-secondary">
+                            TL;DR for recruiters
+                        </p>
+                        <dl className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                            <div className="flex items-start gap-3">
+                                <Briefcase className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                                <div>
+                                    <dt className="text-sm font-semibold text-text-dark">Open to</dt>
+                                    <dd className="text-base text-text-secondary">
+                                        Full-time UI/UX product design roles — remote-friendly
+                                    </dd>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <Layers className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                                <div>
+                                    <dt className="text-sm font-semibold text-text-dark">Focus</dt>
+                                    <dd className="text-base text-text-secondary">
+                                        Behavior-change products, civic tech, complex consumer flows
+                                    </dd>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                                <div>
+                                    <dt className="text-sm font-semibold text-text-dark">Based in</dt>
+                                    <dd className="text-base text-text-secondary">
+                                        Yogyakarta, Indonesia (UTC+7)
+                                    </dd>
+                                </div>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+                                <div>
+                                    <dt className="text-sm font-semibold text-text-dark">Reach me</dt>
+                                    <dd className="text-base text-text-secondary">
+                                        <Link
+                                            href={`mailto:${SITE.email}`}
+                                            className="underline-offset-4 hover:underline"
+                                        >
+                                            {SITE.email}
+                                        </Link>
+                                        {' · '}
+                                        <Link
+                                            href={SITE.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="underline-offset-4 hover:underline"
+                                        >
+                                            LinkedIn
+                                        </Link>
+                                    </dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </section>
+                </ScrollAnimation>
+            </div>
+        </div>
+
+        <div className="container mx-auto px-4 pb-16 md:pb-24 lg:pb-32 pt-8 md:pt-12">
             <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                 <ScrollAnimation>
-                    <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4 bg-gradient-to-r from-stone-800 to-stone-200 bg-clip-text text-transparent">
+                    <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight mb-4 bg-gradient-to-r from-stone-800 to-stone-500 bg-clip-text text-transparent">
                         I turn messy human problems into measurable outcomes.
                     </h1>
                     <p className="text-xl md:text-2xl text-text-dark-secondary">

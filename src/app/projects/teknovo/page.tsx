@@ -1,19 +1,19 @@
 import CtaSection from "@/components/sections/cta";
-import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
-import { ArrowUpRight, Calendar, Users, Wrench, CheckCircle, Search, Wind, Eye, SlidersHorizontal, BarChart, FileText, Lightbulb, UserCheck, MessageSquareQuote, TrendingUp, ShieldCheck, Scale, Hand } from "lucide-react";
+import { Calendar, Wrench, CheckCircle, Wind, Eye, SlidersHorizontal, FileText, UserCheck, ShieldCheck, Hand } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TableOfContents } from "@/components/ui/table-of-contents";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { CaseStudySummary } from "@/components/case-study/case-study-summary";
 
 const ProjectTeknovoPage = () => {
     const projectDetails = [
         { label: 'Role', value: 'UI/UX Design Intern', icon: UserCheck },
         { label: 'Timeline', value: '3 months (Mar-May 2022)', icon: Calendar },
         { label: 'Tools', value: 'Figma, Miro', icon: Wrench },
+        { label: 'Project type', value: 'Internship — shipped to teknovo.com', icon: ShieldCheck },
     ];
 
     const sections = [
@@ -93,60 +93,23 @@ const ProjectTeknovoPage = () => {
                                 </ScrollAnimation>
                             </section>
 
-                            {/* Project Overview */}
+                            {/* Project Overview — TL;DR for recruiters */}
                             <section id="overview" className="py-16 md:py-24 scroll-mt-24">
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-                                    <div className="lg:col-span-1">
-                                        <ScrollAnimation>
-                                            <h2 className="font-display text-3xl font-bold mb-6 text-text-dark">Project Info</h2>
-                                        </ScrollAnimation>
-                                        <div className="space-y-6">
-                                            {projectDetails.map((detail, index) => (
-                                                <ScrollAnimation key={index} delay={150 * (index + 1)}>
-                                                    <div className="flex items-center">
-                                                        <detail.icon className="h-7 w-7 text-primary mr-4" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-lg text-text-dark">{detail.label}</h4>
-                                                            <p className="text-lg text-text-secondary">{detail.value}</p>
-                                                        </div>
-                                                    </div>
-                                                </ScrollAnimation>
-                                            ))}
-                                            <ScrollAnimation delay={600}>
-                                                <div className="flex flex-col gap-4 mt-6">
-                                                     <Button asChild variant="primary" size="xl" className="group rounded-full w-full">
-                                                        <Link href="https://teknovo.com" target="_blank" rel="noopener noreferrer">
-                                                            <span className="font-medium sm:font-semibold drop-shadow-sm">View Live Website</span>
-                                                            <div className="w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                                                                <ArrowUpRight className="h-4 w-4" />
-                                                            </div>
-                                                        </Link>
-                                                    </Button>
-                                                </div>
-                                            </ScrollAnimation>
-                                        </div>
-                                    </div>
-                                    <div className="lg:col-span-2">
-                                        <ScrollAnimation delay={300}>
-                                            <Card className="bg-secondary/50">
-                                                <CardHeader>
-                                                    <CardTitle className="flex items-center text-3xl"><TrendingUp className="h-8 w-8 mr-3 text-primary"/>Impact Highlights</CardTitle>
-                                                </CardHeader>
-                                                <CardContent className="prose lg:prose-lg text-text-secondary text-lg max-w-none space-y-4">
-                                                    <ul className="!mt-0 !space-y-2 list-disc list-inside">
-                                                        <li>Navigation findability improved (observed: users found pages 40% faster in testing)</li>
-                                                        <li>Search refinement enhanced with 5 new filter options</li>
-                                                        <li>Visual consistency achieved across 15+ pages</li>
-                                                        <li>Design system standardized with 20+ reusable components</li>
-                                                    </ul>
-                                                    <p className="text-sm !mt-6 italic">
-                                                        <strong>Note:</strong> As an intern, formal metrics weren't tracked. Impact estimates based on heuristic evaluation improvements, user feedback, and comparative testing.
-                                                    </p>
-                                                </CardContent>
-                                            </Card>
-                                        </ScrollAnimation>
-                                    </div>
-                                </div>
+                                <ScrollAnimation>
+                                    <CaseStudySummary
+                                        meta={projectDetails}
+                                        outcome={
+                                            <p>
+                                                Navigation moved from heuristic severity 4/4 to 0/4. Filter
+                                                options expanded from 2 to 7 across a 50+ product catalogue,
+                                                and 20+ reusable components were standardized across 15+
+                                                pages.
+                                            </p>
+                                        }
+                                        outcomeNote="As an intern with no analytics or budget for user testing, impact estimates are based on heuristic evaluation, comparative review, and informal feedback rather than tracked product metrics."
+                                        primaryCta={{ label: 'View Live Website', href: 'https://teknovo.com' }}
+                                    />
+                                </ScrollAnimation>
                             </section>
 
                             {/* The Challenge */}
