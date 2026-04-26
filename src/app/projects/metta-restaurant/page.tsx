@@ -1,7 +1,4 @@
-'use client';
-
 import CtaSection from "@/components/sections/cta";
-import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { ArrowUpRight, Calendar, User, Wrench, Zap, Gem, Repeat, CheckCircle, BarChart, Users, Target, Search, Palette, TestTube, Lightbulb, UsersRound, MessageSquareQuote, FileText, TrendingUp, ShieldCheck, Scale } from "lucide-react";
@@ -44,8 +41,7 @@ const ProjectMettaPage = () => {
 
     return (
         <div className="bg-background text-foreground">
-            <Header />
-            <main className="pt-32 md:pt-40 lg:pt-48">
+            <main id="main-content" className="pt-32 md:pt-40 lg:pt-48">
                 <div className="container mx-auto px-4">
                     <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
                         <div className="lg:order-2">
@@ -61,7 +57,7 @@ const ProjectMettaPage = () => {
                                             alt="Metta Restaurant Website Hero Image"
                                             fill
                                             className="object-cover"
-                                            data-ai-hint={placeholderImages.mettaHero.hint}
+
                                         />
                                     </div>
                                 </ScrollAnimation>
@@ -334,7 +330,7 @@ const ProjectMettaPage = () => {
                                                     alt={`Final design ${index + 1}`}
                                                     fill
                                                     className="object-cover object-top"
-                                                    data-ai-hint={image.hint}
+
                                                 />
                                             </div>
                                         </ScrollAnimation>

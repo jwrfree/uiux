@@ -1,3 +1,4 @@
+'use client';
 
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
@@ -26,9 +27,9 @@ const AboutSection = () => {
         <div id="about" className="flex flex-col items-center text-center">
           <div className="space-y-8 max-w-4xl">
             <ScrollAnimation>
-                <h1 className="my-0 font-display text-[42px] md:text-[72px] font-medium leading-[1.15] -tracking-[0.02em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
+                <h2 className="my-0 font-display text-[42px] md:text-[72px] font-medium leading-[1.15] -tracking-[0.02em] text-balance bg-gradient-to-b from-text-dark to-[rgba(35,37,34,0.4)] bg-clip-text text-transparent">
                 I help civic and behavior-change teams deliver humane experiences backed by measurable outcomes.
-                </h1>
+                </h2>
             </ScrollAnimation>
             <ScrollAnimation delay={150}>
                 <p className="text-lg md:text-xl max-w-3xl mx-auto text-text-secondary">

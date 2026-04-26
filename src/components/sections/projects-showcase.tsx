@@ -76,8 +76,8 @@ const ProjectCard = ({ project, delay, isPriority }: { project: Project, delay: 
   const motionProps = isPublished ? {
     whileHover: {
       scale: 1.03,
-      transition: { type: "tween", ease: "easeInOut", duration: 0.5 },
-    }
+      transition: { type: "tween" as const, ease: "easeInOut" as const, duration: 0.5 },
+    },
   } : {};
 
   return (

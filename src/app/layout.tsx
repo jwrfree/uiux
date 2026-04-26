@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
-import ErrorReporter from "@/components/ErrorReporter";
-import Script from "next/script";
 import Footer from "@/components/sections/footer";
+import Header from "@/components/sections/header";
+import DevTooling from "@/components/dev-tooling";
+import { SITE } from "@/lib/site";
 
-const siteUrl = "https://wruhantojati.com";
-const siteName = "Wruhantojati | UI/UX Designer Portfolio";
-const defaultTitle = "Wruhantojati | UI/UX Designer";
+const siteUrl = SITE.url;
+const siteName = `${SITE.name} | UI/UX Designer Portfolio`;
+const defaultTitle = `${SITE.name} | UI/UX Designer`;
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Wruhantojati",
+  name: SITE.name,
   url: siteUrl,
   jobTitle: "UI/UX Designer",
   image: `${siteUrl}/images/profile.webp`,
+  email: SITE.email,
   description:
     "Mid-level UI/UX designer specializing in creating intuitive, user-centric, and visually compelling digital experiences.",
   knowsAbout: [
@@ -25,6 +27,7 @@ const structuredData = {
     "Prototyping",
     "Design Systems",
   ],
+  sameAs: [SITE.linkedin, SITE.behance, SITE.dribbble],
   worksFor: [
     {
       "@type": "Organization",
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: defaultTitle,
-    template: "%s | Wruhantojati",
+    template: `%s | ${SITE.name}`,
   },
   description:
     "Portfolio of Wruhantojati, a mid-level UI/UX designer focused on creating intuitive and impactful digital experiences. Explore case studies, design process, and professional work.",
@@ -50,9 +53,9 @@ export const metadata: Metadata = {
     "Case Studies",
     "Design Systems",
   ],
-  authors: [{ name: "Wruhantojati" }],
-  creator: "Wruhantojati",
-  publisher: "Wruhantojati",
+  authors: [{ name: SITE.name }],
+  creator: SITE.name,
+  publisher: SITE.name,
   robots: {
     index: true,
     follow: true,
@@ -73,13 +76,13 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-cover.svg`,
         width: 1200,
         height: 630,
-        alt: "Wruhantojati - UI/UX Designer Portfolio",
+        alt: `${SITE.name} - UI/UX Designer Portfolio`,
       },
       {
         url: `${siteUrl}/images/profile.webp`,
         width: 800,
         height: 800,
-        alt: "A portrait of Wruhantojati",
+        alt: `A portrait of ${SITE.name}`,
       },
     ],
   },
@@ -105,26 +108,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased min-h-screen bg-background text-foreground flex flex-col">
-        <ErrorReporter />
-        <Script
-          src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
-          strategy="lazyOnload"
-          data-target-origin="*"
-          data-message-type="ROUTE_CHANGE"
-          data-include-search-params="true"
-          data-only-in-iframe="true"
-          data-debug="true"
-          data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
-        />
-        <Script
-          id="ld-person"
-          type="application/ld+json"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:text-background focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
+        <Header />
         {children}
         <Footer />
-        <VisualEditsMessenger />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <DevTooling />
       </body>
     </html>
   );

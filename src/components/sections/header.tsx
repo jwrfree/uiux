@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { SITE } from "@/lib/site";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -218,7 +219,7 @@ export default function Header() {
               </motion.div>
 
               <div className="flex justify-center items-center h-full">
-                <nav className="hidden lg:flex items-center gap-6 text-base font-medium">
+                <nav aria-label="Primary" className="hidden lg:flex items-center gap-6 text-base font-medium">
                   {[
                     { href: "/about", label: "About" },
                     { href: "/#work", label: "Work" },
@@ -229,7 +230,7 @@ export default function Header() {
                       href={item.href}
                       prefetch={false}
                       onClick={(e) => handleMenuClick(e, item.href)}
-                      className="relative text-foreground/90 hover:text-foreground transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:origin-center after:bg-foreground after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:left-0"
+                      className="relative rounded-sm text-foreground/90 hover:text-foreground transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:origin-center after:bg-foreground after:transition-all after:duration-300 after:ease-out hover:after:w-full hover:after:left-0 focus-visible:after:left-0 focus-visible:after:w-full"
                     >
                       {item.label}
                     </Link>
@@ -252,7 +253,7 @@ export default function Header() {
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
                 <Button asChild variant="primary" size="lg" className="group hidden md:flex rounded-full border-[1.3px]">
-                  <a href="mailto:wruhantojati@gmail.com">
+                  <a href={`mailto:${SITE.email}`}>
                     <span className="font-medium sm:font-semibold drop-shadow-sm">Get in Touch</span>
                   </a>
                 </Button>
@@ -262,7 +263,7 @@ export default function Header() {
                   size="lg"
                   className="group md:hidden rounded-full text-sm"
                 >
-                  <a href="mailto:wruhantojati@gmail.com">
+                  <a href={`mailto:${SITE.email}`}>
                     <span className="font-medium">Get in Touch</span>
                   </a>
                 </Button>

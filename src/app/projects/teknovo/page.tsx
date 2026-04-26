@@ -1,7 +1,4 @@
-'use client';
-
 import CtaSection from "@/components/sections/cta";
-import Header from "@/components/sections/header";
 import { Button } from "@/components/ui/button";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { ArrowUpRight, Calendar, Users, Wrench, CheckCircle, Search, Wind, Eye, SlidersHorizontal, BarChart, FileText, Lightbulb, UserCheck, MessageSquareQuote, TrendingUp, ShieldCheck, Scale, Hand } from "lucide-react";
@@ -64,8 +61,7 @@ const ProjectTeknovoPage = () => {
 
     return (
         <div className="bg-background text-foreground">
-            <Header />
-            <main className="pt-32 md:pt-40 lg:pt-48">
+            <main id="main-content" className="pt-32 md:pt-40 lg:pt-48">
                 <div className="container mx-auto px-4">
                     <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
                         <div className="lg:order-2">
@@ -81,7 +77,7 @@ const ProjectTeknovoPage = () => {
                                             alt="Teknovo Website Redesign Hero Image"
                                             fill
                                             className="object-cover"
-                                            data-ai-hint="corporate website homepage"
+
                                         />
                                     </div>
                                 </ScrollAnimation>
@@ -273,11 +269,11 @@ const ProjectTeknovoPage = () => {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">Before</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-home-before/800/600" alt="Homepage Before" width={800} height={600} className="rounded-md" data-ai-hint="cluttered website design" />
+                                                    <Image src="https://picsum.photos/seed/teknovo-home-before/800/600" alt="Homepage Before" width={800} height={600} className="rounded-md" />
                                                 </div>
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">After</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-home-after/800/600" alt="Homepage After" width={800} height={600} className="rounded-md" data-ai-hint="clean website design" />
+                                                    <Image src="https://picsum.photos/seed/teknovo-home-after/800/600" alt="Homepage After" width={800} height={600} className="rounded-md" />
                                                 </div>
                                             </div>
                                         </div>
@@ -288,11 +284,11 @@ const ProjectTeknovoPage = () => {
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">Before</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-plp-before/800/600" alt="Product Page Before" width={800} height={600} className="rounded-md" data-ai-hint="bad user interface" />
+                                                    <Image src="https://picsum.photos/seed/teknovo-plp-before/800/600" alt="Product Page Before" width={800} height={600} className="rounded-md" />
                                                 </div>
                                                 <div className="border rounded-lg p-2">
                                                     <p className="text-sm font-semibold mb-2 text-center text-muted-foreground">After</p>
-                                                    <Image src="https://picsum.photos/seed/teknovo-plp-after/800/600" alt="Product Page After" width={800} height={600} className="rounded-md" data-ai-hint="good user interface" />
+                                                    <Image src="https://picsum.photos/seed/teknovo-plp-after/800/600" alt="Product Page After" width={800} height={600} className="rounded-md" />
                                                 </div>
                                             </div>
                                         </div>
