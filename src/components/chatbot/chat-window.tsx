@@ -1,21 +1,23 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-export interface ChatMessage {
-  id: string;
-  role: "user" | "assistant";
-  content: string;
-}
+import type { UIMessage } from "ai";
 
 interface ChatWindowProps {
-  messages: ChatMessage[];
+  messages: UIMessage[];
   onSendMessage: (message: string) => void;
   isLoading: boolean;
   onClose: () => void;
+}
+
+function getMessageText(message: UIMessage): string {
+  return message.parts
+    .filter((part) => part.type === "text")
+    .map((part) => part.text)
+    .join("");
 }
 
 function TypingIndicator() {
@@ -54,6 +56,7 @@ export function ChatWindow({
 }: ChatWindowProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -65,12 +68,10 @@ export function ChatWindow({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const input = form.elements.namedItem("message") as HTMLInputElement;
-    const value = input.value.trim();
+    const value = input.trim();
     if (value) {
       onSendMessage(value);
-      input.value = "";
+      setInput("");
     }
   };
 
@@ -126,7 +127,7 @@ export function ChatWindow({
                     : "bg-secondary text-secondary-foreground rounded-2xl rounded-bl-sm"
                 )}
               >
-                {msg.content}
+                {getMessageText(msg)}
               </div>
             </div>
           ))}
@@ -143,6 +144,8 @@ export function ChatWindow({
             ref={inputRef}
             name="message"
             type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message..."
             className={cn(
               "flex-1 bg-secondary/50 rounded-full px-4 py-2.5 text-sm",

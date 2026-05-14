@@ -11,6 +11,8 @@
     "convert:webp": "node scripts/convert-all-to-webp.mjs"
   },
   "dependencies": {
+    "@ai-sdk/google": "^3.0.73",
+    "@ai-sdk/react": "^3.0.184",
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.1.1",
     "@lottiefiles/dotlottie-react": "^0.17.7",
@@ -21,6 +23,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-toggle": "^1.1.9",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "ai": "^6.0.182",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
