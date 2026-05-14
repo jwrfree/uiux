@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/sections/footer";
 import Header from "@/components/sections/header";
 import DevTooling from "@/components/dev-tooling";
+import { ChatProvider } from "@/components/chatbot/chat-provider";
 import { SITE } from "@/lib/site";
 
 const siteUrl = SITE.url;
@@ -117,6 +118,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ChatProvider />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
