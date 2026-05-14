@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ChatBubble } from "./chat-bubble";
 import { ChatWindow, type ChatMessage } from "./chat-window";
@@ -17,6 +17,8 @@ export function ChatProvider() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
+  const messagesRef = useRef<ChatMessage[]>(messages);
+  messagesRef.current = messages;
 
   const handleToggle = useCallback(() => {
     setIsOpen((prev) => {
@@ -44,11 +46,12 @@ export function ChatProvider() {
     setIsLoading(true);
 
     try {
+      const currentMessages = messagesRef.current;
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: [...messages, userMessage]
+          messages: [...currentMessages, userMessage]
             .filter((m) => m.id !== "welcome")
             .map((m) => ({ role: m.role, content: m.content })),
         }),
@@ -77,7 +80,7 @@ export function ChatProvider() {
     } finally {
       setIsLoading(false);
     }
-  }, [messages]);
+  }, []);
 
   return (
     <>

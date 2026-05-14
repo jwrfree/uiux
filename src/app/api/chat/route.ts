@@ -14,6 +14,26 @@ export async function POST(request: Request) {
       );
     }
 
+    // Enforce input limits: max 50 messages, max 1000 chars per message
+    if (messages.length > 50) {
+      return NextResponse.json(
+        { error: "Too many messages. Please start a new conversation." },
+        { status: 400 }
+      );
+    }
+
+    for (const msg of messages) {
+      if (
+        typeof msg.content !== "string" ||
+        msg.content.length > 1000
+      ) {
+        return NextResponse.json(
+          { error: "Each message must be 1000 characters or fewer." },
+          { status: 400 }
+        );
+      }
+    }
+
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 

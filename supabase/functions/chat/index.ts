@@ -3,9 +3,13 @@
 
 const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY") || "";
 const GEMINI_MODEL = "gemini-2.0-flash";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
-// Simple in-memory rate limiting
+// Simple in-memory rate limiting.
+// NOTE: This state is lost on cold starts. Supabase Edge Functions (Deno Deploy)
+// recycle isolates between invocations, so the map resets and the limit is
+// advisory-only. For MVP this is acceptable; for stricter enforcement, replace
+// with a persistent store (e.g., Upstash Redis).
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 20;
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
@@ -95,8 +99,11 @@ const SYSTEM_PROMPT = `You are Jati's AI assistant on Wruhantojati's portfolio w
 - Be professional but warm and approachable
 - Do not make up information not included in this knowledge base`;
 
+const ALLOWED_ORIGIN =
+  Deno.env.get("ALLOWED_ORIGIN") || "https://wruhantojati.com";
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -144,6 +151,29 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Enforce input limits: max 50 messages, max 1000 chars per message
+    if (messages.length > 50) {
+      return new Response(
+        JSON.stringify({ error: "Too many messages. Please start a new conversation." }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    for (const msg of messages) {
+      if (typeof msg.content !== "string" || msg.content.length > 1000) {
+        return new Response(
+          JSON.stringify({ error: "Each message must be 1000 characters or fewer." }),
+          {
+            status: 400,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          }
+        );
+      }
+    }
+
     // Map messages to Gemini format
     const contents = messages.map(
       (msg: { role: string; content: string }) => ({
@@ -165,7 +195,10 @@ Deno.serve(async (req) => {
 
     const geminiResponse = await fetch(GEMINI_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": GEMINI_API_KEY,
+      },
       body: JSON.stringify(geminiPayload),
     });
 
