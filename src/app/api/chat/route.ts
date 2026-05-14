@@ -1,7 +1,12 @@
-import { streamText } from "ai";
+import { streamText, convertToModelMessages, type UIMessage } from "ai";
 import { google } from "@ai-sdk/google";
 
 export const runtime = "edge";
+
+// Simple in-memory rate limiter (resets on cold start, acceptable for edge)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX_REQUESTS = 20;
 
 const SYSTEM_PROMPT = `You are Jati's AI assistant on Wruhantojati's portfolio website. Answer questions about his work, skills, experience, and availability. Be friendly, concise, and helpful.
 
@@ -71,7 +76,53 @@ const SYSTEM_PROMPT = `You are Jati's AI assistant on Wruhantojati's portfolio w
 - Be professional but warm and approachable
 - Do not make up information not included in this knowledge base`;
 
+function getClientIp(request: Request): string {
+  return (
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("x-real-ip") ||
+    "unknown"
+  );
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX_REQUESTS;
+}
+
+function getTextFromUIMessage(msg: UIMessage): string {
+  if (!msg.parts || !Array.isArray(msg.parts)) return "";
+  return msg.parts
+    .filter((p): p is { type: "text"; text: string } => p.type === "text")
+    .map((p) => p.text)
+    .join("");
+}
+
 export async function POST(request: Request) {
+  // Check API key configuration
+  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    return new Response(
+      JSON.stringify({ error: "Chat service is not configured" }),
+      { status: 503, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  // Rate limiting
+  const clientIp = getClientIp(request);
+  if (isRateLimited(clientIp)) {
+    return new Response(
+      JSON.stringify({ error: "Too many requests. Please try again later." }),
+      { status: 429, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
   try {
     const body = await request.json();
     const { messages } = body;
@@ -83,7 +134,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Enforce input limits: max 50 messages, max 1000 chars per message
+    // Enforce input limits: max 50 messages
     if (messages.length > 50) {
       return new Response(
         JSON.stringify({ error: "Too many messages. Please start a new conversation." }),
@@ -91,8 +142,10 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate message content length (UIMessage format uses parts array)
     for (const msg of messages) {
-      if (typeof msg.content !== "string" || msg.content.length > 1000) {
+      const text = getTextFromUIMessage(msg);
+      if (text.length > 1000) {
         return new Response(
           JSON.stringify({ error: "Each message must be 1000 characters or fewer." }),
           { status: 400, headers: { "Content-Type": "application/json" } }
@@ -100,10 +153,13 @@ export async function POST(request: Request) {
       }
     }
 
+    // Convert UIMessages to ModelMessages for streamText
+    const modelMessages = await convertToModelMessages(messages);
+
     const result = streamText({
       model: google("gemini-2.0-flash"),
       system: SYSTEM_PROMPT,
-      messages,
+      messages: modelMessages,
       temperature: 0.7,
       maxOutputTokens: 1024,
     });
