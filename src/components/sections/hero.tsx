@@ -9,7 +9,6 @@ import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import dynamic from 'next/dynamic';
 import { ScrollAnimation } from "../ui/scroll-animation";
-import { Magnetic } from "../ui/magnetic";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -91,33 +90,29 @@ const HeroSection = () => {
         </ScrollAnimation>
         <ScrollAnimation delay={450}>
             <div className="mt-10 flex flex-row flex-wrap justify-center gap-4">
-                <Magnetic>
-                    <Button asChild size="xl" className="group rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90">
-                        <a href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
-                        <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
-                            <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                                <ArrowRight className="h-4 w-4" />
-                            </div>
-                        </a>
-                    </Button>
-                </Magnetic>
-                <Magnetic>
-                    <Button asChild size="xl" className="group rounded-full text-white w-full sm:w-auto border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
-                        <a href="/resume.pdf" download className="flex items-center justify-center">
-                        <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
-                        {isMounted && <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
-                            <DotLottieReact
-                            src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
-                            loop
-                            autoplay
-                            width={24}
-                            height={24}
-                            style={{ filter: "invert(1)" }}
-                            />
-                        </div>}
-                        </a>
-                    </Button>
-                </Magnetic>
+                <Button asChild size="xl" className="group rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90">
+                    <a href="#work" onClick={(e) => handleScrollTo(e, "#work")} className="flex items-center justify-center">
+                    <span className="font-medium sm:font-semibold drop-shadow-sm">Explore Case Studies</span>
+                        <div className="w-0 opacity-0 sm:group-hover:w-4 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+                            <ArrowRight className="h-4 w-4" />
+                        </div>
+                    </a>
+                </Button>
+                <Button asChild size="xl" className="group rounded-full text-white w-full sm:w-auto border border-white/20 backdrop-blur-lg saturate-150 bg-black/30 hover:bg-black/40 hover:border-white/30">
+                    <a href="/resume.pdf" download className="flex items-center justify-center">
+                    <span className="font-medium sm:font-semibold drop-shadow-sm">Download Resume</span>
+                    {isMounted && <div className="w-0 opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100 sm:group-hover:ml-2 transition-all duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)] h-6">
+                        <DotLottieReact
+                        src="https://lottie.host/91e26116-2e02-4baf-b68b-698eed7bd6ed/uPo6YVr1Oa.lottie"
+                        loop
+                        autoplay
+                        width={24}
+                        height={24}
+                        style={{ filter: "invert(1)" }}
+                        />
+                    </div>}
+                    </a>
+                </Button>
             </div>
         </ScrollAnimation>
       </div>

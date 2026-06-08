@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { ScrollAnimation } from "../ui/scroll-animation";
-import { Magnetic } from "../ui/magnetic";
 
 interface Project {
   title: string;
@@ -134,12 +133,10 @@ const ProjectCard = ({ project, delay, isPriority }: { project: Project, delay: 
                     )}
                   </div>
                   <div className="flex flex-row items-center justify-between gap-4 text-base">
-                    <Magnetic strength={0.2}>
-                      <div className="flex items-center gap-1 font-medium">
-                        <span>View Case Study</span>
-                        <ArrowRight className="h-4 w-4 transition-transform lg:group-hover/card:translate-x-1" />
-                      </div>
-                    </Magnetic>
+                    <div className="flex items-center gap-1 font-medium">
+                      <span>View Case Study</span>
+                      <ArrowRight className="h-4 w-4 transition-transform lg:group-hover/card:translate-x-1" />
+                    </div>
                     <div className="flex flex-wrap justify-end gap-2">
                       {project.tags.map((tag) => (
                         <Badge

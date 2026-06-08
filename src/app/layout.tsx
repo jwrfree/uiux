@@ -4,7 +4,6 @@ import Footer from "@/components/sections/footer";
 import Header from "@/components/sections/header";
 import DevTooling from "@/components/dev-tooling";
 import { ChatProvider } from "@/components/chatbot/chat-provider";
-import { CustomCursor } from "@/components/ui/custom-cursor";
 import { SITE } from "@/lib/site";
 
 const siteUrl = SITE.url;
@@ -109,9 +108,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-background text-foreground flex flex-col font-sans">
-        <div className="grain-overlay" />
-        <CustomCursor />
+      <body className="antialiased min-h-screen bg-background text-foreground flex flex-col">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-foreground focus:px-4 focus:py-2 focus:text-background focus:shadow-lg"
