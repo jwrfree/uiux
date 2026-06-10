@@ -50,12 +50,76 @@ function TypingIndicator() {
   );
 }
 
-const SUGGESTED_PROMPTS = [
-  "What are Jati's core skills?",
-  "Tell me about the Teknovo project",
-  "Is Jati open to remote work?",
-  "How can I get in touch with Jati?",
-];
+// Dynamic contextual suggestions based on conversation topic
+function getSuggestions(messages: ChatMessage[]): string[] {
+  if (messages.length <= 1) {
+    // Welcome suggestions
+    return [
+      "What are Jati's core skills?",
+      "Tell me about the Teknovo project",
+      "Is Jati open to remote work?",
+      "How can I get in touch with Jati?",
+    ];
+  }
+
+  // Find the last assistant message that is not empty
+  const assistantMessages = messages.filter(m => m.role === "assistant" && m.content);
+  const lastAssistantMsg = assistantMessages[assistantMessages.length - 1];
+  
+  if (!lastAssistantMsg) {
+    return [];
+  }
+
+  const content = lastAssistantMsg.content.toLowerCase();
+
+  // Rules-based heuristics
+  if (content.includes("teknovo")) {
+    return [
+      "What was Jati's role in Teknovo?",
+      "Tell me about Metta Restaurant",
+      "What are Jati's main tools?"
+    ];
+  }
+
+  if (content.includes("metta restaurant") || content.includes("metta")) {
+    return [
+      "Tell me about the Teknovo project",
+      "What was Jati's role in Metta?",
+      "How to get in touch?"
+    ];
+  }
+
+  if (content.includes("bukunest") || content.includes("bookstore")) {
+    return [
+      "Tell me about the Teknovo project",
+      "Tell me about Metta Restaurant",
+      "What are Jati's design skills?"
+    ];
+  }
+
+  if (content.includes("skill") || content.includes("design") || content.includes("experience")) {
+    return [
+      "Tell me about Teknovo project",
+      "Is Jati open to full-time work?",
+      "Can I get his contact info?"
+    ];
+  }
+
+  if (content.includes("contact") || content.includes("email") || content.includes("linkedin") || content.includes("hire") || content.includes("availability") || content.includes("open to work")) {
+    return [
+      "What are Jati's main projects?",
+      "What are Jati's core skills?",
+      "Tell me about his experience"
+    ];
+  }
+
+  // Default fallbacks (diverse mix)
+  return [
+    "What is Jati's design process?",
+    "Tell me about Teknovo project",
+    "Is Jati open to remote work?"
+  ];
+}
 
 export function ChatWindow({
   messages,
@@ -99,6 +163,8 @@ export function ChatWindow({
       setCharCount(0);
     }
   };
+
+  const suggestions = getSuggestions(messages);
 
   return (
     <AnimatePresence>
@@ -223,32 +289,37 @@ export function ChatWindow({
               )}
             </div>
           ))}
-          {messages.length === 1 && messages[0].id === "welcome" && !isLoading && (
-            <div className="flex flex-col gap-2 mt-4 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
-              <p className="text-xs text-muted-foreground font-medium px-1">Ask about Jati:</p>
-              <div className="flex flex-wrap gap-1.5">
-                {SUGGESTED_PROMPTS.map((prompt, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => onSendMessage(prompt)}
-                    className={cn(
-                      "text-xs px-3.5 py-2 rounded-xl text-left font-medium",
-                      "bg-secondary/40 backdrop-blur-xs text-foreground border border-border/40",
-                      "hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/5 hover:border-primary/30",
-                      "hover:shadow-xs hover:-translate-y-0.5",
-                      "transition-all duration-200 cursor-pointer active:scale-95 active:translate-y-0"
-                    )}
-                  >
-                    {prompt}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
           {isLoading && <TypingIndicator />}
           <div ref={messagesEndRef} />
         </div>
+
+        {/* Dynamic Contextual Suggestions */}
+        <AnimatePresence mode="wait">
+          {suggestions.length > 0 && !isLoading && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 4 }}
+              transition={{ duration: 0.15 }}
+              className="px-4 pb-2 pt-1 flex items-center gap-1.5 overflow-x-auto select-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {suggestions.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  onClick={() => onSendMessage(prompt)}
+                  className={cn(
+                    "text-xs px-3.5 py-2 rounded-full text-left font-medium whitespace-nowrap",
+                    "bg-secondary/50 hover:bg-primary/10 hover:text-primary border border-border/50 hover:border-primary/20",
+                    "transition-all duration-150 cursor-pointer active:scale-95"
+                  )}
+                >
+                  {prompt}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Input */}
         <form
