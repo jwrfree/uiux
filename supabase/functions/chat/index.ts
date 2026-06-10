@@ -1,4 +1,4 @@
-// Supabase Edge Function - Chat with Groq API
+// Supabase Edge Function - Chat with Groq API (Static Context)
 // Deploy with: supabase functions deploy chat
 
 declare const Deno: any;
@@ -9,8 +9,6 @@ const GROQ_MODEL = "llama-3.3-70b-versatile";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // --- Rate Limiting ---
-// NOTE: In-memory state is reset on cold starts (Deno Deploy isolate recycling).
-// This is advisory-only for MVP. For production, replace with Upstash Redis.
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 20;
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
@@ -38,16 +36,10 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-/**
- * Extract a reliable client IP.
- * Trusts only the LAST address in x-forwarded-for to prevent spoofing,
- * since a malicious client can prepend arbitrary IPs to that header.
- */
 function getClientIP(req: Request): string {
   const xForwardedFor = req.headers.get("x-forwarded-for");
   if (xForwardedFor) {
     const parts = xForwardedFor.split(",");
-    // The rightmost IP is added by the trusted proxy closest to the server
     const trusted = parts[parts.length - 1]?.trim();
     if (trusted) return trusted;
   }
@@ -82,11 +74,13 @@ const SYSTEM_PROMPT = `You are Jati's AI assistant on Wruhantojati's portfolio w
 - Industry: B2B Technology
 - Redesigned the company website to improve lead generation and user engagement
 - Conducted user research and competitive analysis
+- Link to project details: [Teknovo Website Redesign](/projects/teknovo)
 
 ### Metta Restaurant (Homepage Concept)
 - Industry: Food & Beverage
 - Designed a homepage concept for a restaurant brand
 - Focused on visual storytelling and brand identity
+- Link to project details: [Metta Restaurant Homepage](/projects/metta-restaurant)
 
 ### Bukunest (Mobile Bookstore Concept)
 - Platform: Mobile app
@@ -116,7 +110,7 @@ const SYSTEM_PROMPT = `You are Jati's AI assistant on Wruhantojati's portfolio w
 - Portfolio: wruhantojati.com
 
 ## Guidelines for Responses
-- Respond in the same language as the user's message (e.g., if the user asks in English, respond in English; if in Indonesian, respond in Indonesian).
+- Respond in the same language as the user's message (e.g., if the user asks in English, respond in English; if in Indonesian, respond in Indonesian). Default to English if ambiguous.
 - Keep answers concise (2-4 sentences when possible)
 - When discussing the Teknovo project, always include a markdown link: [Teknovo Website Redesign](/projects/teknovo)
 - When discussing the Metta Restaurant project, always include a markdown link: [Metta Restaurant Homepage](/projects/metta-restaurant)
@@ -204,8 +198,6 @@ Deno.serve(async (req: Request) => {
 
     // --- Security: Validate each message role and content ---
     for (const msg of messages) {
-      // Reject any role that is not "user" or "assistant"
-      // This prevents prompt injection via role: "system"
       if (!ALLOWED_ROLES.has(msg.role)) {
         return new Response(
           JSON.stringify({ error: "Invalid message role." }),
@@ -232,7 +224,7 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    // Map messages to OpenAI/Groq format (only pick known-safe fields)
+    // Map messages to OpenAI/Groq format
     const groqMessages = [
       { role: "system", content: SYSTEM_PROMPT },
       ...messages.map((msg: { role: string; content: string }) => ({
