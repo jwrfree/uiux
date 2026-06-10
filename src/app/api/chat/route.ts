@@ -22,7 +22,15 @@ export async function POST(request: Request) {
       );
     }
 
+    const ALLOWED_ROLES = new Set(["user", "assistant"]);
     for (const msg of messages) {
+      // MED-01: Validate role (defense in depth — Edge Function also validates)
+      if (!ALLOWED_ROLES.has(msg.role)) {
+        return NextResponse.json(
+          { error: "Invalid message role." },
+          { status: 400 }
+        );
+      }
       if (
         typeof msg.content !== "string" ||
         msg.content.length > 1000
@@ -34,8 +42,11 @@ export async function POST(request: Request) {
       }
     }
 
+    // CRIT-01: Use server-only env var (no NEXT_PUBLIC_ prefix) to prevent
+    // the anon key from being bundled into client-side JavaScript.
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY
+      ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY; // fallback for gradual migration
 
     if (!supabaseUrl || !supabaseKey) {
       return NextResponse.json(
@@ -48,9 +59,17 @@ export async function POST(request: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${supabaseKey}`,
+        "apikey": supabaseKey,
       },
-      body: JSON.stringify({ messages }),
+      // MED-03: Strip [SHOW_CONTACT] tag from user messages before sending to AI
+      body: JSON.stringify({
+        messages: messages.map((m: { role: string; content: string }) => ({
+          role: m.role,
+          content: m.role === "user"
+            ? m.content.replace(/\[SHOW_CONTACT\]/gi, "").trim()
+            : m.content,
+        })),
+      }),
     });
 
     if (!response.ok) {
@@ -62,8 +81,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const data = await response.json();
-    return NextResponse.json(data);
+    return new NextResponse(response.body, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+      },
+    });
   } catch (error) {
     console.error("Chat API error:", error);
     return NextResponse.json(
